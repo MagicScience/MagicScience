@@ -18,8 +18,8 @@ public class DMIBlockManager {
 	public static Block aqueousOre;
 	
 	
+	// Load the blocks
 	public static void load() {
-		
 		aqueousOre = new BlockAqueousCrystalOre(600);
 		
 		languageRegistry();
@@ -27,13 +27,13 @@ public class DMIBlockManager {
 		
 	}
 
-
+	// Register the blocks, gives them mod-unique names
 	private static void gameRegistry() {
 		GameRegistry.registerBlock(aqueousOre, "Aqueous Ore");
 		
 	}
 
-
+	// Name the blocks in-game
 	private static void languageRegistry() {
 		LanguageRegistry.addName(aqueousOre, "Aqueous Ore");
 	}

@@ -22,9 +22,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class DMI {
 
 	// Static constants and variables
+	public static final String MC_VER = "1.6.2";
+	public static final String MOD_VER_RAW = "0.0.1A";
+	
 	public static final String MOD_ID = "DMI";
 	public static final String MOD_NAM = "Dominus ex Magica et Industria";
-	public static final String MOD_VER = "[1.6.2] 0.0.1A";
+	public static final String MOD_VER = "[" + MC_VER + "] " + MOD_VER_RAW;
 
 	public static final CreativeTabs TAB_CREATIVE = new CreativeTabs("DMI");
 
