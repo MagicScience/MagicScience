@@ -6,9 +6,12 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
+
+import com.jiffy.lib.Reference;
 
 public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 
@@ -29,7 +32,10 @@ public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 		
-		bindTextureByName("not/done/yet"); // Error is here, method is nonexistant
+		bindTextureByName("not/done/yet"); // Error is here, method is nonexistant 
+		//Edit by Jay - Minecraft moved to resource packs, you have to use 
+		//	protected static final ResourceLocation tileent = new ResourceLocation(ModID+":(textureLocation)");
+
 		
 		GL11.glPushMatrix();
 		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);

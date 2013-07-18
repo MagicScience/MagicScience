@@ -1,0 +1,13 @@
+Go to the project in your github client
+tools -> open in explorer
+open dmi
+copy the address bar
+
+Eclipse, go to your workspace
+in your project, do new -> folder
+click advanced, select the third option (Link to alternate location) and click browse
+
+Paste the address bar you copied
+click finish
+
+Right click on the folder -> buildpath -> use as source folder

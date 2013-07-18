@@ -2,6 +2,7 @@ package siramnot.mods.dmi;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.Configuration;
+import siramnot.mods.dmi.blocks.DMIBlocks;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationBlock;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationBlockEntity;
 import cpw.mods.fml.common.Mod;
@@ -60,6 +61,8 @@ public class DMI {
 		// Create custom creative tab for items
 		machine_workStation = new TileEntityWorkStationBlock(1402);
 		GameRegistry.registerTileEntity(TileEntityWorkStationBlockEntity.class, "tileEntiyWorkStationBlock");
+		
+		DMIBlocks.load();
 	}
 
 	// Post init.
