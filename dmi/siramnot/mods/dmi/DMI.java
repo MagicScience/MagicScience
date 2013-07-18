@@ -6,10 +6,12 @@ import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationBlock;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationBlockEntity;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
@@ -20,6 +22,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = DMI.MOD_ID, name = DMI.MOD_NAM, version = DMI.MOD_VER)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class DMI {
+	
+	@Instance
+	public static DMI instance = new DMI();
 
 	// Static constants and variables
 	public static final String MC_VER = "1.6.2";
@@ -75,6 +80,8 @@ public class DMI {
 
 		DMIBlockManager.load();
 		DMIItemManager.load();
+		
+		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 	}
 
 	// Post init.
