@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.StepSound;
 import net.minecraft.block.material.Material;
 
-public class BlockAqueousCrystalOre extends DMIBlocks {
+public class BlockAqueousCrystalOre extends Block {
 
 	public static final String NAME = "aqueousCrystalOre";
 	public static final float HARDNESS = 1.5F;
