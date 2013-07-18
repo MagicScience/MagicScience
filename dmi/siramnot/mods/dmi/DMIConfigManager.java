@@ -5,7 +5,6 @@ import net.minecraftforge.common.Configuration;
 /**
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
  * 
- * This classes are Devteam-exclusive.
  * 
  * @author SirAmNot
  * 

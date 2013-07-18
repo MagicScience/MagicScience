@@ -1,12 +1,20 @@
-package siramnot.mods.dmi.blocks;
+package siramnot.mods.dmi;
 
+import siramnot.mods.dmi.blocks.BlockAqueousCrystalOre;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-
-public class DMIBlocks {
+/**
+ * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
+ * 
+ * 
+ * @author SirAmNot, JiffyJay
+ * 
+ */
+public class DMIBlockManager {
 	
+	//Blocks
 	public static Block aqueousOre;
 	
 	
@@ -27,7 +35,6 @@ public class DMIBlocks {
 
 
 	private static void languageRegistry() {
-		// TODO Auto-generated method stub
 		LanguageRegistry.addName(aqueousOre, "Aqueous Ore");
 	}
 }
