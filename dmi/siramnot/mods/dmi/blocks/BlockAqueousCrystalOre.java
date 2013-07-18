@@ -17,7 +17,7 @@ public class BlockAqueousCrystalOre extends Block {
 	
 	public BlockAqueousCrystalOre(int id) {
 		super(id,Material.rock);
-		
+			
 		setHardness(HARDNESS);
 		setStepSound(SOUND);
 		setUnlocalizedName(NAME);

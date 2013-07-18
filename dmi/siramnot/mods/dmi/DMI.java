@@ -71,6 +71,7 @@ public class DMI {
 		 */
 
 		DMIBlockManager.load();
+		DMIItemManager.load();
 	}
 
 	// Post init.
