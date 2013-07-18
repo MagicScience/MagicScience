@@ -29,7 +29,6 @@ public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 
-		//Edit by Jay - Minecraft moved to resource packs, you have to use 
 //		protected static final ResourceLocation tileent = new ResourceLocation(ModID + ":(textureLocation)");
 
 		GL11.glPushMatrix();

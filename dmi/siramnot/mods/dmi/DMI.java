@@ -49,6 +49,11 @@ public class DMI {
 
 		// Save config
 		cfg.save();
+		
+		/**
+		 * 
+		 */
+		
 	}
 
 	// Load the mod itself.
@@ -60,6 +65,8 @@ public class DMI {
 		 * 
 		 * machine_workStation = new TileEntityWorkStationBlock(1402);
 		 * GameRegistry.registerTileEntity(TileEntityWorkStationBlockEntity.class, "tileEntiyWorkStationBlock");
+		 * 
+		 * Random
 		 * 
 		 */
 
