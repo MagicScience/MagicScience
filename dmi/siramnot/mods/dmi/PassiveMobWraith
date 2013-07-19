@@ -1,0 +1,78 @@
+package dmi;
+
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIPanic;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.world.World;
+
+public class WraithEntity extends EntityAnimal{
+
+  public WraithEntity(World par1World) {
+		super(par1World);
+		this.setSize(1.0F, 0.9F);
+        this.getNavigator().setAvoidsWater(true);
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIPanic(this, 2.0D));
+        this.tasks.addTask(3, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
+        this.tasks.addTask(5, new EntityAILookIdle(this));
+	 
+	
+	}	
+	protected String getLivingSound()
+    {
+        return null;
+    }
+
+    /**
+     * Returns the sound this mob makes when it is hurt.
+     */
+    protected String getHurtSound()
+    {
+        return null;
+    }
+
+    /**
+     * Returns the sound this mob makes on death.
+     */
+    protected String getDeathSound()
+    {
+        return null;
+    }
+
+    /**
+     * Plays step sound at given x, y, z for the entity
+     */
+    protected void playStepSound(int par1, int par2, int par3, int par4)
+    {
+       
+    }
+
+    /**
+     * Returns the volume for the sounds this mob makes.
+     */
+    protected float getSoundVolume()
+    {
+        return 0.4F;
+    }
+
+    /**
+     * Returns the item ID for the item the mob drops on death.
+     */
+    protected int getDropItemId()
+    {
+        return Item.leather.itemID;
+    }
+	@Override
+	public EntityAgeable createChild(EntityAgeable entityageable) {
+		
+		return null;
+	}
+
+}
