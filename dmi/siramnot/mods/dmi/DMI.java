@@ -20,7 +20,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * @author SirAmNot, JiffyJay
  */
 @Mod(modid = DMI.MOD_ID, name = DMI.MOD_NAM, version = DMI.MOD_VER)
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+@NetworkMod(clientSideRequired = true, serverSideRequired = true)
 public class DMI {
 	
 	@Instance(DMI.MOD_ID)

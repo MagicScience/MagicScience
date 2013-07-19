@@ -11,45 +11,43 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
 	public class GuiLiquidator extends GuiContainer {
-
-		private TileEntityLiquidator RefinerInventory;
+		
+		
+		private TileEntityLiquidator inv;
 		protected static final ResourceLocation gui = new ResourceLocation("Block/FurnaceGui.png");
 
-		public GuiLiquidator(InventoryPlayer par1IP, TileEntityLiquidator par2TileEntityRefiner){
-			super(new ContainerLiquidator(par1IP, par2TileEntityRefiner));
-			RefinerInventory = par2TileEntityRefiner;
+		public GuiLiquidator(InventoryPlayer inventory, TileEntityLiquidator liquidator)
+		{
+		         super(new ContainerLiquidator(inventory, liquidator));
+		         inv = liquidator;
 		}
-		
+
+		/**
+		         * Draw the foreground layer for the GuiContainer (everythin in front of the items)
+		         */
 		protected void drawGuiContainerForegroundLayer(int par1, int par2)
 		{
 		         fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, (ySize - 96) + 2, 0xffffff);
 		}
-		
-		int xSizeOfTexture = 235;
-		int ySizeOfTexture = 75;
-		
-		int posX = (this.width + xSizeOfTexture) / 2;
-		int posY = (this.height + ySizeOfTexture) / 2;
 
+		/**
+		         * Draw the background layer for the GuiContainer (everything behind the items)
+		         */
+		protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
+		{
+		         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		         int j = (width - xSize) / 2;
+		         int k = (height - ySize) / 2;
+		         this.mc.func_110434_K().func_110577_a(gui);
+		         drawTexturedModalRect(j, k, 0, 0, xSize, ySize);
 
+		         if (inv.isBurning())
+		         {
+		                 int burn = inv.getBurnTimeRemainingScaled(14);
+		                 drawTexturedModalRect(j + 73, k+59, 176, 16, burn, 10);
+		         }
 
-		protected void drawGuiContainerBackgroundLayer(int par1, int par2) {
-			fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, (ySize - 96) + 2, 0xffffff);
-
+		         int update = inv.getCookProgressScaled(16);
+		         drawTexturedModalRect(j+ 89, k+55, 191, 15,-update , -update);
 		}
-
-
-
-
-		protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-
-	        this.mc.func_110434_K().func_110577_a(gui);
-	        
-
-	        int k = (this.width - this.xSize) / 2;
-	        int l = (this.height - this.ySize) / 2;
-	        this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
 		}
-
-	}

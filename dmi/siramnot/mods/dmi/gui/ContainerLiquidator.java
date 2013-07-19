@@ -17,14 +17,16 @@ public class ContainerLiquidator extends Container
 	private int lastGoldOvenBurnTime;
 	private int lastGoldOvenItemBurnTime;
 
-	public ContainerLiquidator(InventoryPlayer par1InventoryPlayer, TileEntityLiquidator par2TileEntityGoldOven)
+	public ContainerLiquidator(InventoryPlayer par1InventoryPlayer, TileEntityLiquidator teliquidator)
 	{
 		lastGoldOvenCookTime = 0;
 		lastGoldOvenBurnTime = 0;
 		lastGoldOvenItemBurnTime = 0;
-		liquidator = par2TileEntityGoldOven;
-		addSlotToContainer(new Slot(par2TileEntityGoldOven, 0, 90, 56));
-		addSlotToContainer(new Slot(par2TileEntityGoldOven, 1, 54, 56));
+		liquidator = teliquidator;
+		addSlotToContainer(new Slot(teliquidator, 0, 90, 56));
+		addSlotToContainer(new Slot(teliquidator, 1, 54, 56));
+        addSlotToContainer(new SlotLiquidator(par1InventoryPlayer.player, teliquidator, 2, 51, 17));
+
 		for (int i = 0; i < 3; i++)
 		{
 			for (int k = 0; k < 9; k++)
@@ -87,7 +89,7 @@ public class ContainerLiquidator extends Container
 
 	 public boolean canInteractWith(EntityPlayer par1EntityPlayer)
 	 {
-		 return liquidator.isUseableByPlayer(par1EntityPlayer);
+		 return true;
 	 }
 
 	 /**

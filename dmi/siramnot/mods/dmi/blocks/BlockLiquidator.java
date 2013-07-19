@@ -28,37 +28,40 @@ import net.minecraft.world.World;
 
 public class BlockLiquidator extends BlockContainer
 {
-    /**
-     * Is the random generator used by furnace to drop the inventory contents in random directions.
-     */
-    private final Random furnaceRand = new Random();
+	/**
+	 * Is the random generator used by furnace to drop the inventory contents in random directions.
+	 */
+	private final Random furnaceRand = new Random();
 
-    /** True if this is an active furnace, false if idle */
-    private final boolean isActive;
+	/** True if this is an active furnace, false if idle */
+	private final boolean isActive;
 
-    /**
-     * This flag is used to prevent the furnace inventory to be dropped upon block removal, is used internally when the
-     * furnace block changes from idle to active and vice-versa.
-     */
-    private static boolean keepFurnaceInventory;
-    @SideOnly(Side.CLIENT)
-    private Icon furnaceIconTop;
-    @SideOnly(Side.CLIENT)
-    private Icon furnaceIconFront;
+	/**
+	 * This flag is used to prevent the furnace inventory to be dropped upon block removal, is used internally when the
+	 * furnace block changes from idle to active and vice-versa.
+	 */
+	private static boolean keepFurnaceInventory;
+	@SideOnly(Side.CLIENT)
+	private Icon furnaceIconTop;
+	@SideOnly(Side.CLIENT)
+	private Icon furnaceIconFront;
 
-    public BlockLiquidator(int par1, boolean par2)
-    {
-        super(par1, Material.rock);
-        this.isActive = par2;
-        setCreativeTab(DMI.TAB_CREATIVE);
-    }
-    
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer ep, int par6, float par7, float par8, float par9) {
-    	ep.openGui(DMI.instance, 0, world, x, y, z);
-    	return true;
-    }
-    
-    
+	public BlockLiquidator(int par1, boolean par2)
+	{
+		super(par1, Material.rock);
+		this.isActive = par2;
+		setCreativeTab(DMI.TAB_CREATIVE);
+	}
+
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer ep, int par6, float par7, float par8, float par9) {
+		if(!world.isRemote){
+			TileEntityLiquidator merchantBlock =    (TileEntityLiquidator)world.getBlockTileEntity(x, y, z);
+			ep.openGui(DMI.instance, 0, world, x, y, z);
+		}
+		return true;
+	}
+
+
 
 	@Override
 	public TileEntity createNewTileEntity(World world) {
