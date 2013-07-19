@@ -4,15 +4,19 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.client.resources.ResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import siramnot.mods.dmi.DMI;
+
 public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 
 	private final ModelWorkStationBlock model;
+	protected ResourceLocation tileent;
 
 	public TileEntityWorkStationRenderer() {
 		this.model = new ModelWorkStationBlock();
@@ -29,7 +33,7 @@ public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 
-//		protected static final ResourceLocation tileent = new ResourceLocation(ModID + ":(textureLocation)");
+		tileent = new ResourceLocation(DMI.MOD_ID.toLowerCase() + ":" + "test");
 
 		GL11.glPushMatrix();
 		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);

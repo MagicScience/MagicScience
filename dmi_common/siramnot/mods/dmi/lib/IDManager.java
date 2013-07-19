@@ -6,7 +6,7 @@ package siramnot.mods.dmi.lib;
  *
  */
 // Add your name to the authors list if you edit this class!
-public class IDs {
+public class IDManager {
 	
 	// Aren't constants by convention ALL CAPS and snake_style? Changed it.
 
@@ -20,5 +20,6 @@ public class IDs {
 	// For items you need to use ID's 4096 and higher.
 	public static final int AQUEOUS_CRYSTAL = 14000; // 14,000
 	public static final int BASIC_SCROLL = 14001; // 14,001;
+	
 
 }

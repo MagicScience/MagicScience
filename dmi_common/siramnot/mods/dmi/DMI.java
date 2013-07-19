@@ -2,7 +2,7 @@ package siramnot.mods.dmi;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.Configuration;
-import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationBlock;
+import siramnot.mods.dmi.blocks.TileEntityWorkStationBlock;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationBlockEntity;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;

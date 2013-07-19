@@ -1,9 +1,10 @@
-package siramnot.mods.dmi.blocks.tileeents;
+package siramnot.mods.dmi.blocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import siramnot.mods.dmi.DMI;
+import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationBlockEntity;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -20,7 +21,6 @@ import net.minecraft.world.World;
  */
 public class TileEntityWorkStationBlock extends BlockContainer {
 	// vars and consts
-	private String name;
 	
 	// constructor
 	public TileEntityWorkStationBlock(int id) {
@@ -50,8 +50,8 @@ public class TileEntityWorkStationBlock extends BlockContainer {
 	}
 	
 	// Icon when block is in hand
-	public void registerIcons(IconRegister icon) {
-		// TODO Add register icon.
+	public void registerIcons(IconRegister ir) {
+		this.blockIcon = ir.registerIcon("dmi:Ignore this");
 	}
 
 }
