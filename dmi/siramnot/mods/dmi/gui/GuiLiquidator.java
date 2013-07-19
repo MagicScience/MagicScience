@@ -20,6 +20,11 @@ import net.minecraft.util.StatCollector;
 			RefinerInventory = par2TileEntityRefiner;
 		}
 		
+		protected void drawGuiContainerForegroundLayer(int par1, int par2)
+		{
+		         fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, (ySize - 96) + 2, 0xffffff);
+		}
+		
 		int xSizeOfTexture = 235;
 		int ySizeOfTexture = 75;
 		

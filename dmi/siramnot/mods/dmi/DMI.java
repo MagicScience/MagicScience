@@ -23,7 +23,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class DMI {
 	
-	@Instance
+	@Instance(DMI.MOD_ID)
 	public static DMI instance = new DMI();
 
 	// Static constants and variables
