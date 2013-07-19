@@ -12,7 +12,7 @@ import net.minecraft.block.material.Material;
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
  * 
  * 
- * @author SirAmNot, JiffyJay
+ * @author SirAmNot, Jay
  * 
  */
 public class DMIBlockManager {
