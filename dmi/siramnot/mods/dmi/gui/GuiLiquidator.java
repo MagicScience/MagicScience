@@ -14,7 +14,7 @@ import net.minecraft.util.StatCollector;
 		
 		
 		private TileEntityLiquidator inv;
-		protected static final ResourceLocation gui = new ResourceLocation("Block/FurnaceGui.png");
+		protected static final ResourceLocation gui = new ResourceLocation("DMI:Block/FurnaceGui.png");
 
 		public GuiLiquidator(InventoryPlayer inventory, TileEntityLiquidator liquidator)
 		{

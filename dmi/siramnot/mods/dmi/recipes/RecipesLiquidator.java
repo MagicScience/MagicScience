@@ -12,6 +12,13 @@ public class RecipesLiquidator {
 
 	private Map refinerList = new HashMap();
 	private Map refinerExperience = new HashMap();
+	
+	/**
+	 * Add recipes for the liquidator like this
+	 * Parameter one : Input Block Two
+	 * Parameter two : Output Block Itemstack
+	 * Parameter three : Experience
+	 */
 
 	private RecipesLiquidator(){
 		addRecipe(Block.dirt.blockID, new ItemStack(Block.cobblestone, 1, 0), 0.7F);		
