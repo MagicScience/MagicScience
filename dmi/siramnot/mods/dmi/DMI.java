@@ -58,9 +58,9 @@ public class DMI {
 		// Save config
 		cfg.save();
 		
-		/**
-		 * 
-		 */
+		DMIBlockManager.load();
+		DMIItemManager.load();
+		DMIEntityManager.load();
 		
 	}
 
@@ -71,6 +71,7 @@ public class DMI {
 		/**
 		 * Do not uncomment until we get the tileents fixed
 		 * 
+		 * 
 		 * machine_workStation = new TileEntityWorkStationBlock(1402);
 		 * GameRegistry.registerTileEntity(TileEntityWorkStationBlockEntity.class, "tileEntiyWorkStationBlock");
 		 * 
@@ -78,8 +79,7 @@ public class DMI {
 		 * 
 		 */
 
-		DMIBlockManager.load();
-		DMIItemManager.load();
+		
 		
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 	}

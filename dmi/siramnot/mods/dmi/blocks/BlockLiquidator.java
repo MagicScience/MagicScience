@@ -35,6 +35,9 @@ public class BlockLiquidator extends BlockContainer
 
 	/** True if this is an active furnace, false if idle */
 	private final boolean isActive;
+	
+	public static final String NAME = "liquidator";
+	public static final String TEXTUREPATH = DMI.MOD_ID + ":" + NAME;
 
 	/**
 	 * This flag is used to prevent the furnace inventory to be dropped upon block removal, is used internally when the
@@ -50,6 +53,7 @@ public class BlockLiquidator extends BlockContainer
 	{
 		super(par1, Material.rock);
 		this.isActive = par2;
+		setUnlocalizedName(NAME);
 		setCreativeTab(DMI.TAB_CREATIVE);
 	}
 
@@ -59,6 +63,10 @@ public class BlockLiquidator extends BlockContainer
 			ep.openGui(DMI.instance, 0, world, x, y, z);
 		}
 		return true;
+	}
+	
+	public void registerIcons(IconRegister ir) {
+		this.blockIcon = ir.registerIcon(TEXTUREPATH);
 	}
 
 

@@ -1,5 +1,6 @@
 package siramnot.mods.dmi.blocks.tileeents;
 
+import siramnot.mods.dmi.lib.IDS;
 import siramnot.mods.dmi.recipes.RecipesLiquidator;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -362,52 +363,15 @@ public class TileEntityLiquidator extends TileEntity implements IInventory
 	 * Returns the number of ticks that the supplied fuel item will keep the furnace burning, or 0 if the item isn't
 	 * fuel
 	 */
-	public static int getItemBurnTime(ItemStack par1ItemStack)
+	public static int getItemBurnTime(ItemStack is)
 	{
-		if (par1ItemStack == null)
-		{
-			return 0;
-		}
-
-		int i = par1ItemStack.getItem().itemID;
-
-		if (i < 256 && Block.blocksList[i].blockMaterial == Material.wood)
-		{
-			return 300;
-		}
-
-		if (i == Item.stick.itemID)
-		{
-			return 100;
-		}
-
-		if (i == Item.coal.itemID)
-		{
-			return 1600;
-		}
-
-		if (i == Item.bucketLava.itemID)
-		{
+		if (is.getItem().itemID == IDS.AqueousCrystalID) {
 			return 20000;
 		}
-
-		if (i == Block.sapling.blockID)
-		{
-			return 100;
-		}
-
-		if (i == Item.blazeRod.itemID)
-		{
-			return 2400;
-		}
-		if (i == Block.dirt.blockID)
-		{
-			return 200;
-		}
-		else
-		{
-			return ModLoader.addAllFuel(par1ItemStack.itemID, par1ItemStack.getItemDamage());
-		}
+		
+		
+		
+		return  0;
 	}
 	/**
 	 * Do not make give this method the name canInteractWith because it clashes with Container
