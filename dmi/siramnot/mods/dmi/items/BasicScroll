@@ -1,0 +1,15 @@
+package dmi;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+
+public class ScrollBasis extends Item{
+
+  public ScrollBasis(int par1) {
+		super(par1);
+		this.setCreativeTab(CreativeTabs.tabMaterials);
+		this.setUnlocalizedName("basicScroll");
+	}
+
+	//TEXTURE
+}
