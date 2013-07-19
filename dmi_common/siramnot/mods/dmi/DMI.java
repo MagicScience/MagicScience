@@ -59,8 +59,8 @@ public class DMI {
 		// Save config
 		cfg.save();
 		
+		DMIItemManager.load(); // Fixed a crash here, would throw a nullPointerException because Aqueous Crystal Ore drops Aqueous Crystals.
 		DMIBlockManager.load();
-		DMIItemManager.load();
 		DMIEntityManager.load();
 		
 	}

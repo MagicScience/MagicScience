@@ -1,6 +1,7 @@
 package siramnot.mods.dmi;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import siramnot.mods.dmi.items.BasicScroll;
 import siramnot.mods.dmi.items.ItemAqueousCrystal;
 import siramnot.mods.dmi.lib.IDs;
 import net.minecraft.item.Item;
@@ -12,7 +13,6 @@ import net.minecraft.item.Item;
  */
 public class DMIItemManager {
 	
-
 	public static Item aqueousCrystal;
 	public static Item basicScroll; // By convention, objects are camelCase.
 	
@@ -25,7 +25,7 @@ public class DMIItemManager {
 
 
 	private static void languageRegistry(LanguageRegistry lr) {	// Added a parameter to this method to make it simpler by typing lr.(...) instead of LanguageRegistry.(...);
-		lr.addNameForObject(aqueousCrystal, "", ItemAqueousCrystal.getName());
+		lr.addName(aqueousCrystal, ItemAqueousCrystal.getName());
 	}
 
 }

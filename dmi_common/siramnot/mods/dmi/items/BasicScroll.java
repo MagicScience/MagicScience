@@ -1,4 +1,4 @@
-package siramnot.mods.dmi;
+package siramnot.mods.dmi.items;
 
 import net.minecraft.item.Item;
 

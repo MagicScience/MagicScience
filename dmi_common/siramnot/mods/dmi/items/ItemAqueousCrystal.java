@@ -13,14 +13,16 @@ import net.minecraft.world.World;
 public class ItemAqueousCrystal extends Item {
 
 	// Do not change to public!!
-	private static final String NAME = "aqueousCrystal";
-	private static final String TEXTUREPATH = DMI.MOD_ID.toLowerCase() + ":" + NAME; // mod-id before the colon (:) must be lowercase
+	private static final String U_NAME = "aqueousCrystal";
+	private static final String NAME = "Aqueous Crystal";
+	private static final String PATH = "aqueousCrystal";
+	private static final String TEXTUREPATH = DMI.MOD_ID.toLowerCase() + ":" + PATH; // mod-id before the colon (:) must be lowercase
 	private static final int MAX_STACK_SIZE = 64;
 
 	public ItemAqueousCrystal(int id) { // I like id over the obfuscated par1.
 		super(id);
 		setCreativeTab(DMI.TAB_CREATIVE);
-		setUnlocalizedName(NAME);
+		setUnlocalizedName(U_NAME);
 		setMaxStackSize(MAX_STACK_SIZE);
 	}
 
