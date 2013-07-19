@@ -1,6 +1,6 @@
 package siramnot.mods.dmi.blocks.tileeents;
 
-import siramnot.mods.dmi.lib.IDS;
+import siramnot.mods.dmi.lib.IDs;
 import siramnot.mods.dmi.recipes.RecipesLiquidator;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -365,7 +365,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory
 	 */
 	public static int getItemBurnTime(ItemStack is)
 	{
-		if (is.getItem().itemID == IDS.AqueousCrystalID) {
+		if (is.getItem().itemID == IDs.AQUEOUS_CRYSTAL) {
 			return 20000;
 		}
 		
@@ -404,9 +404,14 @@ public class TileEntityLiquidator extends TileEntity implements IInventory
 		return false;
 	}
 
-	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		// TODO Auto-generated method stub
 		return true;
+	}
+
+	@Override
+	public boolean isStackValidForSlot(int i, ItemStack itemstack) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

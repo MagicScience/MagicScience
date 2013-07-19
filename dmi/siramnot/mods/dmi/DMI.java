@@ -17,8 +17,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 /**
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
  * 
- * @author SirAmNot, Jay
+ * @author SirAmNot, JiffyJay
  */
+
 @Mod(modid = DMI.MOD_ID, name = DMI.MOD_NAM, version = DMI.MOD_VER)
 @NetworkMod(clientSideRequired = true, serverSideRequired = true)
 public class DMI {

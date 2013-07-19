@@ -1,5 +1,10 @@
 package siramnot.mods.dmi.blocks;
-
+/**
+ * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
+ * 
+ * @author JiffyJay, SirAmNot
+ *
+ */
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import siramnot.mods.dmi.DMI;

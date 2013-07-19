@@ -3,7 +3,7 @@ package siramnot.mods.dmi;
 import siramnot.mods.dmi.blocks.BlockAqueousCrystalOre;
 import siramnot.mods.dmi.blocks.BlockLiquidator;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityLiquidator;
-import siramnot.mods.dmi.lib.IDS;
+import siramnot.mods.dmi.lib.IDs;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
@@ -24,8 +24,8 @@ public class DMIBlockManager {
 	
 	// Load the blocks
 	public static void load() {
-		aqueousOre = new BlockAqueousCrystalOre(IDS.AqueousCrystalOreID);
-		liquidator = new BlockLiquidator(IDS.liquidatorID, false);
+		aqueousOre = new BlockAqueousCrystalOre(IDs.AQUEOUS_CRYSTAL_ORE);
+		liquidator = new BlockLiquidator(IDs.LIQUIDATOR, false);
 		
 		languageRegistry();
 		gameRegistry();
