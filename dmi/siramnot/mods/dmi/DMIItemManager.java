@@ -6,8 +6,9 @@ import net.minecraft.item.Item;
 
 public class DMIItemManager {
 	
-	
+
 	public static Item aqueousCrystal;
+	public static Item BasicScroll
 	
 	public static void load() {
 		aqueousCrystal = new ItemAqueousCrystal(IDS.AqueousCrystalID);
@@ -15,7 +16,17 @@ public class DMIItemManager {
 		languageRegistry();
 	}
 
+
+        public static void load() {
+        	BasicScroll = new BasicScroll(IDS.BasicScrollID);
+        	
+        	LanguageRegistry();
+        }
+	
 	private static void languageRegistry() {
+		
+		
+		
 		
 	}
 
