@@ -21,7 +21,7 @@ public class DMIBlockManager {
 	public static Block liquidator;
 	public static Block workStation;
 	
-	public static Block aqueousOre;
+	public static BlockAqueousCrystalOre aqueousOre;
 	public static Block aqueousBlock;	
 	
 	// Load the blocks

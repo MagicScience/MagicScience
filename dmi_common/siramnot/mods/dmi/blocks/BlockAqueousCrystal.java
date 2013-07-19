@@ -24,7 +24,7 @@ public class BlockAqueousCrystal extends Block {
 	private static final String NAME = "aqueousCrystalBlock";
 	private static final String TEXTURELOCATION = DMI.MOD_ID + ":" + NAME;
 	private static final float HARDNESS = 2.0F;
-	private static final StepSound SOUND = Block.soundGlassFootstep;
+	private static final StepSound SOUND = Block.soundStoneFootstep;
 
 	public BlockAqueousCrystal(int id) {
 		super(id, Material.rock);

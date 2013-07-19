@@ -62,7 +62,7 @@ public class DMI {
 		DMIItemManager.load(); // Fixed a crash here, would throw a nullPointerException because Aqueous Crystal Ore drops Aqueous Crystals.
 		DMIBlockManager.load();
 		DMIEntityManager.load();
-		
+		DMIRecipeManager.load();
 	}
 
 	// Load the mod itself.
