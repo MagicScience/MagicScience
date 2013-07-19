@@ -1,5 +1,6 @@
 package siramnot.mods.dmi;
 
+import siramnot.mods.dmi.blocks.tileeents.TileEntityLiquidator;
 import siramnot.mods.dmi.gui.GuiLiquidator;
 import net.minecraft.client.gui.inventory.GuiFurnace;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,12 +19,12 @@ public class GuiHandler implements IGuiHandler {
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world,
-			int x, int y, int z) {
+			int x, int y, int z) {	
 		
-		switch(ID) {
+		switch (ID) {
 		case 0:
-			
-			return new GuiFurnace(player.inventory, (TileEntityFurnace)world.getBlockTileEntity(x, y, z));
+			return new GuiLiquidator(player.inventory, (TileEntityLiquidator)world.getBlockTileEntity(x, y, z));
+		
 		}
 		return null;
 	}

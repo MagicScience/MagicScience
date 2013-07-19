@@ -1,45 +1,50 @@
-package siramnot.mods.dmi.gui;
+	package siramnot.mods.dmi.gui;
 
-import org.lwjgl.opengl.GL11;
+	import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
+import siramnot.mods.dmi.blocks.tileeents.TileEntityLiquidator;
+
+	import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ContainerWorkbench;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
+import net.minecraft.util.StatCollector;
 
-public class GuiLiquidator extends GuiContainer{
+	public class GuiLiquidator extends GuiContainer {
 
-	public GuiLiquidator(InventoryPlayer par1InventoryPlayer, TileEntityFurnace tileEntityFurnace) {
-		super(new ContainerLiquidator(par1InventoryPlayer, tileEntityFurnace));
+		private TileEntityLiquidator RefinerInventory;
+		protected static final ResourceLocation gui = new ResourceLocation("Block/FurnaceGui.png");
+
+		public GuiLiquidator(InventoryPlayer par1IP, TileEntityLiquidator par2TileEntityRefiner){
+			super(new ContainerLiquidator(par1IP, par2TileEntityRefiner));
+			RefinerInventory = par2TileEntityRefiner;
+		}
+		
+		int xSizeOfTexture = 235;
+		int ySizeOfTexture = 75;
+		
+		int posX = (this.width + xSizeOfTexture) / 2;
+		int posY = (this.height + ySizeOfTexture) / 2;
+
+
+
+		protected void drawGuiContainerBackgroundLayer(int par1, int par2) {
+			fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, (ySize - 96) + 2, 0xffffff);
+
+		}
+
+
+
+
+		protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
+			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+
+	        this.mc.func_110434_K().func_110577_a(gui);
+	        
+
+	        int k = (this.width - this.xSize) / 2;
+	        int l = (this.height - this.ySize) / 2;
+	        this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
+		}
+
 	}
-
-
-	protected static final ResourceLocation gui = new ResourceLocation("Block/FurnaceGui.png");
-	private static final ResourceLocation field_110422_t = new ResourceLocation("textures/gui/container/crafting_table.png");
-
-
-
-	protected void drawGuiContainerForegroundLayer(int par1, int par2)
-    {
-        this.fontRenderer.drawString(I18n.func_135053_a("container.crafting"), 28, 3, 4210752);
-        this.fontRenderer.drawString(I18n.func_135053_a("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
-    }
-
-    /**
-     * Draw the background layer for the GuiContainer (everything behind the items)
-     */
-    protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
-    {
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        this.mc.func_110434_K().func_110577_a(gui);
-        int k = (this.width - this.xSize) / 2;
-        int l = (this.height - this.ySize) / 2;
-        this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
-    }
-}
