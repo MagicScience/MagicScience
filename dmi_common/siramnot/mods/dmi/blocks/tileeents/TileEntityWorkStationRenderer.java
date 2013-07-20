@@ -37,7 +37,7 @@ public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 		{
 			rotation = tile.getBlockMetadata();
 		}
-		tileent = new ResourceLocation("dmi:item/test");
+		tileent = new ResourceLocation("textures/dmi/textures/render/test.png");
 		this.func_110628_a(tileent);
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float)d + 0.5F, (float)d1 + 1.5F, (float)d2 + 0.5F);

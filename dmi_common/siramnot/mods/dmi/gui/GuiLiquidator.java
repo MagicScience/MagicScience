@@ -1,7 +1,7 @@
 package siramnot.mods.dmi.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.ResourceLocation;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.StatCollector;
 
@@ -12,11 +12,11 @@ import siramnot.mods.dmi.blocks.tileeents.TileEntityLiquidator;
 
 public class GuiLiquidator extends GuiContainer {
 
-	private static final String NAME = "Block/FurnaceGUI.png"; // Make it easier to change path.
+	private static final String NAME = "Block/liquidatorGui.png"; // Make it easier to change path.
 	private static final String PATH = DMI.MOD_ID.toLowerCase() + ":" + NAME;
 
 	private TileEntityLiquidator inv;
-	protected static final ResourceLocation gui = new ResourceLocation(PATH); // DMI has to be lowercases, AFAIK. That doesn't matter in the code, only in the file system. 
+	protected static final ResourceLocation gui = new ResourceLocation(NAME); // DMI has to be lowercases, AFAIK. That doesn't matter in the code, only in the file system. 
 	                                                                          //You still have to recompile it and put it inside minecraft for the GUI to show.
 
 	public GuiLiquidator(InventoryPlayer inventory, TileEntityLiquidator liquidator) {
@@ -45,10 +45,10 @@ public class GuiLiquidator extends GuiContainer {
 
 		if (inv.isBurning()) {
 			int burn = inv.getBurnTimeRemainingScaled(14);
-			drawTexturedModalRect(j + 73, k + 59, 176, 16, burn, 10);
+			drawTexturedModalRect(j + 73, k + 59, 176, 63, burn, 10);
 		}
 
-		int update = inv.getCookProgressScaled(16);
-		drawTexturedModalRect(j + 89, k + 55, 191, 15, -update, -update);
+		int update = inv.getLiquidScaled();
+		drawTexturedModalRect(j + 100, k + 20, 176, 16, 31, -update);
 	}
 }

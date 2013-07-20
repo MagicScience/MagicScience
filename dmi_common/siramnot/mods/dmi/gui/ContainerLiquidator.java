@@ -16,6 +16,7 @@ public class ContainerLiquidator extends Container
 	private int lastGoldOvenCookTime;
 	private int lastGoldOvenBurnTime;
 	private int lastGoldOvenItemBurnTime;
+	private int liquid;
 
 	public ContainerLiquidator(InventoryPlayer par1InventoryPlayer, TileEntityLiquidator teliquidator)
 	{
@@ -23,6 +24,7 @@ public class ContainerLiquidator extends Container
 		lastGoldOvenBurnTime = 0;
 		lastGoldOvenItemBurnTime = 0;
 		liquidator = teliquidator;
+		liquid = 0;
 		addSlotToContainer(new Slot(teliquidator, 0, 90, 56));
 		addSlotToContainer(new Slot(teliquidator, 1, 54, 56));
         addSlotToContainer(new SlotLiquidator(par1InventoryPlayer.player, teliquidator, 2, 51, 17));
@@ -63,6 +65,9 @@ public class ContainerLiquidator extends Container
 			{
 				var2.sendProgressBarUpdate(this, 2, this.liquidator.goldItemBurnTime);
 			}
+			if (this.liquid != this.liquidator.liquid) {
+				var2.sendProgressBarUpdate(this, 3, this.liquidator.liquid);
+			}
 		}
 		this.lastGoldOvenCookTime = this.liquidator.goldCookTime;
 		this.lastGoldOvenBurnTime = this.liquidator.goldBurnTime;
@@ -84,6 +89,9 @@ public class ContainerLiquidator extends Container
 		 if (par1 == 2)
 		 {
 			 liquidator.goldItemBurnTime = par2;
+		 }
+		 if (par1 == 3) {
+			 liquidator.liquid = par2;
 		 }
 	 }
 

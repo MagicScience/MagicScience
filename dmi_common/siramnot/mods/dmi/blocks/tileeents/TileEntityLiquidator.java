@@ -17,6 +17,9 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 
 	/** The number of ticks that the furnace will keep burning */
 	public int goldBurnTime;
+	
+	public int liquid;
+	public int maxLiquid = 52000;
 
 	private boolean isActive;
 
@@ -133,6 +136,8 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 			if (byte0 >= 0 && byte0 < goldItemStacks.length) {
 				goldItemStacks[byte0] = ItemStack.loadItemStackFromNBT(nbttagcompound);
 			}
+			
+			
 		}
 
 		front = par1NBTTagCompound.getInteger("FrontDirection");
@@ -141,6 +146,8 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		goldItemBurnTime = getItemBurnTime(goldItemStacks[1]);
 
 		System.out.println("front:" + front);
+		
+		liquid = par1NBTTagCompound.getInteger("liquid");
 	}
 
 	/**
@@ -165,6 +172,8 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		par1NBTTagCompound.setTag("Items", nbttaglist);
 		System.out.println("write:" + front);
 		System.out.println("burn:" + goldBurnTime);
+		
+		par1NBTTagCompound.setInteger("liquid", liquid);
 	}
 
 	/**
@@ -195,6 +204,10 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 
 		return (goldBurnTime * par1) / goldItemBurnTime;
 	}
+		
+	public int getLiquidScaled() {
+		return (liquid);
+	}
 
 	/**
 	 * Returns true if the furnace is currently burning
@@ -213,6 +226,9 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		boolean var2 = false;
 		if (this.goldBurnTime > 0) {
 			--this.goldBurnTime;
+		}
+		if (isBurning()) {
+			liquid++;
 		}
 		if (!this.worldObj.isRemote) {
 			if (this.goldBurnTime == 0 && this.canSmelt()) {
@@ -316,10 +332,50 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	 */
 	public static int getItemBurnTime(ItemStack is) {
 
-		if (is.equals(new ItemStack(DMIItemManager.aqueousCrystal))) {
-				return 20000;
-		}
-			return 0;
+        if (is == null)
+        {
+                return 0;
+        }
+
+        int i = is.getItem().itemID;
+
+        if (i < 256 && Block.blocksList[i].blockMaterial == Material.wood)
+        {
+                return 300;
+        }
+
+        if (i == Item.stick.itemID)
+        {
+                return 100;
+        }
+
+        if (i == Item.coal.itemID)
+        {
+                return 1600;
+        }
+
+        if (i == Item.bucketLava.itemID)
+        {
+                return 20000;
+        }
+
+        if (i == Block.sapling.blockID)
+        {
+                return 100;
+        }
+
+        if (i == Item.blazeRod.itemID)
+        {
+                return 2400;
+        }
+        if (i == Block.dirt.blockID)
+        {
+                return 200;
+        }
+        else
+        {
+                return ModLoader.addAllFuel(is.itemID, is.getItemDamage());
+        }
 	}
 
 	/**
