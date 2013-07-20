@@ -32,6 +32,7 @@ public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 	public void renderAModelAt(TileEntityWorkStationBlockEntity tile, double d, double d1, double d2, float f) {
 
 		int rotation = 0;
+		
 		if(tile.worldObj != null)
 		{
 			rotation = tile.getBlockMetadata();
