@@ -1,8 +1,8 @@
 package siramnot.mods.dmi.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.ResourceLocation;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
@@ -16,7 +16,7 @@ public class GuiLiquidator extends GuiContainer {
 	private static final String PATH = DMI.MOD_ID.toLowerCase() + ":" + NAME;
 
 	private TileEntityLiquidator inv;
-	protected static final ResourceLocation gui = new ResourceLocation(PATH); // "DMI has to be lowercases, AFAIK. That doesn't matter in the code, only in the file system. 
+	protected static final ResourceLocation gui = new ResourceLocation(PATH); // DMI has to be lowercases, AFAIK. That doesn't matter in the code, only in the file system. 
 	                                                                          //You still have to recompile it and put it inside minecraft for the GUI to show.
 
 	public GuiLiquidator(InventoryPlayer inventory, TileEntityLiquidator liquidator) {

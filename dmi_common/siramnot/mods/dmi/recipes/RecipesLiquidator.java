@@ -3,6 +3,8 @@ package siramnot.mods.dmi.recipes;
 import java.util.HashMap;
 import java.util.Map;
 
+import siramnot.mods.dmi.IDManager;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
@@ -21,8 +23,17 @@ public class RecipesLiquidator {
 	 */
 
 	private RecipesLiquidator(){
-		addRecipe(Block.dirt.blockID, new ItemStack(Block.cobblestone, 1, 0), 0.7F);		
-		
+		/*
+		 * 	if (is.getItem().itemID == IDManager.AQUEOUS_CRYSTAL)
+		 *  Problematic statement, changed it to:
+		 *  if (is.equals(new ItemStack(DMIItemManager.aqueousCrystal)))
+		 * 
+		 * 
+		 * 
+		 * -SirAmNot
+		 */
+		addRecipe(Block.dirt.blockID, new ItemStack(Block.cobblestone, 1, 0), 0.7F);
+		addRecipe(Block.obsidian.blockID, new ItemStack(Block.lavaMoving, 1), 0.0f); // convert obsidian into raw lava, test recipe for now
 	}
 
 	public void addRecipe(int par1ItemID, ItemStack par2ItemStack, float par3Float) {

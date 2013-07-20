@@ -1,6 +1,8 @@
 package siramnot.mods.dmi.blocks.tileeents;
 
 import org.lwjgl.opengl.GL11;
+
+import siramnot.mods.dmi.models.ModelWorkStationBlock;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;

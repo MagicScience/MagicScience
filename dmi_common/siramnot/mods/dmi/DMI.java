@@ -74,6 +74,7 @@ public class DMI {
 		DMIBlockManager.load();
 		DMIEntityManager.load();
 		DMIRecipeManager.load();
+		GameRegistry.registerWorldGenerator(DMIWorldGenManager.getInstance());
 	}
 
 	// Load the mod itself.

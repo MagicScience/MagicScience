@@ -1,4 +1,4 @@
-package siramnot.mods.dmi.blocks.tileeents;
+package siramnot.mods.dmi.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

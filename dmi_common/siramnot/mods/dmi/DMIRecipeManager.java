@@ -22,7 +22,7 @@ public class DMIRecipeManager {
 	}
 	
 	private static void smeltRecipes() {
-		// Little compensation for Silk-touch users
+		// Little compensation for Silk-touch users. Super complicated, but worth it :)
 		GameRegistry.addSmelting(DMIBlockManager.aqueousOre.blockID, new ItemStack(DMIItemManager.aqueousCrystal,DMIBlockManager.aqueousOre.getQuantityDropped() * DMIBlockManager.aqueousOre.getEnchantModifier()), DMIBlockManager.aqueousOre.getXpDropped() * 2);
 	}
 

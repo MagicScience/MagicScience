@@ -4,14 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.entity.Entity;
+import net.minecraft.client.resources.ResourceLocation;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import siramnot.mods.dmi.DMI;
+import siramnot.mods.dmi.models.ModelWorkStationBlock;
 
 public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 
@@ -29,6 +28,7 @@ public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 	}
 
+	
 	public void renderAModelAt(TileEntityWorkStationBlockEntity tile, double d, double d1, double d2, float f) {
 
 		int rotation = 0;
@@ -37,7 +37,7 @@ public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 		{
 			rotation = tile.getBlockMetadata();
 		}
-		tileent = new ResourceLocation("dmi:Block/test");
+		tileent = new ResourceLocation("dmi:item/test");
 		this.func_110628_a(tileent);
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float)d + 0.5F, (float)d1 + 1.5F, (float)d2 + 0.5F);
