@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.client.resources.ResourceLocation;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 

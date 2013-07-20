@@ -355,10 +355,6 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		return true;
 	}
 
-	@Override
-	public boolean isStackValidForSlot(int i, ItemStack itemstack) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 
 }
