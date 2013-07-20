@@ -1,6 +1,6 @@
 package siramnot.mods.dmi.blocks.tileeents;
 
-import siramnot.mods.dmi.lib.IDManager;
+import siramnot.mods.dmi.IDManager;
 import siramnot.mods.dmi.recipes.RecipesLiquidator;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

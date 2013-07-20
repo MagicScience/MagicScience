@@ -4,9 +4,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.Configuration;
 import siramnot.mods.dmi.blocks.TileEntityWorkStationBlock;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationBlockEntity;
+import siramnot.mods.dmi.core.ClientProxy;
+import siramnot.mods.dmi.core.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -26,6 +29,14 @@ public class DMI {
 	
 	@Instance(DMI.MOD_ID)
 	public static DMI instance = new DMI();
+	
+	
+	/**
+	 * I use proxies for rendering, but a GUI Handler for GUI's and Containers
+	 */
+	public static final String PROXY_LOCATION = "siramnot.mods.dmi.core";
+	@SidedProxy( clientSide = PROXY_LOCATION +".ClientProxy", serverSide =PROXY_LOCATION+ ".CommonProxy" )
+	public static ClientProxy proxy;
 
 	// Static constants and variables
 	public static final String MC_VER = "1.6.2";
@@ -83,6 +94,7 @@ public class DMI {
 		
 		
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
+		
 	}
 
 	// Post init.

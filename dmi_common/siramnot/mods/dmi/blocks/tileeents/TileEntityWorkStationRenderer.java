@@ -29,19 +29,25 @@ public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 	}
 
+	public void renderAModelAt(TileEntityWorkStationBlockEntity tile, double d, double d1, double d2, float f) {
+
+		int rotation = 0;
+		if(tile.worldObj != null)
+		{
+			rotation = tile.getBlockMetadata();
+		}
+		tileent = new ResourceLocation("dmi:Block/test");
+		this.func_110628_a(tileent);
+		GL11.glPushMatrix();
+		GL11.glTranslatef((float)d + 0.5F, (float)d1 + 1.5F, (float)d2 + 0.5F);
+		GL11.glScalef(1.0F, -1F, -1F);
+		GL11.glRotatef(rotation*90, 0.0F, 1.0F, 0.0F);
+		model.renderAll();
+		GL11.glPopMatrix(); //end
+	}
+
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
-		GL11.glPushMatrix();
-		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-
-		tileent = new ResourceLocation(DMI.MOD_ID.toLowerCase() + ":" + "test");
-
-		GL11.glPushMatrix();
-		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
-
-		this.model.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
-
-		GL11.glPopMatrix();
-		GL11.glPopMatrix();
+		renderAModelAt((TileEntityWorkStationBlockEntity) te, x, y, z, scale);
 	}
 
 	private void adjustLightFixture(World world, int i, int j, int k, Block block) {

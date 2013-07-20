@@ -15,6 +15,8 @@ public class DMIEntityManager {
 		 * 
 		 * 
 		 */
+		
+		DMI.proxy.registerRenderers();
 	}
 
 }

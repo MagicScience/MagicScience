@@ -1,4 +1,5 @@
-package siramnot.mods.dmi.lib;
+package siramnot.mods.dmi;
+
 /**
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
  * 
@@ -15,6 +16,7 @@ public class IDManager {
 	public static final int LIQUIDATOR = 1400; // 1,400
 	public static final int AQUEOUS_CRYSTAL_ORE = 1401; // 1,401 
 	public static final int AQUEOUS_CRYSTAL_BLOCK = 1402; // 1,402
+	public static final int WORK_STATION_BLOCK = 1403; //1,403
 
 	// Items
 	// For items you need to use ID's 4096 and higher.

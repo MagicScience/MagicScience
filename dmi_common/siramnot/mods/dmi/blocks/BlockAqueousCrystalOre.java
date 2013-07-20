@@ -12,7 +12,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import siramnot.mods.dmi.DMI;
 import siramnot.mods.dmi.DMIItemManager;
-import siramnot.mods.dmi.lib.IDManager;
+import siramnot.mods.dmi.IDManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.StepSound;
 import net.minecraft.block.material.Material;
