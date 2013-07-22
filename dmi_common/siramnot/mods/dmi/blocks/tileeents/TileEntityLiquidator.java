@@ -19,7 +19,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	public int goldBurnTime;
 	
 	public int liquid;
-	public int maxLiquid = 52000;
+	public int maxLiquid = 5600; //5,600
 
 	private boolean isActive;
 
@@ -39,6 +39,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		goldBurnTime = 0;
 		goldItemBurnTime = 0;
 		goldCookTime = 0;
+		liquid = 0;
 	}
 
 	public void setFrontDirection(int f) {
@@ -206,7 +207,9 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	}
 		
 	public int getLiquidScaled() {
-		return (liquid);
+		if (liquid == 0)
+			return 56;
+		return maxLiquid/liquid;
 	}
 
 	/**
@@ -228,7 +231,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 			--this.goldBurnTime;
 		}
 		if (isBurning()) {
-			liquid++;
+			
 		}
 		if (!this.worldObj.isRemote) {
 			if (this.goldBurnTime == 0 && this.canSmelt()) {
@@ -248,8 +251,10 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 				++this.goldCookTime;
 				if (this.goldCookTime == 200) {
 					this.goldCookTime = 0;
+					liquid+=100;
 					this.smeltItem();
 					var2 = true;
+
 				}
 			} else {
 				this.goldCookTime = 0;

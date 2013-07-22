@@ -48,7 +48,8 @@ public class GuiLiquidator extends GuiContainer {
 			drawTexturedModalRect(j + 73, k + 59, 176, 63, burn, 10);
 		}
 
-		int update = inv.getLiquidScaled();
-		drawTexturedModalRect(j + 100, k + 20, 176, 16, 31, -update);
+	    int update = inv.getLiquidScaled();
+		drawTexturedModalRect(j+130, k+12, 176, 3, 10, update);
+		System.out.println(update);
 	}
 }
