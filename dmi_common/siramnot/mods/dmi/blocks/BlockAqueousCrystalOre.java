@@ -1,3 +1,4 @@
+/*
 package siramnot.mods.dmi.blocks;
 
 import java.util.Random;
@@ -47,3 +48,4 @@ public class BlockAqueousCrystalOre extends DMIOre {
 		return randomDrops + (getEnchantModifier() * fortune);
 	}
 }
+*/

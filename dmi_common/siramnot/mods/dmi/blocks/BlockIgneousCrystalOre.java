@@ -1,3 +1,4 @@
+/*
 package siramnot.mods.dmi.blocks;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,3 +26,4 @@ public class BlockIgneousCrystalOre extends DMIOre {
 	}
 	
 }
+*/
