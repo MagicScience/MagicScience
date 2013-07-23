@@ -1,6 +1,7 @@
 package siramnot.mods.dmi;
 
 import net.minecraft.block.Block;
+import siramnot.mods.dmi.blocks.BlocIgneousCrystal;
 import siramnot.mods.dmi.blocks.BlockAqueousCrystal;
 import siramnot.mods.dmi.blocks.BlockIgneousCrystalOre;
 import siramnot.mods.dmi.blocks.BlockLiquidator;
@@ -25,6 +26,7 @@ public class DMIBlockManager {
 //	public static BlockAqueousCrystalOre aqueousOre;
 	public static DMIOre igneousOre;
 	public static Block aqueousBlock;	
+	public static Block igneousBlock;
 	
 	// Load the blocks
 	public static void load() {
@@ -34,6 +36,7 @@ public class DMIBlockManager {
 		igneousOre = new BlockIgneousCrystalOre(IDManager.IGNEOUS_CRYSTAL_ORE);
 		aqueousBlock = new BlockAqueousCrystal(IDManager.AQUEOUS_CRYSTAL_BLOCK);
 		workStation = new BlockWorkstation(IDManager.WORK_STATION_BLOCK);
+		igneousBlock = new BlocIgneousCrystal(IDManager.IGNEOUS_CRYSTAL_BLOCK);
 		
 		
 		languageRegistry(LanguageRegistry.instance());
@@ -48,6 +51,7 @@ public class DMIBlockManager {
 		GameRegistry.registerBlock(igneousOre, "Igneous Ore");
 		GameRegistry.registerBlock(liquidator, "Liquidator");
 		GameRegistry.registerBlock(workStation, "Work Station");
+		GameRegistry.registerBlock(igneousBlock, "Igneous Crystal Block");
 		
 		GameRegistry.registerTileEntity(TileEntityLiquidator.class, "Tile Entity Liquidator");
 		GameRegistry.registerTileEntity(TileEntityWorkStationBlockEntity.class, "Tile Entity Workstation");
@@ -62,5 +66,6 @@ public class DMIBlockManager {
 		
 		lr.addName(liquidator, "Liquidator");
 		lr.addName(workStation, "Work Station");
+		lr.addName(igneousBlock,"Igneous Block");
 		}
 }
