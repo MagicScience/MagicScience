@@ -50,7 +50,6 @@ public class GuiLiquidator extends GuiContainer {
 
 	    int update = inv.getLiquidScaled();
 		drawTexturedModalRect(j+130, k+12, 176, 0, 30, update);
-		this.mc.thePlayer.addChatMessage("" + update);
 		
 	}
 }
