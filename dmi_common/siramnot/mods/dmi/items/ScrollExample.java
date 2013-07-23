@@ -51,6 +51,14 @@ public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, Enti
     if (!par2World.isRemote)
     {
         par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
+        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
+        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
+        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
+        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
+        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
+        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
+        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
+        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
     }
 
     return par1ItemStack;
