@@ -24,6 +24,7 @@ public class IDManager {
 	public static final int AQUEOUS_CRYSTAL = 14000; // 14,000
 	public static final int BASIC_SCROLL = 14001; // 14,001;
 	public static final int IGNEOUS_CRYSTAL = 14002;
+	public static final int SCROLL_EXAMPLE =14003;
 	
 
 }

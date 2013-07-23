@@ -1,5 +1,7 @@
 package siramnot.mods.dmi;
 
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemEnchantedBook;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -15,6 +17,7 @@ public class DMIRecipeManager {
 	
 	private static void shapedRecipes() {
 		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.aqueousBlock), "XXX", "XXX", "XXX", 'X', new ItemStack(DMIItemManager.aqueousCrystal)); // Recipe for aqueous storage block
+		GameRegistry.addRecipe(new ItemStack(DMIItemManager.scrollExample), "XXX", "XFX", "XXX", 'X', new ItemStack(DMIItemManager.aqueousCrystal), 'F', new ItemStack(Item.enchantedBook));  // Test Rec
 	}
 	
 	private static void shapelessRecipes() {
@@ -24,6 +27,9 @@ public class DMIRecipeManager {
 	private static void smeltRecipes() {
 		// Little compensation for Silk-touch users. Super complicated, but worth it :)
 //		GameRegistry.addSmelting(DMIBlockManager.aqueousOre.blockID, new ItemStack(DMIItemManager.aqueousCrystal,DMIBlockManager.aqueousOre.getQuantityDropped() * DMIBlockManager.aqueousOre.getEnchantModifier()), DMIBlockManager.aqueousOre.getXpDropped() * 2);
+		
+
 	}
+
 
 }
