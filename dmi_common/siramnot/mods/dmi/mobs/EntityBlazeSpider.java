@@ -134,4 +134,36 @@ public class EntityBlazeSpider extends EntityMob {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	  protected int getDropItemId()
+	    {
+	        return Item.silk.itemID;
+	    }
+
+	    /**
+	     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
+	     * par2 - Level of Looting used to kill this mob.
+	     */
+	    protected void dropFewItems(boolean par1, int par2)
+	    {
+	        super.dropFewItems(par1, par2);
+
+	        if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
+	        {
+	            this.dropItem(Item.spiderEye.itemID, 1);
+	        }
+} 
+	    public void setTamed(boolean par1)
+	    {
+	        super.setTamed(par1);
+
+	        if (par1)
+	        {
+	            this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(20.0D);
+	        }
+	        else
+	        {
+	            this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(8.0D);
+	        }
+}
 }
