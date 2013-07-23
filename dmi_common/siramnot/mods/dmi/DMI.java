@@ -26,33 +26,29 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = DMI.MOD_ID, name = DMI.MOD_NAM, version = DMI.MOD_VER)
 @NetworkMod(clientSideRequired = true, serverSideRequired = true)
 public class DMI {
-	
+
 	@Instance(DMI.MOD_ID)
 	public static DMI instance = new DMI();
-	
-	
+
 	/**
 	 * I use proxies for rendering, but a GUI Handler for GUI's and Containers
 	 */
 	public static final String PROXY_LOCATION = "siramnot.mods.dmi.core";
-	@SidedProxy( clientSide = PROXY_LOCATION +".ClientProxy", serverSide =PROXY_LOCATION+ ".CommonProxy" )
+	@SidedProxy(clientSide = PROXY_LOCATION + ".ClientProxy", serverSide = PROXY_LOCATION + ".CommonProxy")
 	public static ClientProxy proxy;
 
 	// Static constants and variables
 	public static final String MC_VER = "1.6.2";
 	public static final String MOD_VER_RAW = "0.0.1A";
-	
+
 	public static final String MOD_ID = "DMI";
 	public static final String MOD_NAM = "Dominus ex Magica et Industria";
 	public static final String MOD_VER = "[" + MC_VER + "] " + MOD_VER_RAW;
 
-	public static final CreativeTabs TAB_CREATIVE = new CreativeTabs("DMI");
+	public static final CreativeTabs TAB_CREATIVE = new CreativeTabs(0, "DMI");
 
 	public static boolean doWorldGen;
 	public static boolean doOreGen;
-
-	// Blocks
-	public static TileEntityWorkStationBlock machine_workStation;
 
 	// Pre Init. Config here.
 	@EventHandler
@@ -69,33 +65,20 @@ public class DMI {
 
 		// Save config
 		cfg.save();
-		
+
 		DMIItemManager.load(); // Fixed a crash here, would throw a nullPointerException because Aqueous Crystal Ore drops Aqueous Crystals.
 		DMIBlockManager.load();
-		DMIEntityManager.load();
-		DMIRecipeManager.load();
-		GameRegistry.registerWorldGenerator(DMIWorldGenManager.getInstance());
 	}
 
 	// Load the mod itself.
 	@EventHandler
 	public void load(FMLInitializationEvent e) {
 		// Create custom creative tab for items
-		/**
-		 * Do not uncomment until we get the tileents fixed
-		 * 
-		 * 
-		 * machine_workStation = new TileEntityWorkStationBlock(1402);
-		 * GameRegistry.registerTileEntity(TileEntityWorkStationBlockEntity.class, "tileEntiyWorkStationBlock");
-		 * 
-		 * Random
-		 * 
-		 */
-
-		
-		
+		DMIEntityManager.load();
+		DMIRecipeManager.load();
+		GameRegistry.registerWorldGenerator(DMIWorldGenManager.getInstance());
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
-		
+
 	}
 
 	// Post init.
