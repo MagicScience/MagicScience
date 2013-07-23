@@ -15,6 +15,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityBlazeSpider extends EntityMob {
+	private int field_70846_g;
+
+
+
 	public EntityBlazeSpider(World par1World) {
 		super(par1World);
 	}
@@ -125,4 +129,9 @@ public class EntityBlazeSpider extends EntityMob {
 	            this.hasAttacked = true;
 	        }
 	    }
+
+	private void func_70844_e(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
 }
