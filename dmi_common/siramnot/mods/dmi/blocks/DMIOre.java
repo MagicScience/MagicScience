@@ -52,6 +52,7 @@ public abstract class DMIOre extends Block {
 		MinecraftForge.setBlockHarvestLevel(this, "pickaxe", 2);
 		setHardness(hardness);
 		setStepSound(sound);
+		setCreativeTab(DMI.TAB_CREATIVE);
 	}
 
 	public abstract String setTexture();

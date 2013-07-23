@@ -1,14 +1,30 @@
 package siramnot.mods.dmi.items;
 
+import siramnot.mods.dmi.DMI;
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemTool;
+/**
+ * 
+ * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
+ * 
+ * @author SirAmNot
+ *
+ */
+public class ItemStaff extends Item {
 
-public class ItemStaff extends ItemTool {
-
-	public ItemStaff(int par1, float par2) {
-		super(par1, par2, null, null);
+	private static final String U_NAME = "itemStaff";
+	private static final String NAME = "Staff";
+	private static final String PATH = "basicStaff";
+	private static final String TEXTUREPATH = DMI.MOD_ID.toLowerCase() + ":" + PATH; 
+	private static final int MAX_STACK_SIZE = 1;
+	
+	public ItemStaff(int id) {
+		super(id);
+		setUnlocalizedName(U_NAME);
+		setMaxStackSize(MAX_STACK_SIZE);
 	}
+
 
 }
