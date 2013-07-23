@@ -2,9 +2,12 @@ package siramnot.mods.dmi.items;
 
 import siramnot.mods.dmi.DMI;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
+import net.minecraft.world.World;
 /**
  * 
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
@@ -25,6 +28,5 @@ public class ItemStaff extends Item {
 		setUnlocalizedName(U_NAME);
 		setMaxStackSize(MAX_STACK_SIZE);
 	}
-
-
+	
 }

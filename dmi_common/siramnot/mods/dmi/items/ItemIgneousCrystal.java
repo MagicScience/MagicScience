@@ -40,7 +40,7 @@ public class ItemIgneousCrystal extends Item {
 		return NAME;
 	}
 	
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
+	/*public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
     {
 		if (world.provider.dimensionId == -1) {
 			entityplayer.addPotionEffect(new PotionEffect(Potion.harm.getId(),1,1));
@@ -75,5 +75,9 @@ public class ItemIgneousCrystal extends Item {
             world.spawnEntityInWorld(new EntityLightningBolt(world, i, j, k));
         }
         return itemstack;
-    }
+    }*/
+	public ItemStack onItemRightClick(ItemStack is, World w, EntityPlayer ep) {
+		w.spawnEntityInWorld(new siramnot.mods.dmi.mobs.EntityBlazeSpider(w));
+		return is;
+	}
 }
