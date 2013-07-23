@@ -17,7 +17,7 @@ public class DMIRecipeManager {
 	
 	private static void shapedRecipes() {
 		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.aqueousBlock), "XXX", "XXX", "XXX", 'X', new ItemStack(DMIItemManager.aqueousCrystal)); // Recipe for aqueous storage block
-		GameRegistry.addRecipe(new ItemStack(DMIItemManager.scrollExample), "XXX", "XFX", "XXX", 'X', new ItemStack(DMIItemManager.aqueousCrystal), 'F', new ItemStack(Item.enchantedBook));  // Test Rec
+		GameRegistry.addRecipe(new ItemStack(DMIItemManager.scrollExample), "XYX", "YFY", "XYX", 'X', new ItemStack(DMIItemManager.aqueousCrystal), 'F', new ItemStack(Item.enchantedBook), 'Y', new ItemStack(DMIItemManager.igneousCrystal));  // Test Receipe
 	}
 	
 	private static void shapelessRecipes() {

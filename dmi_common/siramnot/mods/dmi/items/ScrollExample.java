@@ -16,7 +16,7 @@ public class ScrollExample extends Item {
 
 	// Do not change to public ! It would screw everything up and the world would explode !
 	private static final String U_NAME = "Scroll";
-	private static final String NAME = "Scroll";
+	private static final String NAME = "Scroll of Experience";
 	private static final String PATH = "Scroll";
 	private static final String TEXTUREPATH = DMI.MOD_ID.toLowerCase() + ":" + PATH; 
 	private static final int MAX_STACK_SIZE = 16;
@@ -50,6 +50,8 @@ public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, Enti
 
     if (!par2World.isRemote)
     {
+        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
+        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
         par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
         par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
         par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
