@@ -45,11 +45,12 @@ public class GuiLiquidator extends GuiContainer {
 
 		if (inv.isBurning()) {
 			int burn = inv.getBurnTimeRemainingScaled(14);
-			drawTexturedModalRect(j + 73, k + 59, 176, 63, burn, 10);
+			drawTexturedModalRect(j + 73, k + 59, 176, 64, burn, 10);
 		}
 
 	    int update = inv.getLiquidScaled();
-		drawTexturedModalRect(j+130, k+12, 176, 3, 10, update);
-		System.out.println(update);
+		drawTexturedModalRect(j+130, k+12, 176, 0, 30, update);
+		this.mc.thePlayer.addChatMessage("" + update);
+		
 	}
 }

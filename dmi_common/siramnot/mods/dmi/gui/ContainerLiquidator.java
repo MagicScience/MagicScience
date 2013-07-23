@@ -66,7 +66,7 @@ public class ContainerLiquidator extends Container
 				var2.sendProgressBarUpdate(this, 2, this.liquidator.goldItemBurnTime);
 			}
 			if (this.liquid != this.liquidator.liquid) {
-				var2.sendProgressBarUpdate(this, 3, this.liquidator.liquid);
+				var2.sendProgressBarUpdate(this, 3, (int)this.liquidator.liquid);
 			}
 		}
 		this.lastGoldOvenCookTime = this.liquidator.goldCookTime;

@@ -18,7 +18,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	/** The number of ticks that the furnace will keep burning */
 	public int goldBurnTime;
 	
-	public int liquid;
+	public double liquid;
 	public int maxLiquid = 5600; //5,600
 
 	private boolean isActive;
@@ -148,7 +148,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 
 		System.out.println("front:" + front);
 		
-		liquid = par1NBTTagCompound.getInteger("liquid");
+		liquid = par1NBTTagCompound.getDouble("liquid");
 	}
 
 	/**
@@ -174,7 +174,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		System.out.println("write:" + front);
 		System.out.println("burn:" + goldBurnTime);
 		
-		par1NBTTagCompound.setInteger("liquid", liquid);
+		par1NBTTagCompound.setDouble("liquid", liquid);
 	}
 
 	/**
@@ -209,7 +209,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	public int getLiquidScaled() {
 		if (liquid == 0)
 			return 56;
-		return maxLiquid/liquid;
+		return  56-(int)liquid / 10;
 	}
 
 	/**
@@ -227,10 +227,12 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	public void updateEntity() {
 		boolean var1 = this.goldBurnTime > 0;
 		boolean var2 = false;
+
 		if (this.goldBurnTime > 0) {
 			--this.goldBurnTime;
 		}
 		if (isBurning()) {
+
 			
 		}
 		if (!this.worldObj.isRemote) {
@@ -249,9 +251,10 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 			}
 			if (this.isBurning() && this.canSmelt()) {
 				++this.goldCookTime;
+				liquid+=.1;
+
 				if (this.goldCookTime == 200) {
 					this.goldCookTime = 0;
-					liquid+=100;
 					this.smeltItem();
 					var2 = true;
 
