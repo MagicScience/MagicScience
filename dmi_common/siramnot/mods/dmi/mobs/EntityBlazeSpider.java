@@ -13,24 +13,19 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
 /**
  * 
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
  * 
  * @author Tombenpotter
- *
+ * 
  */
 public class EntityBlazeSpider extends EntityMob {
 	private int field_70846_g;
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> Commit to be able to commit
 	public EntityBlazeSpider(World par1World) {
 		super(par1World);
-		// TODO Auto-generated constructor stub
 	}
 
 	public void EntitySpider(World par1World) {
@@ -129,98 +124,30 @@ public class EntityBlazeSpider extends EntityMob {
 	private void func_70844_e(boolean b) {
 		// TODO Auto-generated method stub
 
-<<<<<<< HEAD
-	
-	  protected void attackEntity(Entity par1Entity, float par2)
-	    {
-	        if (this.attackTime <= 0 && par2 < 2.0F && par1Entity.boundingBox.maxY > this.boundingBox.minY && par1Entity.boundingBox.minY < this.boundingBox.maxY)
-	        {
-	            this.attackTime = 20;
-	            this.attackEntityAsMob(par1Entity);
-	        }
-	        else if (par2 < 30.0F)
-	        {
-	            double d0 = par1Entity.posX - this.posX;
-	            double d1 = par1Entity.boundingBox.minY + (double)(par1Entity.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
-	            double d2 = par1Entity.posZ - this.posZ;
-
-	            if (this.attackTime == 0)
-	            {
-	                ++this.field_70846_g;
-
-	                if (this.field_70846_g == 1)
-	                {
-	                    this.attackTime = 60;
-	                    this.func_70844_e(true);
-	                }
-	                else if (this.field_70846_g <= 4)
-	                {
-	                    this.attackTime = 6;
-	                }
-	                else
-	                {
-	                    this.attackTime = 100;
-	                    this.field_70846_g = 0;
-	                    this.func_70844_e(false);
-	                }
-
-	                if (this.field_70846_g > 1)
-	                {
-	                    float f1 = MathHelper.sqrt_float(par2) * 0.5F;
-	                    this.worldObj.playAuxSFXAtEntity((EntityPlayer)null, 1009, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
-
-	                    for (int i = 0; i < 1; ++i)
-	                    {
-	                        EntitySmallFireball entitysmallfireball = new EntitySmallFireball(this.worldObj, this, d0 + this.rand.nextGaussian() * (double)f1, d1, d2 + this.rand.nextGaussian() * (double)f1);
-	                        entitysmallfireball.posY = this.posY + (double)(this.height / 2.0F) + 0.5D;
-	                        this.worldObj.spawnEntityInWorld(entitysmallfireball);
-	                    }
-	                }
-	            }
-
-	            this.rotationYaw = (float)(Math.atan2(d2, d0) * 180.0D / Math.PI) - 90.0F;
-	            this.hasAttacked = true;
-	        }
-	    }
-
-	private void func_70844_e(boolean b) {
-		// TODO Auto-generated method stub
-		
 	}
-	
-	  protected int getDropItemId()
-	    {
-	        return Item.silk.itemID;
-	    }
 
-	    /**
-	     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
-	     * par2 - Level of Looting used to kill this mob.
-	     */
-	    protected void dropFewItems(boolean par1, int par2)
-	    {
-	        super.dropFewItems(par1, par2);
+	protected int getDropItemId() {
+		return Item.silk.itemID;
+	}
 
-	        if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
-	        {
-	            this.dropItem(Item.spiderEye.itemID, 1);
-	        }
-} 
-	    public void setTamed(boolean par1)
-	    {
-	        super.setTamed(par1);
+	/**
+	 * Drop 0-2 items of this living's type. @param par1 - Whether this entity
+	 * has recently been hit by a player. @param par2 - Level of Looting used to
+	 * kill this mob.
+	 */
+	protected void dropFewItems(boolean par1, int par2) {
+		super.dropFewItems(par1, par2);
 
-	        if (par1)
-	        {
-	            this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(20.0D);
-	        }
-	        else
-	        {
-	            this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(8.0D);
-	        }
-}
-}
-=======
+		if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0)) {
+			this.dropItem(Item.spiderEye.itemID, 1);
+		}
+	}
+
+	public void setTamed(boolean par1) {
+		if (par1) {
+			this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(20.0D);
+		} else {
+			this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(8.0D);
+		}
 	}
 }
->>>>>>> Commit to be able to commit

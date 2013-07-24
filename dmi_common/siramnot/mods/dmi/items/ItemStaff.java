@@ -1,32 +1,44 @@
 package siramnot.mods.dmi.items;
 
-import siramnot.mods.dmi.DMI;
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 import net.minecraft.world.World;
+import siramnot.mods.dmi.DMI;
+
 /**
  * 
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
  * 
  * @author SirAmNot
- *
+ * 
  */
 public class ItemStaff extends Item {
 
-	private static final String U_NAME = "itemStaff";
-	private static final String NAME = "Staff";
-	private static final String PATH = "basicStaff";
-	private static final String TEXTUREPATH = DMI.MOD_ID.toLowerCase() + ":" + PATH; 
-	private static final int MAX_STACK_SIZE = 1;
+	protected static String unlocalizedName;
+	protected static String inGameName;
+	protected static String textureName;
+	protected static String texturePath;
+	protected static int stackSize;
 	
-	public ItemStaff(int id) {
+	protected int durability;
+
+	public ItemStaff(int id, EnumStaff etm) {
 		super(id);
-		setUnlocalizedName(U_NAME);
-		setMaxStackSize(MAX_STACK_SIZE);
+		unlocalizedName = "itemStaff";
+		inGameName = "Staff";
+		textureName = "basicStaff";
+		texturePath = DMI.MOD_ID.toLowerCase() + ":" + textureName;
+		stackSize = 1;
+		
 	}
 	
+	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
+		return itemStack;
+	}
+	
+	public static String getName() {
+		return inGameName;
+	}
+
 }

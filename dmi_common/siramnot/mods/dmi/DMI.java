@@ -84,4 +84,5 @@ public class DMI {
 	// Post init.
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
-	}}
+	}
+}

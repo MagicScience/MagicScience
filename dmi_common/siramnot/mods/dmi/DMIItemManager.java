@@ -26,6 +26,7 @@ public class DMIItemManager {
 		basicScroll = new BasicScroll(IDManager.BASIC_SCROLL);
 		scrollExample = new ScrollExample(IDManager.SCROLL_EXAMPLE);
 		
+		
 		languageRegistry(LanguageRegistry.instance());
 	}
 
