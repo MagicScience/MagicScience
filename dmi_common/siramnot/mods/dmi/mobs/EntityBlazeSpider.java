@@ -1,5 +1,7 @@
 package siramnot.mods.dmi.mobs;
 
+import siramnot.mods.dmi.DMI;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingData;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -12,6 +14,7 @@ import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -24,6 +27,7 @@ import net.minecraft.world.World;
  */
 public class EntityBlazeSpider extends EntitySpider {
 	private int field_70846_g;
+	private Icon EntityBlazeSpider;
 
 	public EntityBlazeSpider(World par1World) {
 		super(par1World);
@@ -151,4 +155,9 @@ public class EntityBlazeSpider extends EntitySpider {
 	}
 */
 	
+	private static final String PATH = "BlazeSpider";
+	private static final String TEXTUREPATH = DMI.MOD_ID.toLowerCase() + ":" + PATH;
+	public void registerIcons(IconRegister ir) {
+		this.EntityBlazeSpider = ir.registerIcon(TEXTUREPATH);
+	}
 }
