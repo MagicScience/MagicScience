@@ -45,9 +45,7 @@ public class EntityBlazeSpider extends EntitySpider {
 		}
 	}
 
-	private void setBesideClimbableBlock(boolean isCollidedHorizontally) {
-
-	}
+	
 
 	protected void func_110147_ax() {
 		super.func_110147_ax();
