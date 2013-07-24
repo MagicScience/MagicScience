@@ -20,9 +20,10 @@ public class ItemLightningStaff extends ItemStaff {
 
 	protected ItemLightningStaff(int id, EnumStaff toolMaterial) {
 		super(id, toolMaterial);
+		isSubclass();
 	}
 
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+	public ItemStack doSpecialRightClickAction (ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (world.provider.dimensionId == -1) {
 			entityplayer.addPotionEffect(new PotionEffect(Potion.harm.getId(), 1, 1));
 			return itemstack;

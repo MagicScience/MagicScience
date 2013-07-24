@@ -49,7 +49,9 @@ public class EntityBlazeSpider extends EntitySpider {
 		}
 	}
 
-	
+	public void setBesideClimbableBlock(boolean isCollidedHorizontally) {
+		
+	}
 
 	protected void func_110147_ax() {
 		super.func_110147_ax();
@@ -145,18 +147,19 @@ public class EntityBlazeSpider extends EntitySpider {
 			this.dropItem(Item.spiderEye.itemID, 1);
 		}
 	}
-//Trying to make the spider tameable, but still working on it
-	/*public void setTamed(boolean par1) {
-		if (par1) {
-			this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(20.0D);
-		} else {
-			this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(8.0D);
-		}
-	}
-*/
-	
+
+	//Trying to make the spider tameable, but still working on it
+	/*
+	 * public void setTamed(boolean par1) { if (par1) {
+	 * this.func_110148_a(SharedMonsterAttributes
+	 * .field_111267_a).func_111128_a(20.0D); } else {
+	 * this.func_110148_a(SharedMonsterAttributes
+	 * .field_111267_a).func_111128_a(8.0D); } }
+	 */
+
 	private static final String PATH = "BlazeSpider";
 	private static final String TEXTUREPATH = DMI.MOD_ID.toLowerCase() + ":" + PATH;
+
 	public void registerIcons(IconRegister ir) {
 		this.EntityBlazeSpider = ir.registerIcon(TEXTUREPATH);
 	}

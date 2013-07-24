@@ -74,7 +74,7 @@ public class DMI {
 	@EventHandler
 	public void load(FMLInitializationEvent e) {
 		// Create custom creative tab for items
-		DMIEntityManager.load();
+		DMIEntityManager.load(this);
 		DMIRecipeManager.load();
 		GameRegistry.registerWorldGenerator(DMIWorldGenManager.getInstance());
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
