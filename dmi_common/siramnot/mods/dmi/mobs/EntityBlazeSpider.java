@@ -6,6 +6,7 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.SpiderEffectsGroupData;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.item.Item;
@@ -21,7 +22,7 @@ import net.minecraft.world.World;
  * @author Tombenpotter
  * 
  */
-public class EntityBlazeSpider extends EntityMob {
+public class EntityBlazeSpider extends EntitySpider {
 	private int field_70846_g;
 
 	public EntityBlazeSpider(World par1World) {
@@ -142,12 +143,14 @@ public class EntityBlazeSpider extends EntityMob {
 			this.dropItem(Item.spiderEye.itemID, 1);
 		}
 	}
-
-	public void setTamed(boolean par1) {
+//Trying to make the spider tameable, but still working on it
+	/*public void setTamed(boolean par1) {
 		if (par1) {
 			this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(20.0D);
 		} else {
 			this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(8.0D);
 		}
 	}
+*/
+	
 }
