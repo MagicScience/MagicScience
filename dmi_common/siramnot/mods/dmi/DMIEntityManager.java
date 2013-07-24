@@ -1,5 +1,8 @@
 package siramnot.mods.dmi;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityEggInfo;
+import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -8,7 +11,10 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class DMIEntityManager {
-	public static void load(DMI dmi) {
+
+	private static int startEID = 300;
+
+	public static void load() {
 		/**
 		 * Do not uncomment until we get the tileents fixed
 		 * 
@@ -21,15 +27,40 @@ public class DMIEntityManager {
 		 * 
 		 * 
 		 */
-		entityRegistry(EntityRegistry.instance(), dmi);
-
+		entityRegistry(EntityRegistry.instance());
+		languageRegistry(LanguageRegistry.instance());
+		registerSpawnEggs();
+		
 		DMI.proxy.registerRenderers();
 	}
 
-	private static void entityRegistry(EntityRegistry er, DMI dmi) {
+	private static void registerSpawnEggs() {
+		registerEntityEgg(EntityBlaze.class, 0x99360F, 0xE4E864);
+	}
+
+	private static void languageRegistry(LanguageRegistry lr) {
+		LanguageRegistry.instance().addStringLocalization("entity." + DMI.MOD_ID + ".Blazing Spider.name", "Blazing Spider");
+	}
+
+	private static void entityRegistry(EntityRegistry er) {
 		er.registerModEntity(EntityBlaze.class, "Blazing Spider", 1, DMI.instance, 80, 3, true);
 		er.addSpawn(EntityBlazeSpider.class, 7, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
-		LanguageRegistry.instance().addStringLocalization("entity."+ DMI.MOD_ID + ".Blazing Spider.name", "Blazing Spider");
+	}
+
+	private static int getUniqueEntityID() {
+		do {
+			startEID++;
+		} while (EntityList.getStringFromID(startEID) != null);
+
+		return startEID;
+	}
+	
+	public static void registerEntityEgg(Class<? extends Entity> entity, int colPrim, int colSec) {
+		int id = getUniqueEntityID();
+		EntityList.IDtoClassMapping.put(id, entity);
+		EntityList.entityEggs.put(id, new EntityEggInfo(id, colPrim, colSec));
+//		System.out.println("Succesfully registered entity:\n" + entity.getName());
+		return;
 	}
 
 }

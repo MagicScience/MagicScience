@@ -45,7 +45,7 @@ public class DMI {
 	public static final String MOD_NAM = "Dominus ex Magica et Industria";
 	public static final String MOD_VER = "[" + MC_VER + "] " + MOD_VER_RAW;
 
-	public static final CreativeTabs TAB_CREATIVE = new CreativeTabs("DMI");
+	public static final CreativeTabs TAB_CREATIVE = new CreativeTabs(0, "DMI");
 
 	public static boolean doWorldGen;
 	public static boolean doOreGen;
@@ -74,7 +74,7 @@ public class DMI {
 	@EventHandler
 	public void load(FMLInitializationEvent e) {
 		// Create custom creative tab for items
-		DMIEntityManager.load(this);
+		DMIEntityManager.load();
 		DMIRecipeManager.load();
 		GameRegistry.registerWorldGenerator(DMIWorldGenManager.getInstance());
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
