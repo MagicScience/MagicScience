@@ -35,7 +35,7 @@ public class DMIEntityManager {
 	}
 
 	private static void registerSpawnEggs() {
-		registerEntityEgg(EntityBlaze.class, 0x99360F, 0xE4E864);
+		registerEntityEgg(EntityBlazeSpider.class, 0x99360F, 0xE4E864);
 	}
 
 	private static void languageRegistry(LanguageRegistry lr) {

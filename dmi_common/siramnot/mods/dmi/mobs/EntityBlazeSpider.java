@@ -131,9 +131,6 @@ public class EntityBlazeSpider extends EntitySpider {
 
 	}
 
-	protected int getDropItemId() {
-		return Item.silk.itemID;
-	}
 
 	/**
 	 * Drop 0-2 items of this living's type. @param par1 - Whether this entity
@@ -145,6 +142,7 @@ public class EntityBlazeSpider extends EntitySpider {
 
 		if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0)) {
 			this.dropItem(Item.spiderEye.itemID, 1);
+			this.dropItem(Item.silk.itemID, 2);
 		}
 	}
 
