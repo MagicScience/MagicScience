@@ -3,7 +3,7 @@ package siramnot.mods.dmi;
 /**
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
  * 
- * @author SirAmNot
+ * @author SirAmNot, Tombenpotter
  *
  */
 // Add your name to the authors list if you edit this class!

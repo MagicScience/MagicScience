@@ -45,7 +45,7 @@ public class DMI {
 	public static final String MOD_NAM = "Dominus ex Magica et Industria";
 	public static final String MOD_VER = "[" + MC_VER + "] " + MOD_VER_RAW;
 
-	public static final CreativeTabs TAB_CREATIVE = new CreativeTabs(0, "DMI");
+	public static final CreativeTabs TAB_CREATIVE = new CreativeTabs("DMI");
 
 	public static boolean doWorldGen;
 	public static boolean doOreGen;
