@@ -41,14 +41,11 @@ public class DMIBlockManager {
 		workStation = new BlockWorkstation(IDManager.WORK_STATION_BLOCK);
 
 		aqueousOre = new BlockAqueousCrystalOre(IDManager.AQUEOUS_CRYSTAL_ORE);
+		consistoriumOre = new BlockConsistoriumCrystalOre(IDManager.CONSISTORIUM_CRYSTAL_ORE);
 		igneousOre = new BlockIgneousCrystalOre(IDManager.IGNEOUS_CRYSTAL_ORE);
 
 		aqueousBlock = new BlockAqueousCrystal(IDManager.AQUEOUS_CRYSTAL_BLOCK);
-		workStation = new BlockWorkstation(IDManager.WORK_STATION_BLOCK);
-		igneousBlock = new BlockIgneousCrystal(IDManager.IGNEOUS_CRYSTAL_BLOCK);
-		consistoriumOre = new BlockConsistoriumCrystalOre(IDManager.CONSISTORIUM_CRYSTAL_ORE);
 		consistoriumBlock = new BlockConsistoriumCrystal(IDManager.CONSISTORIUM_CRYSTAL_BLOCK);
-
 		igneousBlock = new BlockIgneousCrystal(IDManager.IGNEOUS_CRYSTAL_BLOCK);
 
 		languageRegistry(LanguageRegistry.instance());
@@ -58,16 +55,16 @@ public class DMIBlockManager {
 
 	// Register the blocks, gives them mod-unique names
 	private static void gameRegistry() {
-		// GameRegistry.registerBlock(liquidator, "Liquidator");
-		// GameRegistry.registerBlock(workStation, "Work Station");
+		GameRegistry.registerBlock(liquidator, "Liquidator");
+		GameRegistry.registerBlock(workStation, "Work Station");
 
 		GameRegistry.registerBlock(aqueousOre, "Aqueous Ore");
+		GameRegistry.registerBlock(consistoriumOre, "Consistorium Ore");
 		GameRegistry.registerBlock(igneousOre, "Igneous Ore");
 
 		GameRegistry.registerBlock(aqueousBlock, "Aqueous Crystal Block");
-		GameRegistry.registerBlock(igneousBlock, "Igneous Crystal Block");
-		GameRegistry.registerBlock(consistoriumOre, "Consistorium Ore");
 		GameRegistry.registerBlock(consistoriumBlock, "Consistorium Block");
+		GameRegistry.registerBlock(igneousBlock, "Igneous Crystal Block");
 
 		GameRegistry.registerTileEntity(TileEntityLiquidator.class, "Tile Entity Liquidator");
 		GameRegistry.registerTileEntity(TileEntityWorkStationBlockEntity.class, "Tile Entity Workstation");
@@ -77,13 +74,13 @@ public class DMIBlockManager {
 	private static void languageRegistry(LanguageRegistry lr) {
 		lr.addName(liquidator, "Liquidator");
 		lr.addName(workStation, "Work Station");
-		
-		 lr.addName(aqueousOre, "Aqueous Ore");
-		 lr.addName(consistoriumOre, "Consistorium Ore");
-		 lr.addName(igneousOre, "Igneous Ore");
 
-		 lr.addName(aqueousBlock, "Aqueous Block");
-		 lr.addName(consistoriumBlock, "Consistorium Block");
-		 lr.addName(igneousOre, "Igneous Ore");
+		lr.addName(aqueousOre, "Aqueous Ore");
+		lr.addName(consistoriumOre, "Consistorium Ore");
+		lr.addName(igneousOre, "Igneous Ore");
+
+		lr.addName(aqueousBlock, "Aqueous Block");
+		lr.addName(consistoriumBlock, "Consistorium Block");
+		lr.addName(igneousOre, "Igneous Ore");
 	}
 }
