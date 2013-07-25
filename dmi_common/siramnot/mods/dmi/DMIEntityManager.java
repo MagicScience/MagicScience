@@ -44,7 +44,7 @@ public class DMIEntityManager {
 
 	private static void entityRegistry(EntityRegistry er) {
 		er.registerModEntity(EntityBlazeSpider.class, "Blazing Spider", 1, DMI.instance, 64, 3, true);
-		er.addSpawn(EntityBlazeSpider.class, 7, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
+		er.addSpawn(EntityBlazeSpider.class, 70, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
 	}
 
 	private static int getUniqueEntityID() {

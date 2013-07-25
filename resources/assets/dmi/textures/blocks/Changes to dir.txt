@@ -1,1 +1,2 @@
 * Reverted back to old aqueousCrystalOre sprite
+* added a bunch of sprites
