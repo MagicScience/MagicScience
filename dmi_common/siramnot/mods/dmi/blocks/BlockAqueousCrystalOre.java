@@ -1,4 +1,4 @@
-/*
+
 package siramnot.mods.dmi.blocks;
 
 import java.util.Random;
@@ -9,43 +9,27 @@ import net.minecraft.item.ItemStack;
 import siramnot.mods.dmi.DMI;
 import siramnot.mods.dmi.DMIBlockManager;
 import siramnot.mods.dmi.DMIItemManager;
-
+/**
+ * 
+ * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
+ * 
+ * @author SirAmNot
+ *
+ */
 public class BlockAqueousCrystalOre extends DMIOre {
-	private ItemStack toDrop;
-	private int randomDrops;
 
+	private static String path = "aqueousCrystalOre";
+	private static ItemStack drop = new ItemStack(DMIItemManager.aqueousCrystal);
+	
 	public BlockAqueousCrystalOre(int id) {
 		super(id);
-		
-		// Method to call methods
-		main(); 
 	}
 
-	private void main() {
-		setXpDropped(4);
-		setEnchantability(2);
-	}
-	
-	protected void updateOnMine() {
-		randomDrops = super.random.nextInt(3) + 2;
-		toDrop = new ItemStack(DMIItemManager.aqueousCrystal, randomDrops);
-		setDrop(toDrop);
+	public String setTexture() {
+		return path;
 	}
 
-	protected String setTexture() {
-		return "aqueousCrystalOre";
-	}
-
-	protected CreativeTabs setCreativeTab() {
-		return DMI.TAB_CREATIVE;
-	}
-
-	protected int setHarvestLevel() {
-		return 2;
-	}
-	
-	protected int fortune(int meta, int fortune, Random random) {
-		return randomDrops + (getEnchantModifier() * fortune);
+	public ItemStack setDropped() {
+		return drop;
 	}
 }
-*/

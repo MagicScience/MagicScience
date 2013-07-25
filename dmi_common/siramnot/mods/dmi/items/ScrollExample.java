@@ -11,14 +11,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
-
 public class ScrollExample extends Item {
 
 	// Do not change to public ! It would screw everything up and the world would explode !
 	private static final String U_NAME = "Scroll";
 	private static final String NAME = "Scroll of Experience";
 	private static final String PATH = "Scroll";
-	private static final String TEXTUREPATH = DMI.MOD_ID.toLowerCase() + ":" + PATH; 
+	private static final String TEXTUREPATH = DMI.MOD_ID.toLowerCase() + ":" + PATH;
 	private static final int MAX_STACK_SIZE = 16;
 
 	public ScrollExample(int id) {
@@ -28,42 +27,28 @@ public class ScrollExample extends Item {
 		setMaxStackSize(MAX_STACK_SIZE);
 	}
 
-
 	public void registerIcons(IconRegister ir) {
 		this.itemIcon = ir.registerIcon(TEXTUREPATH);
 	}
-
-	
 
 	public static String getName() {
 		return NAME;
 	}
 
-public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-{
-    if (!par3EntityPlayer.capabilities.isCreativeMode)
-    {
-        --par1ItemStack.stackSize;
-    }
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		if (!par3EntityPlayer.capabilities.isCreativeMode) {
+			--par1ItemStack.stackSize;
+		}
 
-    par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+		par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
-    if (!par2World.isRemote)
-    {
-        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
-        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
-        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
-        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
-        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
-        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
-        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
-        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
-        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
-        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
-        par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
-    }
+		if (!par2World.isRemote) {
+			for (int i = 0; i < 11; ++i) {
+				par2World.spawnEntityInWorld(new EntityExpBottle(par2World, par3EntityPlayer));
+			}
+		}
 
-    return par1ItemStack;
-}
+		return par1ItemStack;
+	}
 
 }

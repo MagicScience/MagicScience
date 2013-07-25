@@ -4,8 +4,10 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.Configuration;
 import siramnot.mods.dmi.blocks.TileEntityWorkStationBlock;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationBlockEntity;
+import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationRenderer;
 import siramnot.mods.dmi.core.ClientProxy;
 import siramnot.mods.dmi.core.CommonProxy;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -78,9 +80,8 @@ public class DMI {
 		DMIRecipeManager.load();
 		GameRegistry.registerWorldGenerator(DMIWorldGenManager.getInstance());
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
-
 	}
-
+	
 	// Post init.
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {

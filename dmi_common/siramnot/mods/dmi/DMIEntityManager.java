@@ -39,11 +39,11 @@ public class DMIEntityManager {
 	}
 
 	private static void languageRegistry(LanguageRegistry lr) {
-		LanguageRegistry.instance().addStringLocalization("entity." + DMI.MOD_ID + ".Blazing Spider.name", "Blazing Spider");
+		LanguageRegistry.instance().addStringLocalization("entity.DMI.Blazing Spider.name", "Blazing Spider");
 	}
 
 	private static void entityRegistry(EntityRegistry er) {
-		er.registerModEntity(EntityBlaze.class, "Blazing Spider", 1, DMI.instance, 80, 3, true);
+		er.registerModEntity(EntityBlazeSpider.class, "Blazing Spider", 1, DMI.instance, 80, 3, true);
 		er.addSpawn(EntityBlazeSpider.class, 7, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
 	}
 
@@ -54,12 +54,16 @@ public class DMIEntityManager {
 
 		return startEID;
 	}
-	
+	/*
+	 * How to add custom spawn egg:
+	 * param1 = Entity's class
+	 * param2 = Egg's color
+	 * param3 = Egg's little spots color
+	 */
 	public static void registerEntityEgg(Class<? extends Entity> entity, int colPrim, int colSec) {
 		int id = getUniqueEntityID();
 		EntityList.IDtoClassMapping.put(id, entity);
 		EntityList.entityEggs.put(id, new EntityEggInfo(id, colPrim, colSec));
-//		System.out.println("Succesfully registered entity:\n" + entity.getName());
 		return;
 	}
 

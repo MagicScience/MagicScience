@@ -18,13 +18,15 @@ import net.minecraft.world.World;
 
 public class ItemLightningStaff extends ItemStaff {
 
-	protected ItemLightningStaff(int id, EnumStaff toolMaterial) {
+	public ItemLightningStaff(int id, EnumStaff toolMaterial) {
 		super(id, toolMaterial);
-		isSubclass();
+		inGameName = "Lightning Staff";
+		unlocalizedName = "lightningStaff";
+		setFull3D();
 	}
-
+	
 	public ItemStack doSpecialRightClickAction (ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (world.provider.dimensionId == -1) {
+		if (world.provider.dimensionId == -1 && entityplayer.capabilities.isCreativeMode == false) {
 			entityplayer.addPotionEffect(new PotionEffect(Potion.harm.getId(), 1, 1));
 			return itemstack;
 		}

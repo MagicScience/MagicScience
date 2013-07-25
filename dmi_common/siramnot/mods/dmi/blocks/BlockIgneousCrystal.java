@@ -19,14 +19,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraftforge.common.MinecraftForge;
 
-public class BlocIgneousCrystal extends Block {
+public class BlockIgneousCrystal extends Block {
 
-	private static final String NAME = "IgneousCrystalBlock";
+	private static final String NAME = "igneousCrystalBlock";
 	private static final String TEXTURELOCATION = DMI.MOD_ID + ":" + NAME;
 	private static final float HARDNESS = 2.0F;
 	private static final StepSound SOUND = Block.soundStoneFootstep;
 
-	public BlocIgneousCrystal(int id) {
+	public BlockIgneousCrystal(int id) {
 		super(id, Material.rock);
 
 		setHardness(HARDNESS);

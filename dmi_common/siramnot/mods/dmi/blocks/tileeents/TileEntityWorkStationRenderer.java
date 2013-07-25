@@ -11,7 +11,13 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import siramnot.mods.dmi.models.ModelWorkStationBlock;
-
+/**
+ * 
+ * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
+ * 
+ * @author SirAmNot
+ *
+ */
 public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 
 	private final ModelWorkStationBlock model;
@@ -37,8 +43,8 @@ public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 		{
 			rotation = tile.getBlockMetadata();
 		}
-		tileent = new ResourceLocation("textures/dmi/textures/render/test.png");
-		this.func_110628_a(tileent);
+//		tileent = new ResourceLocation("/assets/dmi/textures/models/test");
+		this.func_110628_a(new ResourceLocation("/assets/dmi/textures/blocks/test.png"));
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float)d + 0.5F, (float)d1 + 1.5F, (float)d2 + 0.5F);
 		GL11.glScalef(1.0F, -1F, -1F);
@@ -50,7 +56,7 @@ public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer {
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
 		renderAModelAt((TileEntityWorkStationBlockEntity) te, x, y, z, scale);
 	}
-
+	
 	private void adjustLightFixture(World world, int i, int j, int k, Block block) {
 		Tessellator tess = Tessellator.instance;
 		float brightness = block.getBlockBrightness(world, i, j, k);
