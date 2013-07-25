@@ -30,9 +30,9 @@ public class DMIRecipeManager {
 	
 	private static void smeltRecipes() {
 		// Little compensation for Silk-touch users. Super complicated, but worth it :)
-//		GameRegistry.addSmelting(DMIBlockManager.aqueousOre.blockID, new ItemStack(DMIItemManager.aqueousCrystal,DMIBlockManager.aqueousOre.getQuantityDropped() * DMIBlockManager.aqueousOre.getEnchantModifier()), DMIBlockManager.aqueousOre.getXpDropped() * 2);
-		
-
+//	GameRegistry.addSmelting(DMIBlockManager.aqueousOre.blockID, new ItemStack(DMIItemManager.aqueousCrystal,DMIBlockManager.aqueousOre.getQuantityDropped() * DMIBlockManager.aqueousOre.getEnchantModifier()), DMIBlockManager.aqueousOre.getXpDropped() * 2);
+//	GameRegistry.addSmelting(DMIBlockManager.igneousOre.blockID, new ItemStack(DMIItemManager.igneousCrystal,DMIBlockManager.igneousOre.getQuantityDropped() * DMIBlockManager.igneousOre.getEnchantModifier()), DMIBlockManager.igneousOre.getXpDropped() * 2);
+//    GameRegistry.addSmelting(DMIBlockManager.consistoriumOre.blockID, new ItemStack(DMIItemManager.consistoriumCrystal,DMIBlockManager.consistoriumOre.getQuantityDropped() * DMIBlockManager.consistoriumOre.getEnchantModifier()), DMIBlockManager.consistoriumOre.getXpDropped() * 2);
 	}
 
 
