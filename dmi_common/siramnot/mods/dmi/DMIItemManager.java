@@ -3,6 +3,7 @@ package siramnot.mods.dmi;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import siramnot.mods.dmi.items.BasicScroll;
 import siramnot.mods.dmi.items.ItemAqueousCrystal;
+import siramnot.mods.dmi.items.ItemConsistoriumCrystal;
 import siramnot.mods.dmi.items.ItemIgneousCrystal;
 import siramnot.mods.dmi.items.ItemStaff;
 import siramnot.mods.dmi.items.ScrollExample;
@@ -22,13 +23,15 @@ public class DMIItemManager {
 	public static Item basicScroll; // By convention, objects are camelCase.
 	public static Item scrollExample;
 	public static ItemStaff uselessStaff;
-
+	public static Item consistoriumCrystal;
+	
 	public static void load() {
 		aqueousCrystal = new ItemAqueousCrystal(IDManager.AQUEOUS_CRYSTAL);
 		igneousCrystal = new ItemIgneousCrystal(IDManager.IGNEOUS_CRYSTAL);
 		basicScroll = new BasicScroll(IDManager.BASIC_SCROLL);
 		scrollExample = new ScrollExample(IDManager.SCROLL_EXAMPLE);
 //		uselessStaff = new ItemStaff(IDManager.BASIC_STAFF);
+		consistoriumCrystal = new ItemConsistoriumCrystal(IDManager.CONSISTORIUM_CRYSTAL);
 
 		languageRegistry(LanguageRegistry.instance());
 	}
@@ -37,6 +40,7 @@ public class DMIItemManager {
 		lr.addName(aqueousCrystal, ItemAqueousCrystal.getName());
 		lr.addName(igneousCrystal, ItemIgneousCrystal.getName());
 		lr.addName(scrollExample, ScrollExample.getName());
+		lr.addName(consistoriumCrystal, ItemConsistoriumCrystal.getName());
 	}
 
 }

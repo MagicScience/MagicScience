@@ -24,6 +24,9 @@ public class IDManager {
 	public static final int WORK_STATION_BLOCK = 1403; //1,403
 	public static final int IGNEOUS_CRYSTAL_ORE = 1404;
 	public static final int IGNEOUS_CRYSTAL_BLOCK = 1405;
+	public static final int CONSISTORIUM_CRYSTAL_ORE = 1406;
+	public static final int CONSISTORIUM_CRYSTAL_BLOCK = 1407;
+	
 
 	// Items
 	// For items you need to use ID's 4096 and higher.
@@ -33,4 +36,5 @@ public class IDManager {
 	public static final int SCROLL_EXAMPLE = 14003;
 	public static final int BASIC_STAFF = 14004;
 	public static final int LIGHTNING_STAFF = 14005;
+	public static final int CONSISTORIUM_CRYSTAL = 14006;
 }

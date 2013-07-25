@@ -3,6 +3,8 @@ package siramnot.mods.dmi;
 import net.minecraft.block.Block;
 import siramnot.mods.dmi.blocks.BlocIgneousCrystal;
 import siramnot.mods.dmi.blocks.BlockAqueousCrystal;
+import siramnot.mods.dmi.blocks.BlockConsistoriumCrystal;
+import siramnot.mods.dmi.blocks.BlockConsistoriumCrystalOre;
 import siramnot.mods.dmi.blocks.BlockIgneousCrystalOre;
 import siramnot.mods.dmi.blocks.BlockLiquidator;
 import siramnot.mods.dmi.blocks.BlockWorkstation;
@@ -27,6 +29,8 @@ public class DMIBlockManager {
 	public static DMIOre igneousOre;
 	public static Block aqueousBlock;	
 	public static Block igneousBlock;
+	public static Block consistoriumOre;
+	public static Block consistoriumBlock;
 	
 	// Load the blocks
 	public static void load() {
@@ -37,6 +41,8 @@ public class DMIBlockManager {
 		aqueousBlock = new BlockAqueousCrystal(IDManager.AQUEOUS_CRYSTAL_BLOCK);
 		workStation = new BlockWorkstation(IDManager.WORK_STATION_BLOCK);
 		igneousBlock = new BlocIgneousCrystal(IDManager.IGNEOUS_CRYSTAL_BLOCK);
+		consistoriumOre = new BlockConsistoriumCrystalOre(IDManager.CONSISTORIUM_CRYSTAL_ORE);
+		consistoriumBlock = new BlockConsistoriumCrystal(IDManager.CONSISTORIUM_CRYSTAL_BLOCK);
 		
 		
 		languageRegistry(LanguageRegistry.instance());
@@ -52,6 +58,8 @@ public class DMIBlockManager {
 		GameRegistry.registerBlock(liquidator, "Liquidator");
 		GameRegistry.registerBlock(workStation, "Work Station");
 		GameRegistry.registerBlock(igneousBlock, "Igneous Crystal Block");
+		GameRegistry.registerBlock(consistoriumOre, "Consistorium Ore");
+		GameRegistry.registerBlock(consistoriumBlock, "Consistorium Block");
 		
 		GameRegistry.registerTileEntity(TileEntityLiquidator.class, "Tile Entity Liquidator");
 		GameRegistry.registerTileEntity(TileEntityWorkStationBlockEntity.class, "Tile Entity Workstation");
@@ -64,6 +72,8 @@ public class DMIBlockManager {
 		
 		lr.addName(igneousOre, "Igneous Ore");
 		
+		lr.addName(consistoriumOre, "Consistorium Ore");
+		lr.addName(consistoriumBlock, "Consistorium Block");
 		lr.addName(liquidator, "Liquidator");
 		lr.addName(workStation, "Work Station");
 		lr.addName(igneousBlock,"Igneous Block");
