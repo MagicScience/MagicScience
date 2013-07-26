@@ -22,17 +22,19 @@ public class IDManager {
 	public static final int IGNEOUS_CRYSTAL_BLOCK = 1405;
 	public static final int CONSISTORIUM_CRYSTAL_ORE = 1406;
 	public static final int CONSISTORIUM_CRYSTAL_BLOCK = 1407;
+	public static final int CAEL_CRYSTAL_ORE = 1408;
+	public static final int CAEL_CRYSTAL_BLOCK = 1409;
 	
 
 	// Items
 	// For items you need to use ID's 4096 and higher.
 	public static final int AQUEOUS_CRYSTAL = 14000;
-	public static final int CONSISTORIUM_CRYSTAL = 14006;
+	public static final int CONSISTORIUM_CRYSTAL = 14007;
 	public static final int IGNEOUS_CRYSTAL = 14002;
 	public static final int BASIC_SCROLL = 14001;
 	public static final int SCROLL_EXAMPLE = 14003;
 	public static final int BASIC_STAFF = 14004;
 	public static final int LIGHTNING_STAFF = 14005;
-	
+	public static final int CAEL_CRYSTAL = 14006;
 	
 }

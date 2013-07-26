@@ -2,6 +2,8 @@ package siramnot.mods.dmi;
 
 import net.minecraft.block.Block;
 import siramnot.mods.dmi.blocks.BlockAqueousCrystalOre;
+import siramnot.mods.dmi.blocks.BlockCaelCrystal;
+import siramnot.mods.dmi.blocks.BlockCaelCrystalOre;
 import siramnot.mods.dmi.blocks.BlockIgneousCrystal;
 import siramnot.mods.dmi.blocks.BlockAqueousCrystal;
 import siramnot.mods.dmi.blocks.BlockConsistoriumCrystal;
@@ -33,6 +35,8 @@ public class DMIBlockManager {
 	public static Block igneousBlock;
 	public static Block consistoriumOre;
 	public static Block consistoriumBlock;
+	public static Block caelOre;
+	public static Block caelBlock;
 
 	// Load the blocks
 	public static void load() {
@@ -43,10 +47,12 @@ public class DMIBlockManager {
 		aqueousOre = new BlockAqueousCrystalOre(IDManager.AQUEOUS_CRYSTAL_ORE);
 		consistoriumOre = new BlockConsistoriumCrystalOre(IDManager.CONSISTORIUM_CRYSTAL_ORE);
 		igneousOre = new BlockIgneousCrystalOre(IDManager.IGNEOUS_CRYSTAL_ORE);
+		caelOre = new BlockCaelCrystalOre(IDManager.CAEL_CRYSTAL_ORE);
 
 		aqueousBlock = new BlockAqueousCrystal(IDManager.AQUEOUS_CRYSTAL_BLOCK);
 		consistoriumBlock = new BlockConsistoriumCrystal(IDManager.CONSISTORIUM_CRYSTAL_BLOCK);
 		igneousBlock = new BlockIgneousCrystal(IDManager.IGNEOUS_CRYSTAL_BLOCK);
+		caelBlock = new BlockCaelCrystal(IDManager.CAEL_CRYSTAL_BLOCK);
 
 		languageRegistry(LanguageRegistry.instance());
 		gameRegistry();
@@ -61,10 +67,12 @@ public class DMIBlockManager {
 		GameRegistry.registerBlock(aqueousOre, "Aqueous Ore");
 		GameRegistry.registerBlock(consistoriumOre, "Consistorium Ore");
 		GameRegistry.registerBlock(igneousOre, "Igneous Ore");
+		GameRegistry.registerBlock(caelOre, "Cael Ore");
 
 		GameRegistry.registerBlock(aqueousBlock, "Aqueous Crystal Block");
 		GameRegistry.registerBlock(consistoriumBlock, "Consistorium Block");
 		GameRegistry.registerBlock(igneousBlock, "Igneous Crystal Block");
+		GameRegistry.registerBlock(caelBlock, "Cael Crystal Block");
 
 		GameRegistry.registerTileEntity(TileEntityLiquidator.class, "Tile Entity Liquidator");
 		GameRegistry.registerTileEntity(TileEntityWorkStationBlockEntity.class, "Tile Entity Workstation");
@@ -78,9 +86,11 @@ public class DMIBlockManager {
 		lr.addName(aqueousOre, "Aqueous Ore");
 		lr.addName(consistoriumOre, "Consistorium Ore");
 		lr.addName(igneousOre, "Igneous Ore");
+		lr.addName(caelOre, "Cael Ore");
 
 		lr.addName(aqueousBlock, "Aqueous Block");
 		lr.addName(consistoriumBlock, "Consistorium Block");
 		lr.addName(igneousOre, "Igneous Ore");
+		lr.addName(caelBlock, "Cael Block");
 	}
 }

@@ -20,12 +20,14 @@ public class DMIRecipeManager {
 		GameRegistry.addRecipe(new ItemStack(DMIItemManager.scrollExample), "XYX", "YFY", "XYX", 'X', new ItemStack(DMIItemManager.aqueousCrystal), 'F', new ItemStack(Item.enchantedBook), 'Y', new ItemStack(DMIItemManager.igneousCrystal)); 
 		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.igneousBlock), "XXX", "XXX", "XXX", 'X', new ItemStack(DMIItemManager.igneousCrystal));
 		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.consistoriumBlock), "XXX", "XXX", "XXX", 'X', new ItemStack(DMIItemManager.consistoriumCrystal));
+		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.caelBlock), "XXX", "XXX", "XXX", 'X', new ItemStack(DMIItemManager.caelCrystal));
 	}
 	
 	private static void shapelessRecipes() {
 		GameRegistry.addShapelessRecipe(new ItemStack(DMIItemManager.aqueousCrystal, 9), new ItemStack(DMIBlockManager.aqueousBlock)); // Recipe for aqueous crystals from storage block
 		GameRegistry.addShapelessRecipe(new ItemStack(DMIItemManager.igneousCrystal, 9), new ItemStack(DMIBlockManager.igneousBlock));
 		GameRegistry.addShapelessRecipe(new ItemStack(DMIItemManager.consistoriumCrystal, 9), new ItemStack(DMIBlockManager.consistoriumBlock));
+		GameRegistry.addShapelessRecipe(new ItemStack(DMIItemManager.caelCrystal, 9), new ItemStack(DMIBlockManager.caelBlock));
 	}
 	
 	private static void smeltRecipes() {

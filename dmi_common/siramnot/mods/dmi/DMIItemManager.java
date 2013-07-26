@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import siramnot.mods.dmi.items.BasicScroll;
 import siramnot.mods.dmi.items.EnumStaff;
 import siramnot.mods.dmi.items.ItemAqueousCrystal;
+import siramnot.mods.dmi.items.ItemCaelCrystal;
 import siramnot.mods.dmi.items.ItemConsistoriumCrystal;
 import siramnot.mods.dmi.items.ItemIgneousCrystal;
 import siramnot.mods.dmi.items.ItemLightningStaff;
@@ -26,6 +27,7 @@ public class DMIItemManager {
 	public static Item scrollExample;
 	public static ItemStaff uselessStaff;
 	public static Item consistoriumCrystal;
+	public static Item caelCrystal;
 	
 	public static ItemStaff lightningStaff;
 
@@ -37,6 +39,7 @@ public class DMIItemManager {
 		consistoriumCrystal = new ItemConsistoriumCrystal(IDManager.CONSISTORIUM_CRYSTAL);
 		uselessStaff = new ItemStaff(IDManager.BASIC_STAFF);
 		lightningStaff = new ItemLightningStaff(IDManager.LIGHTNING_STAFF, EnumStaff.LIGHTNING);
+		caelCrystal = new ItemCaelCrystal(IDManager.CAEL_CRYSTAL);
 
 		languageRegistry(LanguageRegistry.instance());
 	}
@@ -48,6 +51,7 @@ public class DMIItemManager {
 		lr.addName(consistoriumCrystal, ItemConsistoriumCrystal.getName());
 		lr.addName(uselessStaff, uselessStaff.getIGN());
 		lr.addName(lightningStaff, lightningStaff.getIGN());
+		lr.addName(caelCrystal, ItemCaelCrystal.getName());
 	}
 
 }

@@ -10,6 +10,7 @@ import net.minecraft.entity.SpiderEffectsGroupData;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityLargeFireball;
 import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
@@ -31,6 +32,8 @@ public class EntityBlazeSpider extends EntitySpider {
 
 	public EntityBlazeSpider(World par1World) {
 		super(par1World);
+		this.isImmuneToFire = true;
+		
 	}
 
 	public void EntitySpider(World par1World) {
@@ -88,7 +91,7 @@ public class EntityBlazeSpider extends EntitySpider {
 
 	protected void attackEntity(Entity par1Entity, float par2) {
 		if (this.attackTime <= 0 && par2 < 2.0F && par1Entity.boundingBox.maxY > this.boundingBox.minY && par1Entity.boundingBox.minY < this.boundingBox.maxY) {
-			this.attackTime = 20;
+			this.attackTime = 10;
 			this.attackEntityAsMob(par1Entity);
 		} else if (par2 < 30.0F) {
 			double d0 = par1Entity.posX - this.posX;
@@ -99,12 +102,12 @@ public class EntityBlazeSpider extends EntitySpider {
 				++this.field_70846_g;
 
 				if (this.field_70846_g == 1) {
-					this.attackTime = 60;
+					this.attackTime = 5;
 					this.func_70844_e(true);
 				} else if (this.field_70846_g <= 4) {
-					this.attackTime = 6;
+					this.attackTime = 5;
 				} else {
-					this.attackTime = 100;
+					this.attackTime = 15;
 					this.field_70846_g = 0;
 					this.func_70844_e(false);
 				}
@@ -114,9 +117,9 @@ public class EntityBlazeSpider extends EntitySpider {
 					this.worldObj.playAuxSFXAtEntity((EntityPlayer) null, 1009, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
 
 					for (int i = 0; i < 1; ++i) {
-						EntitySmallFireball entitysmallfireball = new EntitySmallFireball(this.worldObj, this, d0 + this.rand.nextGaussian() * (double) f1, d1, d2 + this.rand.nextGaussian() * (double) f1);
-						entitysmallfireball.posY = this.posY + (double) (this.height / 2.0F) + 0.5D;
-						this.worldObj.spawnEntityInWorld(entitysmallfireball);
+						EntityLargeFireball entityLargefireball = new EntityLargeFireball(this.worldObj, this, d0 + this.rand.nextGaussian() * (double) f1, d1, d2 + this.rand.nextGaussian() * (double) f1);
+						entityLargefireball.posY = this.posY + (double) (this.height / 2.0F) + 0.5D;
+						this.worldObj.spawnEntityInWorld(entityLargefireball);
 					}
 				}
 			}
@@ -143,6 +146,7 @@ public class EntityBlazeSpider extends EntitySpider {
 		if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0)) {
 			this.dropItem(Item.spiderEye.itemID, 1);
 			this.dropItem(Item.silk.itemID, 2);
+			this.dropItem(Item.blazePowder.itemID, 1);
 		}
 	}
 
