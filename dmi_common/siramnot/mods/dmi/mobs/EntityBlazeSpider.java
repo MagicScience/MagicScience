@@ -11,10 +11,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityLargeFireball;
-import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.item.Item;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -29,10 +26,12 @@ import net.minecraft.world.World;
 public class EntityBlazeSpider extends EntitySpider {
 	private int field_70846_g;
 	private Icon EntityBlazeSpider;
+	private String texture;
 
 	public EntityBlazeSpider(World par1World) {
 		super(par1World);
 		this.isImmuneToFire = true;
+		texture = "assets/mods/dmi/mob/EntityBlazeSpider.png";
 		
 	}
 
@@ -149,6 +148,7 @@ public class EntityBlazeSpider extends EntitySpider {
 			this.dropItem(Item.blazePowder.itemID, 1);
 		}
 	}
+	{
 
 	//Trying to make the spider tameable, but still working on it
 	/*
@@ -159,10 +159,7 @@ public class EntityBlazeSpider extends EntitySpider {
 	 * .field_111267_a).func_111128_a(8.0D); } }
 	 */
 
-	private static final String PATH = "BlazeSpider";
-	private static final String TEXTUREPATH = DMI.MOD_ID.toLowerCase() + ":" + PATH;
-
-	public void registerIcons(IconRegister ir) {
-		this.EntityBlazeSpider = ir.registerIcon(TEXTUREPATH);
-	}
+	
+	
+}
 }
