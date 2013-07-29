@@ -10,6 +10,7 @@ import siramnot.mods.dmi.blocks.BlockConsistoriumCrystal;
 import siramnot.mods.dmi.blocks.BlockConsistoriumCrystalOre;
 import siramnot.mods.dmi.blocks.BlockIgneousCrystalOre;
 import siramnot.mods.dmi.blocks.BlockLiquidator;
+import siramnot.mods.dmi.blocks.BlockMagicGlass;
 import siramnot.mods.dmi.blocks.BlockWorkstation;
 import siramnot.mods.dmi.blocks.DMIOre;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityLiquidator;
@@ -37,6 +38,7 @@ public class DMIBlockManager {
 	public static Block consistoriumBlock;
 	public static Block caelOre;
 	public static Block caelBlock;
+	public static Block magicGlass;
 
 	// Load the blocks
 	public static void load() {
@@ -53,6 +55,8 @@ public class DMIBlockManager {
 		consistoriumBlock = new BlockConsistoriumCrystal(IDManager.CONSISTORIUM_CRYSTAL_BLOCK);
 		igneousBlock = new BlockIgneousCrystal(IDManager.IGNEOUS_CRYSTAL_BLOCK);
 		caelBlock = new BlockCaelCrystal(IDManager.CAEL_CRYSTAL_BLOCK);
+		
+		magicGlass = new BlockMagicGlass(IDManager.MAGIC_GLASS);
 
 		languageRegistry(LanguageRegistry.instance());
 		gameRegistry();
@@ -76,6 +80,8 @@ public class DMIBlockManager {
 
 		GameRegistry.registerTileEntity(TileEntityLiquidator.class, "Tile Entity Liquidator");
 		GameRegistry.registerTileEntity(TileEntityWorkStationBlockEntity.class, "Tile Entity Workstation");
+		
+		GameRegistry.registerBlock(magicGlass, "Elemental Glass");
 	}
 
 	// Name the blocks in-game
@@ -92,5 +98,7 @@ public class DMIBlockManager {
 		lr.addName(consistoriumBlock, "Consistorium Block");
 		lr.addName(igneousOre, "Igneous Ore");
 		lr.addName(caelBlock, "Cael Block");
+		
+		lr.addName(magicGlass, "Elemental Glass");
 	}
 }

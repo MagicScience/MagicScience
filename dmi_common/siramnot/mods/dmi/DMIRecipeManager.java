@@ -1,7 +1,9 @@
 package siramnot.mods.dmi;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemEnchantedBook;
+import net.minecraft.block.BlockGlass;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -21,6 +23,10 @@ public class DMIRecipeManager {
 		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.igneousBlock), "XXX", "XXX", "XXX", 'X', new ItemStack(DMIItemManager.igneousCrystal));
 		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.consistoriumBlock), "XXX", "XXX", "XXX", 'X', new ItemStack(DMIItemManager.consistoriumCrystal));
 		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.caelBlock), "XXX", "XXX", "XXX", 'X', new ItemStack(DMIItemManager.caelCrystal));
+		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.magicGlass, 8), "XXX", "XFX", "XXX", 'X', new ItemStack(Block.glass), 'F', new ItemStack(DMIItemManager.igneousCrystal));
+		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.magicGlass, 8), "XXX", "XFX", "XXX", 'X', new ItemStack(Block.glass), 'F', new ItemStack(DMIItemManager.aqueousCrystal));
+		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.magicGlass, 8), "XXX", "XFX", "XXX", 'X', new ItemStack(Block.glass), 'F', new ItemStack(DMIItemManager.consistoriumCrystal));
+		GameRegistry.addRecipe(new ItemStack(DMIBlockManager.magicGlass, 8), "XXX", "XFX", "XXX", 'X', new ItemStack(Block.glass), 'F', new ItemStack(DMIItemManager.caelCrystal));
 	}
 	
 	private static void shapelessRecipes() {

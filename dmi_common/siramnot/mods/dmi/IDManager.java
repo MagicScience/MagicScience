@@ -24,7 +24,7 @@ public class IDManager {
 	public static final int CONSISTORIUM_CRYSTAL_BLOCK = 1407;
 	public static final int CAEL_CRYSTAL_ORE = 1408;
 	public static final int CAEL_CRYSTAL_BLOCK = 1409;
-	
+	public static final int MAGIC_GLASS = 1410;
 
 	// Items
 	// For items you need to use ID's 4096 and higher.

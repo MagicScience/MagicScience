@@ -25,6 +25,17 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.boss.BossStatus;
+import net.minecraft.entity.boss.IBossDisplayData;
+
+import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 
 
 /**
@@ -115,5 +126,16 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData, IMo
 	        }
 	    }
 
+
+	     
+	     public void renderBossHealth (EntityKaldymBoss Boss)
+	     {
+	             BossStatus.func_82824_a(Boss, true);
+	     }
+
+	     
+
 }
+	 
+
 
