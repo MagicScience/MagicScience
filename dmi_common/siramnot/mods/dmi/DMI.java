@@ -1,13 +1,7 @@
 package siramnot.mods.dmi;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.common.Configuration;
-import siramnot.mods.dmi.blocks.TileEntityWorkStationBlock;
-import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationBlockEntity;
-import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationRenderer;
 import siramnot.mods.dmi.core.ClientProxy;
-import siramnot.mods.dmi.core.CommonProxy;
-import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -26,7 +20,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
  */
 
 @Mod(modid = DMI.MOD_ID, name = DMI.MOD_NAM, version = DMI.MOD_VER)
-@NetworkMod(clientSideRequired = true, serverSideRequired = true)
+@NetworkMod(channels = { "" }, clientSideRequired = true, serverSideRequired = true)
 public class DMI {
 
 	@Instance(DMI.MOD_ID)
@@ -49,26 +43,11 @@ public class DMI {
 
 	public static final CreativeTabs TAB_CREATIVE = new CreativeTabs(0, "DMI");
 
-	public static boolean doWorldGen;
-	public static boolean doOreGen;
-
 	// Pre Init. Config here.
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
-		Configuration cfg = new Configuration(e.getSuggestedConfigurationFile()); // Creates configuration file, if doesn't already exist
-		// Load config
-		cfg.load();
-
-		doWorldGen = cfg.get(Configuration.CATEGORY_GENERAL, "DMI_worldGen", true).getBoolean(true); // Enable world generation
-		doOreGen = cfg.get(cfg.CATEGORY_GENERAL, "DMI_oreGen", true).getBoolean(true); // Enable ore generation
-
-		if (!doWorldGen)
-			doOreGen = false;
-
-		// Save config
-		cfg.save();
-
-		DMIItemManager.load(); // Fixed a crash here, would throw a nullPointerException because Aqueous Crystal Ore drops Aqueous Crystals.
+		DMIConfigManager.init(e.getSuggestedConfigurationFile());
+		DMIItemManager.load();
 		DMIBlockManager.load();
 	}
 
@@ -80,8 +59,13 @@ public class DMI {
 		DMIRecipeManager.load();
 		GameRegistry.registerWorldGenerator(DMIWorldGenManager.getInstance());
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
+
+		/*
+		 * JFrame f = new JFrame("test"); f.setSize(10, 10); f.setVisible(true);
+		 * f.setDefaultCloseOperation(f.HIDE_ON_CLOSE);
+		 */
 	}
-	
+
 	// Post init.
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
