@@ -2,6 +2,8 @@ package siramnot.mods.dmi;
 
 import java.util.Random;
 
+import net.minecraft.item.Item;
+import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -37,5 +39,4 @@ public class DMIWorldGenManager implements IWorldGenerator {
 	public static DMIWorldGenManager getInstance() {
 		return instance;
 	}
-
 }

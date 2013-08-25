@@ -31,8 +31,8 @@ public class EntityBlazeSpider extends EntitySpider {
 	public EntityBlazeSpider(World par1World) {
 		super(par1World);
 		this.isImmuneToFire = true;
-		texture = "assets/mods/dmi/mob/EntityBlazeSpider.png";
-		
+		this.texture = "/mods/dmi/textures/mob/EntityBlazeSpider.png";
+	
 	}
 
 	public void EntitySpider(World par1World) {
@@ -148,18 +148,5 @@ public class EntityBlazeSpider extends EntitySpider {
 			this.dropItem(Item.blazePowder.itemID, 1);
 		}
 	}
-	{
-
-	//Trying to make the spider tameable, but still working on it
-	/*
-	 * public void setTamed(boolean par1) { if (par1) {
-	 * this.func_110148_a(SharedMonsterAttributes
-	 * .field_111267_a).func_111128_a(20.0D); } else {
-	 * this.func_110148_a(SharedMonsterAttributes
-	 * .field_111267_a).func_111128_a(8.0D); } }
-	 */
-
 	
-	
-}
 }
