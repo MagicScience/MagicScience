@@ -16,7 +16,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import siramnot.mods.dmi.DMI;
-import siramnot.mods.dmi.DMIItemManager;
+import siramnot.mods.dmi.core.managers.DMIItemManager;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -24,13 +24,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * 
- * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
+ * Dominus ex Magica et Industria mod.
  * 
  * @author SirAmNot
- * @license Maybe GPLv3
+ * @license Creative-Commons Attribution Non-commercial v3.0
  * 
  */
-
 public class BlockDMIOres extends Block {
 
 	public static BlockDMIOres dmiOre;
@@ -44,7 +43,6 @@ public class BlockDMIOres extends Block {
 	private static final String TEXTURE_PREFIX = DMI.MOD_ID + ":";
 	private static final float HARDNESS = 3.0f;
 	private static final int XP_DROPPED = 4;
-
 
 	private static final String[] NAMES = new String[] {
 		"Aqueous Ore", // Water ore
@@ -83,10 +81,14 @@ public class BlockDMIOres extends Block {
 
 	// Game registry things and similar
 	public static void doRegisters() {
-		GameRegistry.registerBlock(dmiOre, ItemBlockDMIOres.class, UNLOCALIZED_NAME, DMI.MOD_ID);
-		for (int meta = 0; meta < NAMES.length; ++meta) {
-			ItemStack item = new ItemStack(dmiOre, 1, meta);
-			LanguageRegistry.instance().addName(item, NAMES[meta]);
+		try {
+			GameRegistry.registerBlock(dmiOre, ItemBlockDMIOres.class, UNLOCALIZED_NAME, DMI.MOD_ID);
+			for (int meta = 0; meta < NAMES.length; ++meta) {
+				ItemStack item = new ItemStack(dmiOre, 1, meta);
+				LanguageRegistry.instance().addName(item, NAMES[meta]);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -129,11 +131,11 @@ public class BlockDMIOres extends Block {
 	// Register icons
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister par1IconRegister) {
+	public void registerIcons(IconRegister iconRegister) {
 		iconArray = new Icon[TEXTURE_ARRAY.length];
 
 		for (int i = 0; i < TEXTURE_ARRAY.length; ++i) {
-			this.iconArray[i] = par1IconRegister.registerIcon(TEXTURE_PREFIX + TEXTURE_ARRAY[i]);
+			this.iconArray[i] = iconRegister.registerIcon(TEXTURE_PREFIX + TEXTURE_ARRAY[i]);
 		}
 	}
 
@@ -161,8 +163,6 @@ public class BlockDMIOres extends Block {
 			"igneousCrystalOre", // Fire ore
 			"aereousCrystalOre" // Air ore
 		};
-
-		private static Icon[] iconArray;
 
 		public ItemBlockDMIOres(int id) {
 			super(id);

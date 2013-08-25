@@ -1,6 +1,8 @@
-package siramnot.mods.dmi;
+package siramnot.mods.dmi.core.managers;
 
 import java.io.File;
+
+import siramnot.mods.dmi.DMI;
 
 import net.minecraftforge.common.Configuration;
 

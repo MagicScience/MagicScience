@@ -1,13 +1,13 @@
 package siramnot.mods.dmi.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import siramnot.mods.dmi.DMI;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * 
@@ -24,18 +24,18 @@ public class ItemStaff extends Item {
 	protected String texturePath;
 	protected int stackSize;
 	protected EnumStaff es;
-	
+
 	public ItemStaff(int id) {
 		super(id);
-		unlocalizedName = "itemStaff";
-		inGameName = "Staff";
-		textureName = "basicStaff";
-		texturePath = DMI.MOD_ID.toLowerCase() + ":" + textureName;
-		stackSize = 1;
+		this.unlocalizedName = "itemStaff";
+		this.inGameName = "Staff";
+		this.textureName = "basicStaff";
+		this.texturePath = DMI.MOD_ID.toLowerCase() + ":" + this.textureName;
+		this.stackSize = 1;
 
-		setFull3D();
-		
-		load();
+		this.setFull3D();
+
+		this.load();
 	}
 
 	public ItemStaff(int id, EnumStaff es) {
@@ -46,17 +46,19 @@ public class ItemStaff extends Item {
 	}
 
 	private void load() {
-		setCreativeTab(DMI.TAB_CREATIVE);
-		if (es != null) {
-			setMaxDamage(es.getDurability());
+		this.setCreativeTab(DMI.TAB_CREATIVE);
+		if (this.es != null) {
+			this.setMaxDamage(this.es.getDurability());
 		}
 	}
 
+	@Override
 	public final ItemStack onItemRightClick(ItemStack is, World w, EntityPlayer p) {
-		if (is.getItem().itemID == this.itemID)
+		if (is.getItem().itemID == this.itemID) {
 			return is;
+		}
 		is.damageItem(1, p);
-		return doSpecialRightClickAction(is, w, p);
+		return this.doSpecialRightClickAction(is, w, p);
 	}
 
 	protected ItemStack doSpecialRightClickAction(ItemStack is, World w, EntityPlayer p) {
@@ -65,12 +67,13 @@ public class ItemStaff extends Item {
 	}
 
 	public final String getIGN() {
-		return inGameName;
+		return this.inGameName;
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister ir) {
-		this.itemIcon = ir.registerIcon(texturePath);
+		this.itemIcon = ir.registerIcon(this.texturePath);
 	}
 
 }

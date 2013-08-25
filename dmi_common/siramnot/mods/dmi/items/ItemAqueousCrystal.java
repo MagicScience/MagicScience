@@ -1,16 +1,8 @@
 package siramnot.mods.dmi.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import siramnot.mods.dmi.DMI;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
-import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.ArrowNockEvent;
+import siramnot.mods.dmi.DMI;
 
 public class ItemAqueousCrystal extends Item {
 
@@ -23,12 +15,13 @@ public class ItemAqueousCrystal extends Item {
 
 	public ItemAqueousCrystal(int id) { // I like id over the obfuscated par1.
 		super(id);
-		setCreativeTab(DMI.TAB_CREATIVE);
-		setUnlocalizedName(U_NAME);
-		setMaxStackSize(MAX_STACK_SIZE);
+		this.setCreativeTab(DMI.TAB_CREATIVE);
+		this.setUnlocalizedName(U_NAME);
+		this.setMaxStackSize(MAX_STACK_SIZE);
 	}
 
 	// Registers the texture in game
+	@Override
 	public void registerIcons(IconRegister ir) {
 		this.itemIcon = ir.registerIcon(TEXTUREPATH);
 	}

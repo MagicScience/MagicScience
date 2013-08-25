@@ -1,0 +1,22 @@
+[
+{
+  "modid": "dmi",
+  "name": "Dominus ex Magica et Machina",
+  "description": "Yaddah yaddah",
+  "version": "@VERSION@",
+  "mcversion": "1.6.2",
+  "url": "http://www.google.com",
+  "updateUrl": "",
+  "authors": [
+    "SirAmNot, Tombenpotter, JiffyJay"
+  ],
+  "credits": "Many people",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"fml",
+  "dependencies": [
+  "Minecraft forge"
+  ]
+}
+]

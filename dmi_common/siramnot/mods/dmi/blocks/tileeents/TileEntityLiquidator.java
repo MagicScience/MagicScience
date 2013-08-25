@@ -1,23 +1,23 @@
 package siramnot.mods.dmi.blocks.tileeents;
 
-import siramnot.mods.dmi.DMIItemManager;
-import siramnot.mods.dmi.IDManager;
-import siramnot.mods.dmi.recipes.RecipesLiquidator;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
-import net.minecraft.nbt.*;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.src.ModLoader;
-import net.minecraft.tileentity.*;
+import net.minecraft.tileentity.TileEntity;
+import siramnot.mods.dmi.recipes.RecipesLiquidator;
 
 public class TileEntityLiquidator extends TileEntity implements IInventory {
 	private ItemStack goldItemStacks[];
 
 	/** The number of ticks that the furnace will keep burning */
 	public int goldBurnTime;
-	
+
 	public double liquid;
 	public int maxLiquid = 5600; //5,600
 
@@ -35,11 +35,11 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	public int front;
 
 	public TileEntityLiquidator() {
-		goldItemStacks = new ItemStack[3];
-		goldBurnTime = 0;
-		goldItemBurnTime = 0;
-		goldCookTime = 0;
-		liquid = 0;
+		this.goldItemStacks = new ItemStack[3];
+		this.goldBurnTime = 0;
+		this.goldItemBurnTime = 0;
+		this.goldCookTime = 0;
+		this.liquid = 0;
 	}
 
 	public void setFrontDirection(int f) {
@@ -53,33 +53,36 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	/**
 	 * Returns the number of slots in the inventory.
 	 */
+	@Override
 	public int getSizeInventory() {
-		return goldItemStacks.length;
+		return this.goldItemStacks.length;
 	}
 
 	/**
 	 * Returns the stack in slot i
 	 */
+	@Override
 	public ItemStack getStackInSlot(int par1) {
-		return goldItemStacks[par1];
+		return this.goldItemStacks[par1];
 	}
 
 	/**
 	 * Decrease the size of the stack in slot (first int arg) by the amount of
 	 * the second int arg. Returns the new stack.
 	 */
+	@Override
 	public ItemStack decrStackSize(int par1, int par2) {
-		if (goldItemStacks[par1] != null) {
-			if (goldItemStacks[par1].stackSize <= par2) {
-				ItemStack itemstack = goldItemStacks[par1];
-				goldItemStacks[par1] = null;
+		if (this.goldItemStacks[par1] != null) {
+			if (this.goldItemStacks[par1].stackSize <= par2) {
+				ItemStack itemstack = this.goldItemStacks[par1];
+				this.goldItemStacks[par1] = null;
 				return itemstack;
 			}
 
-			ItemStack itemstack1 = goldItemStacks[par1].splitStack(par2);
+			ItemStack itemstack1 = this.goldItemStacks[par1].splitStack(par2);
 
-			if (goldItemStacks[par1].stackSize == 0) {
-				goldItemStacks[par1] = null;
+			if (this.goldItemStacks[par1].stackSize == 0) {
+				this.goldItemStacks[par1] = null;
 			}
 
 			return itemstack1;
@@ -93,10 +96,11 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	 * whatever it returns as an EntityItem - like when you close a workbench
 	 * GUI.
 	 */
+	@Override
 	public ItemStack getStackInSlotOnClosing(int par1) {
-		if (goldItemStacks[par1] != null) {
-			ItemStack itemstack = goldItemStacks[par1];
-			goldItemStacks[par1] = null;
+		if (this.goldItemStacks[par1] != null) {
+			ItemStack itemstack = this.goldItemStacks[par1];
+			this.goldItemStacks[par1] = null;
 			return itemstack;
 		} else {
 			return null;
@@ -107,17 +111,19 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	 * Sets the given item stack to the specified slot in the inventory (can be
 	 * crafting or armor sections).
 	 */
+	@Override
 	public void setInventorySlotContents(int par1, ItemStack par2ItemStack) {
-		goldItemStacks[par1] = par2ItemStack;
+		this.goldItemStacks[par1] = par2ItemStack;
 
-		if (par2ItemStack != null && par2ItemStack.stackSize > getInventoryStackLimit()) {
-			par2ItemStack.stackSize = getInventoryStackLimit();
+		if ((par2ItemStack != null) && (par2ItemStack.stackSize > this.getInventoryStackLimit())) {
+			par2ItemStack.stackSize = this.getInventoryStackLimit();
 		}
 	}
 
 	/**
 	 * Returns the name of the inventory.
 	 */
+	@Override
 	public String getInvName() {
 		return "container.goldOven";
 	}
@@ -125,62 +131,65 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	/**
 	 * Reads a tile entity from NBT.
 	 */
+	@Override
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
 		super.readFromNBT(par1NBTTagCompound);
 		NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items");
-		goldItemStacks = new ItemStack[getSizeInventory()];
+		this.goldItemStacks = new ItemStack[this.getSizeInventory()];
 
 		for (int i = 0; i < nbttaglist.tagCount(); i++) {
 			NBTTagCompound nbttagcompound = (NBTTagCompound) nbttaglist.tagAt(i);
 			byte byte0 = nbttagcompound.getByte("Slot");
 
-			if (byte0 >= 0 && byte0 < goldItemStacks.length) {
-				goldItemStacks[byte0] = ItemStack.loadItemStackFromNBT(nbttagcompound);
+			if ((byte0 >= 0) && (byte0 < this.goldItemStacks.length)) {
+				this.goldItemStacks[byte0] = ItemStack.loadItemStackFromNBT(nbttagcompound);
 			}
-			
-			
+
+
 		}
 
-		front = par1NBTTagCompound.getInteger("FrontDirection");
-		goldBurnTime = par1NBTTagCompound.getShort("BurnTime");
-		goldCookTime = par1NBTTagCompound.getShort("CookTime");
-		goldItemBurnTime = getItemBurnTime(goldItemStacks[1]);
+		this.front = par1NBTTagCompound.getInteger("FrontDirection");
+		this.goldBurnTime = par1NBTTagCompound.getShort("BurnTime");
+		this.goldCookTime = par1NBTTagCompound.getShort("CookTime");
+		this.goldItemBurnTime = getItemBurnTime(this.goldItemStacks[1]);
 
-		System.out.println("front:" + front);
-		
-		liquid = par1NBTTagCompound.getDouble("liquid");
+		System.out.println("front:" + this.front);
+
+		this.liquid = par1NBTTagCompound.getDouble("liquid");
 	}
 
 	/**
 	 * Writes a tile entity to NBT.
 	 */
+	@Override
 	public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
 		super.writeToNBT(par1NBTTagCompound);
-		par1NBTTagCompound.setInteger("FrontDirection", (int) front);
-		par1NBTTagCompound.setShort("BurnTime", (short) goldBurnTime);
-		par1NBTTagCompound.setShort("CookTime", (short) goldCookTime);
+		par1NBTTagCompound.setInteger("FrontDirection", this.front);
+		par1NBTTagCompound.setShort("BurnTime", (short) this.goldBurnTime);
+		par1NBTTagCompound.setShort("CookTime", (short) this.goldCookTime);
 		NBTTagList nbttaglist = new NBTTagList();
 
-		for (int i = 0; i < goldItemStacks.length; i++) {
-			if (goldItemStacks[i] != null) {
+		for (int i = 0; i < this.goldItemStacks.length; i++) {
+			if (this.goldItemStacks[i] != null) {
 				NBTTagCompound nbttagcompound = new NBTTagCompound();
 				nbttagcompound.setByte("Slot", (byte) i);
-				goldItemStacks[i].writeToNBT(nbttagcompound);
+				this.goldItemStacks[i].writeToNBT(nbttagcompound);
 				nbttaglist.appendTag(nbttagcompound);
 			}
 		}
 
 		par1NBTTagCompound.setTag("Items", nbttaglist);
-		System.out.println("write:" + front);
-		System.out.println("burn:" + goldBurnTime);
-		
-		par1NBTTagCompound.setDouble("liquid", liquid);
+		System.out.println("write:" + this.front);
+		System.out.println("burn:" + this.goldBurnTime);
+
+		par1NBTTagCompound.setDouble("liquid", this.liquid);
 	}
 
 	/**
 	 * Returns the maximum stack size for a inventory slot. Seems to always be
 	 * 64, possibly will be extended. *Isn't this more of a set than a get?*
 	 */
+	@Override
 	public int getInventoryStackLimit() {
 		return 64;
 	}
@@ -190,7 +199,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	 * the current item is to being completely cooked
 	 */
 	public int getCookProgressScaled(int par1) {
-		return (goldCookTime * par1) / 200;
+		return (this.goldCookTime * par1) / 200;
 	}
 
 	/**
@@ -199,24 +208,25 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	 * is exhausted and the passed value means that the item is fresh
 	 */
 	public int getBurnTimeRemainingScaled(int par1) {
-		if (goldItemBurnTime == 0) {
-			goldItemBurnTime = 200;
+		if (this.goldItemBurnTime == 0) {
+			this.goldItemBurnTime = 200;
 		}
 
-		return (goldBurnTime * par1) / goldItemBurnTime;
+		return (this.goldBurnTime * par1) / this.goldItemBurnTime;
 	}
-		
+
 	public int getLiquidScaled() {
-		if (liquid == 0)
+		if (this.liquid == 0) {
 			return 56;
-		return  56-(int)liquid / 10;
+		}
+		return  56-((int)this.liquid / 10);
 	}
 
 	/**
 	 * Returns true if the furnace is currently burning
 	 */
 	public boolean isBurning() {
-		return goldBurnTime > 0;
+		return this.goldBurnTime > 0;
 	}
 
 	/**
@@ -224,6 +234,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	 * e.g. the mob spawner uses this to count ticks and creates a new spawn
 	 * inside its implementation.
 	 */
+	@Override
 	public void updateEntity() {
 		boolean var1 = this.goldBurnTime > 0;
 		boolean var2 = false;
@@ -231,12 +242,12 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		if (this.goldBurnTime > 0) {
 			--this.goldBurnTime;
 		}
-		if (isBurning()) {
+		if (this.isBurning()) {
 
-			
+
 		}
 		if (!this.worldObj.isRemote) {
-			if (this.goldBurnTime == 0 && this.canSmelt()) {
+			if ((this.goldBurnTime == 0) && this.canSmelt()) {
 				this.goldItemBurnTime = this.goldBurnTime = getItemBurnTime(this.goldItemStacks[1]);
 				if (this.goldBurnTime > 0) {
 					var2 = true;
@@ -251,7 +262,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 			}
 			if (this.isBurning() && this.canSmelt()) {
 				++this.goldCookTime;
-				liquid+=.1;
+				this.liquid+=.1;
 
 				if (this.goldCookTime == 200) {
 					this.goldCookTime = 0;
@@ -262,14 +273,14 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 			} else {
 				this.goldCookTime = 0;
 			}
-			if (var1 != this.goldBurnTime > 0) {
+			if (var1 != (this.goldBurnTime > 0)) {
 				var2 = true;
 				this.validate();
 			}
 		}
-		boolean check = isActive;
-		isActive = isBurning();
-		if (isActive != check) {
+		boolean check = this.isActive;
+		this.isActive = this.isBurning();
+		if (this.isActive != check) {
 			this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
 		}
 		if (var2) {
@@ -282,7 +293,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	 * destination stack isn't full, etc.
 	 */
 	private boolean canSmelt() {
-		if (goldItemStacks[0] == null) {
+		if (this.goldItemStacks[0] == null) {
 			return false;
 		}
 
@@ -292,19 +303,19 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 			return false;
 		}
 
-		if (goldItemStacks[2] == null) {
+		if (this.goldItemStacks[2] == null) {
 			return true;
 		}
 
-		if (!goldItemStacks[2].isItemEqual(itemstack)) {
+		if (!this.goldItemStacks[2].isItemEqual(itemstack)) {
 			return false;
 		}
 
-		if (goldItemStacks[2].stackSize < getInventoryStackLimit() && goldItemStacks[2].stackSize < goldItemStacks[2].getMaxStackSize()) {
+		if ((this.goldItemStacks[2].stackSize < this.getInventoryStackLimit()) && (this.goldItemStacks[2].stackSize < this.goldItemStacks[2].getMaxStackSize())) {
 			return true;
 		}
 
-		return goldItemStacks[2].stackSize < itemstack.getMaxStackSize();
+		return this.goldItemStacks[2].stackSize < itemstack.getMaxStackSize();
 	}
 
 	/**
@@ -340,67 +351,70 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	 */
 	public static int getItemBurnTime(ItemStack is) {
 
-        if (is == null)
-        {
-                return 0;
-        }
+		if (is == null)
+		{
+			return 0;
+		}
 
-        int i = is.getItem().itemID;
+		int i = is.getItem().itemID;
 
-        if (i < 256 && Block.blocksList[i].blockMaterial == Material.wood)
-        {
-                return 300;
-        }
+		if ((i < 256) && (Block.blocksList[i].blockMaterial == Material.wood))
+		{
+			return 300;
+		}
 
-        if (i == Item.stick.itemID)
-        {
-                return 100;
-        }
+		if (i == Item.stick.itemID)
+		{
+			return 100;
+		}
 
-        if (i == Item.coal.itemID)
-        {
-                return 1600;
-        }
+		if (i == Item.coal.itemID)
+		{
+			return 1600;
+		}
 
-        if (i == Item.bucketLava.itemID)
-        {
-                return 20000;
-        }
+		if (i == Item.bucketLava.itemID)
+		{
+			return 20000;
+		}
 
-        if (i == Block.sapling.blockID)
-        {
-                return 100;
-        }
+		if (i == Block.sapling.blockID)
+		{
+			return 100;
+		}
 
-        if (i == Item.blazeRod.itemID)
-        {
-                return 2400;
-        }
-        if (i == Block.dirt.blockID)
-        {
-                return 200;
-        }
-        else
-        {
-                return ModLoader.addAllFuel(is.itemID, is.getItemDamage());
-        }
+		if (i == Item.blazeRod.itemID)
+		{
+			return 2400;
+		}
+		if (i == Block.dirt.blockID)
+		{
+			return 200;
+		}
+		else
+		{
+			return ModLoader.addAllFuel(is.itemID, is.getItemDamage());
+		}
 	}
 
 	/**
 	 * Do not make give this method the name canInteractWith because it clashes
 	 * with Container
 	 */
+	@Override
 	public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
-		if (worldObj.getBlockTileEntity(xCoord, yCoord, zCoord) != this) {
+		if (this.worldObj.getBlockTileEntity(this.xCoord, this.yCoord, this.zCoord) != this) {
 			return false;
 		}
 
-		return par1EntityPlayer.getDistanceSq((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D) <= 64D;
+		return par1EntityPlayer.getDistanceSq(this.xCoord + 0.5D, this.yCoord + 0.5D, this.zCoord + 0.5D) <= 64D;
 	}
 
+	@Override
 	public void openChest() {
 	}
 
+	@Override
 	public void closeChest() {
 	}
 
@@ -414,6 +428,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		return false;
 	}
 
+	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		// TODO Auto-generated method stub
 		return true;

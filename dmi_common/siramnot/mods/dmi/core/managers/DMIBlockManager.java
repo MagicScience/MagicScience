@@ -1,20 +1,22 @@
-package siramnot.mods.dmi;
+package siramnot.mods.dmi.core.managers;
 
 import net.minecraft.block.Block;
+import siramnot.mods.dmi.blocks.BlockDMICrystals;
 import siramnot.mods.dmi.blocks.BlockDMIOres;
 import siramnot.mods.dmi.blocks.BlockLiquidator;
 import siramnot.mods.dmi.blocks.BlockMagicGlass;
-import siramnot.mods.dmi.blocks.TileEntityWorkStationBlock;
+import siramnot.mods.dmi.blocks.BlockWorkstation;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityLiquidator;
-import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationBlockEntity;
+import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStation;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
- * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
  * 
+ * Dominus ex Magica et Industria mod.
  * 
- * @author SirAmNot, Jay
+ * @author SirAmNot, JiffyJay
+ * @license Creative-Commons Attribution Non-commercial v3.0
  * 
  */
 public class DMIBlockManager {
@@ -23,21 +25,23 @@ public class DMIBlockManager {
 	public static Block liquidator;
 	public static Block workStation;
 	public static Block ores;
+	public static Block crystals;
 	public static Block magicGlass;
 
 	// Load the blocks
 	public static void load() {
 		// workStation = new TileEntityWorkStationBlock(IDManager.WORK_STATION); Doesn't work
 		liquidator = new BlockLiquidator(IDManager.LIQUIDATOR, false);
-		//		workStation = new BlockWorkstation(IDManager.WORK_STATION_BLOCK);
-		workStation = new TileEntityWorkStationBlock(IDManager.WORK_STATION_BLOCK);
+		workStation = new BlockWorkstation(IDManager.WORK_STATION_BLOCK);
 		ores = new BlockDMIOres(IDManager.ORES);
+		crystals = new BlockDMICrystals(IDManager.CRYSTALS);
 		magicGlass = new BlockMagicGlass(IDManager.MAGIC_GLASS);
 
 		languageRegistry(LanguageRegistry.instance());
 		gameRegistry();
 
 		BlockDMIOres.doRegisters();
+		BlockDMICrystals.doRegisters();
 	}
 
 	// Register the blocks, gives them mod-unique names
@@ -47,7 +51,7 @@ public class DMIBlockManager {
 		GameRegistry.registerBlock(magicGlass, "Elemental Glass");
 
 		GameRegistry.registerTileEntity(TileEntityLiquidator.class, "Tile Entity Liquidator");
-		GameRegistry.registerTileEntity(TileEntityWorkStationBlockEntity.class, "Tile Entity Workstation");
+		GameRegistry.registerTileEntity(TileEntityWorkStation.class, "Tile Entity Workstation");
 
 	}
 

@@ -3,7 +3,7 @@ package siramnot.mods.dmi.recipes;
 import java.util.HashMap;
 import java.util.Map;
 
-import siramnot.mods.dmi.IDManager;
+import siramnot.mods.dmi.core.managers.IDManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;

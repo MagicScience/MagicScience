@@ -1,13 +1,7 @@
 package siramnot.mods.dmi.mobs;
 
-import siramnot.mods.dmi.DMI;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingData;
-import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.SpiderEffectsGroupData;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityLargeFireball;
@@ -18,8 +12,9 @@ import net.minecraft.world.World;
 
 /**
  * 
- * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
+ * Dominus ex Magica et Industria mod.
  * 
+ * @license CC BY-NC-SA 3.0
  * @author Tombenpotter
  * 
  */
@@ -31,18 +26,20 @@ public class EntityBlazeSpider extends EntitySpider {
 	public EntityBlazeSpider(World par1World) {
 		super(par1World);
 		this.isImmuneToFire = true;
-		this.texture = "/mods/dmi/textures/mob/EntityBlazeSpider.png";
-	
+		
+		this.texture = "assets/mods/dmi/mob/EntityBlazeSpider.png";
 	}
 
 	public void EntitySpider(World par1World) {
 	}
 
+	@Override
 	protected void entityInit() {
 		super.entityInit();
 		this.dataWatcher.addObject(20, new Byte((byte) 0));
 	}
 
+	@Override
 	public void onUpdate() {
 		super.onUpdate();
 
@@ -51,16 +48,19 @@ public class EntityBlazeSpider extends EntitySpider {
 		}
 	}
 
+	@Override
 	public void setBesideClimbableBlock(boolean isCollidedHorizontally) {
-		
+
 	}
 
+	@Override
 	protected void func_110147_ax() {
 		super.func_110147_ax();
 		this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(16.0D);
 		this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.800000011920929D);
 	}
 
+	@Override
 	protected Entity findPlayerToAttack() {
 		float f = this.getBrightness(1.0F);
 
@@ -72,29 +72,34 @@ public class EntityBlazeSpider extends EntitySpider {
 		}
 	}
 
+	@Override
 	protected String getLivingSound() {
 		return "mob.spider.say";
 	}
 
+	@Override
 	protected String getHurtSound() {
 		return "mob.spider.say";
 	}
 
+	@Override
 	protected String getDeathSound() {
 		return "mob.spider.death";
 	}
 
+	@Override
 	protected void playStepSound(int par1, int par2, int par3, int par4) {
 		this.playSound("mob.spider.step", 0.15F, 1.0F);
 	}
 
+	@Override
 	protected void attackEntity(Entity par1Entity, float par2) {
-		if (this.attackTime <= 0 && par2 < 2.0F && par1Entity.boundingBox.maxY > this.boundingBox.minY && par1Entity.boundingBox.minY < this.boundingBox.maxY) {
+		if ((this.attackTime <= 0) && (par2 < 2.0F) && (par1Entity.boundingBox.maxY > this.boundingBox.minY) && (par1Entity.boundingBox.minY < this.boundingBox.maxY)) {
 			this.attackTime = 10;
 			this.attackEntityAsMob(par1Entity);
 		} else if (par2 < 30.0F) {
 			double d0 = par1Entity.posX - this.posX;
-			double d1 = par1Entity.boundingBox.minY + (double) (par1Entity.height / 2.0F) - (this.posY + (double) (this.height / 2.0F));
+			double d1 = (par1Entity.boundingBox.minY + par1Entity.height / 2.0F) - (this.posY + this.height / 2.0F);
 			double d2 = par1Entity.posZ - this.posZ;
 
 			if (this.attackTime == 0) {
@@ -116,14 +121,14 @@ public class EntityBlazeSpider extends EntitySpider {
 					this.worldObj.playAuxSFXAtEntity((EntityPlayer) null, 1009, (int) this.posX, (int) this.posY, (int) this.posZ, 0);
 
 					for (int i = 0; i < 1; ++i) {
-						EntityLargeFireball entityLargefireball = new EntityLargeFireball(this.worldObj, this, d0 + this.rand.nextGaussian() * (double) f1, d1, d2 + this.rand.nextGaussian() * (double) f1);
-						entityLargefireball.posY = this.posY + (double) (this.height / 2.0F) + 0.5D;
+						EntityLargeFireball entityLargefireball = new EntityLargeFireball(this.worldObj, this, d0 + (this.rand.nextGaussian() * f1), d1, d2 + (this.rand.nextGaussian() * f1));
+						entityLargefireball.posY = this.posY + this.height / 2.0F + 0.5D;
 						this.worldObj.spawnEntityInWorld(entityLargefireball);
 					}
 				}
 			}
 
-			this.rotationYaw = (float) (Math.atan2(d2, d0) * 180.0D / Math.PI) - 90.0F;
+			this.rotationYaw = (float) ((Math.atan2(d2, d0) * 180.0D) / Math.PI) - 90.0F;
 			this.hasAttacked = true;
 		}
 	}
@@ -139,14 +144,30 @@ public class EntityBlazeSpider extends EntitySpider {
 	 * has recently been hit by a player. @param par2 - Level of Looting used to
 	 * kill this mob.
 	 */
+	@Override
 	protected void dropFewItems(boolean par1, int par2) {
 		super.dropFewItems(par1, par2);
 
-		if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0)) {
+		if (par1 && ((this.rand.nextInt(3) == 0) || (this.rand.nextInt(1 + par2) > 0))) {
 			this.dropItem(Item.spiderEye.itemID, 1);
 			this.dropItem(Item.silk.itemID, 2);
 			this.dropItem(Item.blazePowder.itemID, 1);
 		}
 	}
-	
+
+	{
+
+		//Trying to make the spider tameable, but still working on it
+		/*
+		 * public void setTamed(boolean par1) { if (par1) {
+		 * this.func_110148_a(SharedMonsterAttributes
+		 * .field_111267_a).func_111128_a(20.0D); } else {
+		 * this.func_110148_a(SharedMonsterAttributes
+		 * .field_111267_a).func_111128_a(8.0D); } }
+		 */
+
+
+
+	}
+
 }

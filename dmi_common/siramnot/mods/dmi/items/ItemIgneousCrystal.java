@@ -1,17 +1,7 @@
 package siramnot.mods.dmi.items;
 
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumMovingObjectType;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
-import net.minecraft.world.World;
 import siramnot.mods.dmi.DMI;
 
 public class ItemIgneousCrystal extends Item {
@@ -25,12 +15,13 @@ public class ItemIgneousCrystal extends Item {
 
 	public ItemIgneousCrystal(int id) { // I like id over the obfuscated par1.
 		super(id);
-		setCreativeTab(DMI.TAB_CREATIVE);
-		setUnlocalizedName(U_NAME);
-		setMaxStackSize(MAX_STACK_SIZE);
+		this.setCreativeTab(DMI.TAB_CREATIVE);
+		this.setUnlocalizedName(U_NAME);
+		this.setMaxStackSize(MAX_STACK_SIZE);
 	}
 
 	// Registers the texture in game
+	@Override
 	public void registerIcons(IconRegister ir) {
 		this.itemIcon = ir.registerIcon(TEXTUREPATH);
 	}

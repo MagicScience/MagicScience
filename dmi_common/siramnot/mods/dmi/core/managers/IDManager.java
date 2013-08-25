@@ -1,10 +1,13 @@
-package siramnot.mods.dmi;
+package siramnot.mods.dmi.core.managers;
 
 
 /**
- * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
+ * 
+ * Dominus ex Magica et Industria mod.
  * 
  * @author SirAmNot, Tombenpotter
+ * @license Creative-Commons Attribution Non-commercial v3.0
+ * 
  */
 // I (Sir) re-wrote the Ore code =]
 public class IDManager {
@@ -12,8 +15,9 @@ public class IDManager {
 	// Blocks
 	// I wouldn't use item	ID's under 255, those are reserved for vanilla purposes.
 	public static final int LIQUIDATOR = 1400; // 1,400
-	public static final int WORK_STATION_BLOCK = 1403; //1,403
-	public static final int ORES = 1401;
+	public static final int WORK_STATION_BLOCK = 1401; //1,403
+	public static final int ORES = 1402;
+	public static final int CRYSTALS = 1403;
 	public static final int MAGIC_GLASS = 1410;
 
 	// Items

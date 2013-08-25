@@ -1,4 +1,4 @@
-package siramnot.mods.dmi;
+package siramnot.mods.dmi.core.managers;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import siramnot.mods.dmi.items.BasicScroll;
