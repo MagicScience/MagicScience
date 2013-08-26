@@ -1,7 +1,11 @@
 package siramnot.mods.dmi.items;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import siramnot.mods.dmi.DMI;
 
 public class ItemConsistoriumCrystal extends Item {
@@ -30,5 +34,5 @@ public class ItemConsistoriumCrystal extends Item {
 	public static String getName() {
 		return NAME;
 	}
-
+	
 }

@@ -6,12 +6,14 @@ import siramnot.mods.dmi.items.EnumStaff;
 import siramnot.mods.dmi.items.ItemAqueousCrystal;
 import siramnot.mods.dmi.items.ItemCaelCrystal;
 import siramnot.mods.dmi.items.ItemConsistoriumCrystal;
+import siramnot.mods.dmi.items.ItemFoodMagicBread;
 import siramnot.mods.dmi.items.ItemIgneousCrystal;
 import siramnot.mods.dmi.items.ItemLightningStaff;
 import siramnot.mods.dmi.items.ItemStaff;
 import siramnot.mods.dmi.items.ScrollExample;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 
 /**
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
@@ -28,6 +30,7 @@ public class DMIItemManager {
 	public static ItemStaff uselessStaff;
 	public static Item consistoriumCrystal;
 	public static Item caelCrystal;
+	public static ItemFoodMagicBread magicBread;
 	
 	public static ItemStaff lightningStaff;
 
@@ -40,8 +43,10 @@ public class DMIItemManager {
 		uselessStaff = new ItemStaff(IDManager.BASIC_STAFF);
 		lightningStaff = new ItemLightningStaff(IDManager.LIGHTNING_STAFF, EnumStaff.LIGHTNING);
 		caelCrystal = new ItemCaelCrystal(IDManager.CAEL_CRYSTAL);
+		magicBread = new ItemFoodMagicBread(IDManager.MAGIC_BREAD);
 
 		languageRegistry(LanguageRegistry.instance());
+		miscRegisters();
 	}
 
 	private static void languageRegistry(LanguageRegistry lr) { // Added a parameter to this method to make it simpler by typing lr.(...) instead of LanguageRegistry.(...);
@@ -52,6 +57,10 @@ public class DMIItemManager {
 		lr.addName(uselessStaff, uselessStaff.getIGN());
 		lr.addName(lightningStaff, lightningStaff.getIGN());
 		lr.addName(caelCrystal, ItemCaelCrystal.getName());
+	}
+	
+	private static void miscRegisters() {
+		magicBread.doRegisters();
 	}
 
 }

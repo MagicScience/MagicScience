@@ -81,9 +81,6 @@ public class DMI {
 	// Post init.
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
-		// Do interaction with other mods right here.
-		for (int i = 0; i < 10; ++i) {
-			System.out.print(i);
-		}
+//		Loader.isModLoaded(modname)
 	}
 }

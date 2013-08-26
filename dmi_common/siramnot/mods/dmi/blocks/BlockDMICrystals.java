@@ -29,10 +29,10 @@ public class BlockDMICrystals extends Block {
 
 	public static BlockDMICrystals dmiCrystals;
 
-	private static final int WATER_ORE = 0;
-	private static final int EARTH_ORE = 1;
-	private static final int FIRE_ORE = 2;
-	private static final int AIR_ORE = 3;
+	public static final int WATER_ORE = 0;
+	public static final int EARTH_ORE = 1;
+	public static final int FIRE_ORE = 2;
+	public static final int AIR_ORE = 3;
 
 	private static final String UNLOCALIZED_NAME = "dmiCrytals";
 	private static final String TEXTURE_PREFIX = DMI.MOD_ID + ":";
@@ -41,7 +41,7 @@ public class BlockDMICrystals extends Block {
 	private static Icon[] iconArray;
 
 	private static final String[] NAMES = new String[] {
-		"Aqueous Crystal Block", "Terran Crystal Block", "Igneous Crystal Block", "Aereous Crystal Block" // Air
+		"Aqueous Crystal Block", "Terreous Crystal Block", "Igneous Crystal Block", "Aereous Crystal Block" // Air
 	};
 	private static final String[] TEXTURE_ARRAY = new String[] {
 		ItemBlockDMICrystals.getName(WATER_ORE), // Water
