@@ -18,16 +18,19 @@ import net.minecraft.world.World;
  * @author Tombenpotter
  * 
  */
+
 public class EntityBlazeSpider extends EntitySpider {
 	private int field_70846_g;
-	private Icon EntityBlazeSpider;
-	private String texture;
+	
+	
+	
+	
 
 	public EntityBlazeSpider(World par1World) {
 		super(par1World);
 		this.isImmuneToFire = true;
+		this.setSize(0.8F, 0.4F);
 		
-		this.texture = "assets/mods/dmi/mob/EntityBlazeSpider.png";
 	}
 
 	public void EntitySpider(World par1World) {
