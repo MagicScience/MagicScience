@@ -9,14 +9,20 @@ import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.tileentity.*;
 
-public class DMIGuiManager implements IGuiHandler {
+public class GuiHandler implements IGuiHandler {
 
+	public static final int LIQUIDATOR_ID = 0;
+	public static final int INFUSER_ID = 1;
+	
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-
 		switch (ID) {
-		case 0:
+		
+		case LIQUIDATOR_ID:
 			return new ContainerLiquidator(player.inventory, (TileEntityLiquidator) world.getBlockTileEntity(x, y, z));
+			
+		case INFUSER_ID:
+			return new Object();
 		}
 
 		return null;
@@ -25,8 +31,10 @@ public class DMIGuiManager implements IGuiHandler {
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		switch (ID) {
-		case 0:
+		case LIQUIDATOR_ID:
 			return new GuiLiquidator(player.inventory, (TileEntityLiquidator) world.getBlockTileEntity(x, y, z));
+		case INFUSER_ID:
+			return new Object();
 		}
 
 		return null;

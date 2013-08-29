@@ -13,7 +13,7 @@ import net.minecraftforge.common.Configuration;
  * @author SirAmNot
  * 
  */
-public class DMIConfigManager {
+public class ConfigManager {
 
 	private static final String CATEGORY = "Dominus ex Magica et Machina";
 
@@ -52,6 +52,7 @@ public class DMIConfigManager {
 
 	private static void load(Configuration cfg) {
 		doWorldStuff(cfg);
+		doItemStuff(cfg);
 		isModEnabled = cfg.get(cfg.CATEGORY_GENERAL, modid + "_enableMod", true).getBoolean(true); // Enable or disable the mod.
 	}
 
@@ -71,6 +72,10 @@ public class DMIConfigManager {
 			System.err.println(ERR[ERR_WORLD]);
 			e.printStackTrace();
 		}
+	}
+	
+	private static void doItemStuff(Configuration cfg) {
+		
 	}
 
 }

@@ -1,7 +1,7 @@
 package siramnot.mods.dmi.core.managers;
 
 import net.minecraft.block.Block;
-import siramnot.mods.dmi.blocks.BlockDMICrystals;
+import siramnot.mods.dmi.blocks.BldockDMICrystals;
 import siramnot.mods.dmi.blocks.BlockDMIOres;
 import siramnot.mods.dmi.blocks.BlockLiquidator;
 import siramnot.mods.dmi.blocks.BlockMagicGlass;
@@ -19,7 +19,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  * @license Creative-Commons Attribution Non-commercial v3.0
  * 
  */
-public class DMIBlockManager {
+public class BlockManager {
 
 	//Blocks
 	public static Block liquidator;
@@ -31,17 +31,17 @@ public class DMIBlockManager {
 	// Load the blocks
 	public static void load() {
 		// workStation = new TileEntityWorkStationBlock(IDManager.WORK_STATION); Doesn't work
-		liquidator = new BlockLiquidator(IDManager.LIQUIDATOR, false);
-		workStation = new BlockWorkstation(IDManager.WORK_STATION_BLOCK);
-		ores = new BlockDMIOres(IDManager.ORES);
-		crystals = new BlockDMICrystals(IDManager.CRYSTALS);
-		magicGlass = new BlockMagicGlass(IDManager.MAGIC_GLASS);
+		liquidator = new BlockLiquidator(IDManager.liquidator, false);
+		workStation = new BlockWorkstation(IDManager.workstation);
+		ores = new BlockDMIOres(IDManager.ores);
+		crystals = new BldockDMICrystals(IDManager.oreStorage);
+		magicGlass = new BlockMagicGlass(IDManager.magicGlass);
 
 		languageRegistry(LanguageRegistry.instance());
 		gameRegistry();
 
 		BlockDMIOres.doRegisters();
-		BlockDMICrystals.doRegisters();
+		BldockDMICrystals.doRegisters();
 	}
 
 	// Register the blocks, gives them mod-unique names

@@ -12,7 +12,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import siramnot.mods.dmi.mobs.EntityKaldymBoss;
 
-public class DMIEntityManager {
+public class EntityManager {
 
 	private static int startEID = 300;
 
@@ -21,7 +21,7 @@ public class DMIEntityManager {
 		languageRegistry(LanguageRegistry.instance());
 		registerSpawnEggs();
 		
-		DMI.proxy.registerRenderers();
+		DMI.proxy.doProxyStuff();
 	}
 
 	private static void registerSpawnEggs() {

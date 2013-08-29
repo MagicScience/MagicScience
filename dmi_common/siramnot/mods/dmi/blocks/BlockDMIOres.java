@@ -9,14 +9,14 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import siramnot.mods.dmi.DMI;
-import siramnot.mods.dmi.core.managers.DMIItemManager;
+import siramnot.mods.dmi.core.managers.ItemManager;
+import siramnot.mods.dmi.items.ItemGem;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -51,12 +51,11 @@ public class BlockDMIOres extends Block {
 		"Aereous Ore" // Air ore
 	};
 
-	private static final Item[] DROPS = new Item[] {
-		DMIItemManager.aqueousCrystal, // Water ore
-		DMIItemManager.consistoriumCrystal, // Earth ore
-		DMIItemManager.igneousCrystal, // Fire ore
-		Item.arrow
-		// Air ore {-placeholder-}
+	private static final ItemStack[] DROPS = new ItemStack[] {
+		((ItemGem) ItemManager.crystals).getSubItem(0,1),
+		((ItemGem) ItemManager.crystals).getSubItem(1,1),
+		((ItemGem) ItemManager.crystals).getSubItem(2,1),
+		((ItemGem) ItemManager.crystals).getSubItem(3,1),
 	};
 
 	private static final String[] TEXTURE_ARRAY = new String[] {
@@ -115,6 +114,7 @@ public class BlockDMIOres extends Block {
 	@Override
 	public int idDropped(int meta, Random random, int id) {
 		return DROPS[meta].itemID;
+//		return 1;
 	}
 
 	// Amount to drop

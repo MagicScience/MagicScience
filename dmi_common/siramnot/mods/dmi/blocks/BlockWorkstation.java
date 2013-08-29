@@ -101,16 +101,15 @@ public class BlockWorkstation extends BlockContainer {
 		return tof;
 	}
 
-	private boolean setFacing(World world, int x, int y, int z, int initDir) {
+	private void setFacing(World world, int x, int y, int z, int initDir) {
 		final int i = 2;
 		final int dir_count = 3;
 		final int invert_dir = 2;
 
 		final int dir = (initDir + invert_dir) & dir_count;
 		world.setBlockMetadataWithNotify(x, y, z, dir, i);
-		return true;
 	}
-
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {

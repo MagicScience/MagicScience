@@ -6,12 +6,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import siramnot.mods.dmi.DMI;
-import siramnot.mods.dmi.util.SpriteManager;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -25,9 +26,9 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @license Creative-Commons Attribution Non-commercial v3.0
  * 
  */
-public class BlockDMICrystals extends Block {
+public class BldockDMICrystals extends Block {
 
-	public static BlockDMICrystals dmiCrystals;
+	public static BldockDMICrystals dmiCrystals;
 
 	public static final int WATER_ORE = 0;
 	public static final int EARTH_ORE = 1;
@@ -51,7 +52,7 @@ public class BlockDMICrystals extends Block {
 	};
 
 	// Constructor
-	public BlockDMICrystals(int id) {
+	public BldockDMICrystals(int id) {
 		super(id, Material.iron);
 		this.setCreativeTab(DMI.TAB_CREATIVE);
 		this.setHardness(HARDNESS);
@@ -126,5 +127,20 @@ public class BlockDMICrystals extends Block {
 		public static String getName(int loc) {
 			return PRIVATE_NAMES[loc];
 		}
+		
+	}
+	
+	/**
+	 * Test method
+	 */
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float j, float k, float l) {
+		if (!world.isRemote)return false;
+		String className = this.getClass().getSimpleName();
+		int lastG = className.lastIndexOf('D');
+		String str = className.substring(0, lastG);
+		
+		player.addChatMessage(str + " says:\n" + world.getBlockMetadata(x, y, z));
+		return true;
 	}
 }

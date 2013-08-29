@@ -3,13 +3,13 @@ package siramnot.mods.dmi;
 import buildcraft.BuildCraftCore;
 import net.minecraft.creativetab.CreativeTabs;
 import siramnot.mods.dmi.core.ClientProxy;
-import siramnot.mods.dmi.core.managers.DMIBlockManager;
-import siramnot.mods.dmi.core.managers.DMIConfigManager;
-import siramnot.mods.dmi.core.managers.DMIEntityManager;
-import siramnot.mods.dmi.core.managers.DMIItemManager;
+import siramnot.mods.dmi.core.managers.BlockManager;
+import siramnot.mods.dmi.core.managers.ConfigManager;
+import siramnot.mods.dmi.core.managers.EntityManager;
+import siramnot.mods.dmi.core.managers.ItemManager;
 import siramnot.mods.dmi.core.managers.DMIRecipeManager;
 import siramnot.mods.dmi.core.managers.DMIWorldGenManager;
-import siramnot.mods.dmi.core.managers.DMIGuiManager;
+import siramnot.mods.dmi.core.managers.GuiHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -32,9 +32,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
  *         JiffyJay
  * 
  */
-@Mod(modid = DMI.MOD_ID, name = DMI.MOD_NAM, version = DMI.MOD_VER, dependencies = DMI.REQ_POST
-		+ "FML")
-@NetworkMod(channels = { "" }, clientSideRequired = true, serverSideRequired = true)
+@Mod(modid = DMI.MOD_ID, name = DMI.MOD_NAM, version = DMI.MOD_VER, dependencies = DMI.REQ_POST + "FML")
+@NetworkMod(clientSideRequired = true, serverSideRequired = true)
 public class DMI {
 
 	@Instance(DMI.MOD_ID)
@@ -44,8 +43,7 @@ public class DMI {
 	 * I use proxies for rendering, but a GUI Handler for GUI's and Containers
 	 */
 	public static final String PROXY_LOCATION = "siramnot.mods.dmi.core";
-	@SidedProxy(clientSide = PROXY_LOCATION + ".ClientProxy", serverSide = PROXY_LOCATION
-			+ ".CommonProxy")
+	@SidedProxy(clientSide = PROXY_LOCATION + ".ClientProxy", serverSide = PROXY_LOCATION + ".CommonProxy")
 	public static ClientProxy proxy;
 
 	// Static constants and variables
@@ -62,25 +60,37 @@ public class DMI {
 	// Pre Init. Config here.
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
-		DMIConfigManager.init(e.getSuggestedConfigurationFile());
-		DMIItemManager.load();
-		DMIBlockManager.load();
+		ConfigManager.init(e.getSuggestedConfigurationFile());
+		if (!ConfigManager.isModEnabled) {
+			System.out.println("Mod disabled via the config file!");
+			return;
+		}
+		instance = this;
+		
+		ItemManager.load();
+		BlockManager.load();
 	}
 
 	// Load the mod itself.
 	@EventHandler
 	public void load(FMLInitializationEvent e) {
 		// Create custom creative tab for items
-		DMIEntityManager.load();
+		if (!ConfigManager.isModEnabled) return;
+		EntityManager.load();
 		DMIRecipeManager.load();
 
 		GameRegistry.registerWorldGenerator(DMIWorldGenManager.getInstance());
-		NetworkRegistry.instance().registerGuiHandler(this, new DMIGuiManager());
+		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 	}
 
 	// Post init.
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
-//		Loader.isModLoaded(modname)
+		if (!ConfigManager.isModEnabled) return;
+		
+		 if(Loader.isModLoaded("BuildCraft|Sillicon")) {
+			 System.out.println("BuildCraft is loaded, enabling compat.");
+		 }
+		 
 	}
 }
