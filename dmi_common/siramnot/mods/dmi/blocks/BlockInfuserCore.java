@@ -12,6 +12,15 @@ import siramnot.mods.dmi.core.managers.GuiHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+/**
+ * 
+ * 
+ * Dominus ex Magica et Industria mod.
+ * 
+ * @author SirAmNot
+ * @license Creative-Commons Attribution Non-commercial v3.0
+ *
+ */
 public class BlockInfuserCore extends BlockContainer {
 
 	public BlockInfuserCore(int id) {
@@ -28,7 +37,7 @@ public class BlockInfuserCore extends BlockContainer {
 		TileEntityInfuser te = (TileEntityInfuser) world.getBlockTileEntity(x, y, z);
 		if (te != null) {
 			if (!te.getValidation() && te.checkFormation()) {
-//				te.convert(); TODOixïñ
+//				te.convert(); XXX fix this
 				player.addChatMessage("Infuser succesfully created!");
 			}
 			

@@ -16,9 +16,10 @@ public class InfuserGui extends GuiContainer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
-		String className = this.getClass().toString();
+		String className = this.getClass().getSimpleName();
 		int lastG = className.lastIndexOf('G');
 		String str = className.substring(0, lastG);
+		
 		int col = 0x0;
 		int x = 1;
 		int y = 1;

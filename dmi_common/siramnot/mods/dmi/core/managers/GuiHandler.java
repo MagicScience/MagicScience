@@ -9,6 +9,16 @@ import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.tileentity.*;
 
+
+/**
+ * 
+ * 
+ * Dominus ex Magica et Industria mod.
+ * 
+ * @author SirAmNot
+ * @license Creative-Commons Attribution Non-commercial v3.0
+ *
+ */
 public class GuiHandler implements IGuiHandler {
 
 	public static final int LIQUIDATOR_ID = 0;
@@ -39,5 +49,7 @@ public class GuiHandler implements IGuiHandler {
 
 		return null;
 	}
+	
+	//FIXME: add infuser
 
 }

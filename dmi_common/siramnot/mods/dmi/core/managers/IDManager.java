@@ -11,8 +11,8 @@ package siramnot.mods.dmi.core.managers;
 public class IDManager {
 
 	// Blocks
-	public static int liquidator = 1400; // 1,400
-	public static int workstation = 1401; // 1,403
+	public static int liquidator = 1400;
+	public static int workstation = 1401;
 	public static int ores = 1402;
 	public static int oreStorage = 1403;
 	public static int magicGlass = 1410;
@@ -29,5 +29,5 @@ public class IDManager {
 	public static int LIGHTNING_STAFF = 14007;
 
 	public static int MAGIC_BREAD = 14008;
-
+	public static int DEBUG_FLIGHT = 14009;
 }

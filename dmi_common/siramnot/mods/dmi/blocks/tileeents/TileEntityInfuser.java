@@ -40,12 +40,12 @@ public class TileEntityInfuser extends TileEntity {
 	}
 
 	public void validate() {
-		// TODO: Add validation code
+		// FIXME: Add validation code
 		isValid = true;
 	}
 
 	public void unvalidate() {
-		// TODO: Add un-validation code
+		// FIXME: Add un-validation code
 		isValid = false;
 	}
 

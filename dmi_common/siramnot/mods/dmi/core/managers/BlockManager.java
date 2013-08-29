@@ -1,7 +1,7 @@
 package siramnot.mods.dmi.core.managers;
 
 import net.minecraft.block.Block;
-import siramnot.mods.dmi.blocks.BldockDMICrystals;
+import siramnot.mods.dmi.blocks.BlockDMICrystals;
 import siramnot.mods.dmi.blocks.BlockDMIOres;
 import siramnot.mods.dmi.blocks.BlockLiquidator;
 import siramnot.mods.dmi.blocks.BlockMagicGlass;
@@ -34,14 +34,14 @@ public class BlockManager {
 		liquidator = new BlockLiquidator(IDManager.liquidator, false);
 		workStation = new BlockWorkstation(IDManager.workstation);
 		ores = new BlockDMIOres(IDManager.ores);
-		crystals = new BldockDMICrystals(IDManager.oreStorage);
+		crystals = new BlockDMICrystals(IDManager.oreStorage);
 		magicGlass = new BlockMagicGlass(IDManager.magicGlass);
 
 		languageRegistry(LanguageRegistry.instance());
 		gameRegistry();
 
 		BlockDMIOres.doRegisters();
-		BldockDMICrystals.doRegisters();
+		BlockDMICrystals.doRegisters();
 	}
 
 	// Register the blocks, gives them mod-unique names

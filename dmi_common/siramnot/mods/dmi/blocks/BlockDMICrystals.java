@@ -26,9 +26,9 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @license Creative-Commons Attribution Non-commercial v3.0
  * 
  */
-public class BldockDMICrystals extends Block {
+public class BlockDMICrystals extends Block {
 
-	public static BldockDMICrystals dmiCrystals;
+	public static BlockDMICrystals dmiCrystals;
 
 	public static final int WATER_ORE = 0;
 	public static final int EARTH_ORE = 1;
@@ -52,7 +52,7 @@ public class BldockDMICrystals extends Block {
 	};
 
 	// Constructor
-	public BldockDMICrystals(int id) {
+	public BlockDMICrystals(int id) {
 		super(id, Material.iron);
 		this.setCreativeTab(DMI.TAB_CREATIVE);
 		this.setHardness(HARDNESS);
@@ -130,17 +130,4 @@ public class BldockDMICrystals extends Block {
 		
 	}
 	
-	/**
-	 * Test method
-	 */
-	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float j, float k, float l) {
-		if (!world.isRemote)return false;
-		String className = this.getClass().getSimpleName();
-		int lastG = className.lastIndexOf('D');
-		String str = className.substring(0, lastG);
-		
-		player.addChatMessage(str + " says:\n" + world.getBlockMetadata(x, y, z));
-		return true;
-	}
 }

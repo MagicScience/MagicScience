@@ -1,9 +1,8 @@
 package siramnot.mods.dmi.items;
 
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferInt;
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,11 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import siramnot.mods.dmi.DMI;
-import siramnot.mods.dmi.blocks.BldockDMICrystals;
-import siramnot.mods.dmi.blocks.BldockDMICrystals.ItemBlockDMICrystals;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -107,25 +103,32 @@ public class ItemFoodMagicBread extends ItemFood {
 	@Override
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
 		super.onEaten(stack, world, player);
+		ItemStack milk = (new ItemStack(Item.bucketMilk));
 
+		
 		switch (stack.getItemDamage()) {
 		case 0: // water
+			player.curePotionEffects(milk);
 			player.addPotionEffect(WATER_EFFECT);
 			break;
 
 		case 1: // earth
+			player.curePotionEffects(milk);
 			player.addPotionEffect(EARTH_EFFECT);
 			break;
 
 		case 2: // fire
+			player.curePotionEffects(milk);
 			player.addPotionEffect(FIRE_EFFECT);
 			break;
 
 		case 3: // air
+			player.curePotionEffects(milk);
 			player.addPotionEffect(AIR_EFFECT);
 			break;
 
 		case 4: // elemental
+			player.curePotionEffects(milk);
 			player.addPotionEffect(ELEMENTAL_EFFECT);
 			break;
 		}
