@@ -3,6 +3,7 @@ package siramnot.mods.dmi.mobs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -18,7 +19,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 
-
 /**
  * 
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
@@ -27,13 +27,11 @@ import net.minecraft.world.World;
  * 
  */
 
-public class EntityKaldymBoss extends EntityMob implements IBossDisplayData, IMob
+public class EntityKaldymBoss extends EntityMob implements IBossDisplayData
 {
 
 
 	private float moveSpeed;
-	private String health;
-
 
 	public EntityKaldymBoss(World par1World) {
 		super(par1World);
@@ -45,14 +43,8 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData, IMo
 		this.tasks.addTask(3, new EntityAIWander(this, this.moveSpeed));
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 		this.experienceValue = 70;
-		this.getMaxHealth();
-		// TODO Auto-generated constructor stub
-	}
-
-
-	public int getMaxHealth(){
-
-		return 100;
+				
+		
 
 	}
 
@@ -64,7 +56,7 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData, IMo
 	@Override
 	public EnumCreatureAttribute getCreatureAttribute()
 	{
-		return EnumCreatureAttribute.UNDEAD;
+		return EnumCreatureAttribute.UNDEFINED;
 	}
 
 	@Override
@@ -79,47 +71,44 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData, IMo
 	{
 		if (super.attackEntityAsMob(par1Entity))
 		{
-			if (par1Entity instanceof EntityLivingBase)
-			{
-				byte b0 = 0;
-
-				if (this.worldObj.difficultySetting > 0)
-				{
-					if (this.worldObj.difficultySetting == 2)
-					{
-						b0 = 7;
-					}
-					else if (this.worldObj.difficultySetting == 3)
-					{
-						b0 = 15;
-					}
-				}
-
-				if (b0 > 0)
-				{
-					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(Potion.confusion.id, b0 * 20, 0));
-					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(Potion.wither.id, b0 * 20, 0));
-				}
+			
+					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(Potion.confusion.id, 200, 0));
+					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(Potion.wither.id, 100, 0));
+				
 			}
 
 			return true;
-		}
-		else
-		{
-			return false;
-		}
+		
 	}
 
+	 @Override
+	    protected void func_110147_ax()
+	    {
+	        super.func_110147_ax();
+	        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(100.0D); 
+	    }
 
+	 //public int getBossHealth() {
+	//	return ; 
+	// }
+	 
+	 protected String getLivingSound()
+	    {
+	        return "mob.zombie.say";
+	    }
+	 
+	  protected String getHurtSound()
+	    {
+	        return "mob.skeleton.hurt";
+	    }
 
-	public void renderBossHealth (EntityKaldymBoss Boss)
-	{
-		BossStatus.func_82824_a(Boss, true);
-	}
-
-
+	  protected String getDeathSound()
+	    {
+	        return "mob.creeper.death";
+	    }
 
 }
+
 
 
 
