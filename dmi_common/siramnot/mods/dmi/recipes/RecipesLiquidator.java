@@ -23,17 +23,8 @@ public class RecipesLiquidator {
 	 */
 
 	private RecipesLiquidator(){
-		/*
-		 * 	if (is.getItem().itemID == IDManager.AQUEOUS_CRYSTAL)
-		 *  Problematic statement, changed it to:
-		 *  if (is.equals(new ItemStack(DMIItemManager.aqueousCrystal)))
-		 * 
-		 * 
-		 * 
-		 * -SirAmNot
-		 */
-		addRecipe(Block.dirt.blockID, new ItemStack(Block.cobblestone, 1, 0), 0.7F);
-		addRecipe(Block.obsidian.blockID,null, 0.0f); // convert obsidian into raw lava, test recipe for now
+//		addRecipe(Block.dirt.blockID, new ItemStack(Block.cobblestone, 1, 0), 0.7F);
+//		addRecipe(Block.obsidian.blockID,null, 0.0f); // convert obsidian into raw lava, test recipe for now
 	}
 
 	public void addRecipe(int par1ItemID, ItemStack par2ItemStack, float par3Float) {

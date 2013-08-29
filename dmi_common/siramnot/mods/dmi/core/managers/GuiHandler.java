@@ -2,7 +2,7 @@ package siramnot.mods.dmi.core.managers;
 
 import siramnot.mods.dmi.blocks.tileeents.TileEntityLiquidator;
 import siramnot.mods.dmi.gui.ContainerLiquidator;
-import siramnot.mods.dmi.gui.GuiLiquidator;
+import siramnot.mods.dmi.gui.LiquidatorGui;
 import net.minecraft.client.gui.inventory.GuiFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -42,7 +42,7 @@ public class GuiHandler implements IGuiHandler {
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		switch (ID) {
 		case LIQUIDATOR_ID:
-			return new GuiLiquidator(player.inventory, (TileEntityLiquidator) world.getBlockTileEntity(x, y, z));
+			return new LiquidatorGui(player.inventory, (TileEntityLiquidator) world.getBlockTileEntity(x, y, z));
 		case INFUSER_ID:
 			return new Object();
 		}

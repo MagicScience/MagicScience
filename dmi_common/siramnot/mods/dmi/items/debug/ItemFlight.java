@@ -30,15 +30,26 @@ public class ItemFlight extends Item {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+		if (player.isAirBorne)
+			return stack;
 		player.capabilities.allowFlying = !player.capabilities.allowFlying;
 		flightEnabled = player.capabilities.allowFlying;
-		
+
 		if (iconThing != null) {
 			this.itemIcon = updateTexture(iconThing);
 		}
 		return stack;
 	}
-	
+
+	@Override
+	public boolean onDroppedByPlayer(ItemStack item, EntityPlayer player) {
+		player.capabilities.allowFlying = flightEnabled = false;
+		if (iconThing != null)
+			updateTexture(iconThing);
+		
+		return true;
+	}
+
 	private Icon updateTexture(IconRegister iconRegister) {
 		return (flightEnabled) ? Item.emerald.getIconFromDamage(0) : Item.flint.getIconFromDamage(0);
 	}

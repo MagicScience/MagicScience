@@ -8,12 +8,13 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.world.biome.BiomeGenBase;
 import siramnot.mods.dmi.DMI;
-import siramnot.mods.dmi.mobs.BlazeSpiderRender;
 import siramnot.mods.dmi.mobs.EntityBlazeSpider;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import siramnot.mods.dmi.mobs.EntityKaldymBoss;
+import siramnot.mods.dmi.mobs.render.RenderBlazeSpider;
+import siramnot.mods.dmi.mobs.render.RenderKaldymBoss;
 
 /**
  * 
@@ -50,25 +51,26 @@ public class EntityManager {
 	}
 
 	private static void renderEntityModels(RenderingRegistry rr) throws Exception {
-		rr.registerEntityRenderingHandler(FIRE_SPIDER_CLASS, new BlazeSpiderRender());
+		rr.registerEntityRenderingHandler(KALDYM_BOSS_CLASS, new RenderKaldymBoss());
+		rr.registerEntityRenderingHandler(FIRE_SPIDER_CLASS, new RenderBlazeSpider());
 	}
 
 	private static void registerSpawnEggs() {
-		registerEntityEgg(FIRE_SPIDER_CLASS, 0x99360F, 0xE4E864);
 		registerEntityEgg(KALDYM_BOSS_CLASS, 0x99111F, 0xE5685);
+		registerEntityEgg(FIRE_SPIDER_CLASS, 0x99360F, 0xE4E864);
 	}
 
 	private static void languageRegistry(LanguageRegistry lr) {
-		LanguageRegistry.instance().addStringLocalization(entityLoc + FIRE_SPIDER_NAME + nameSuff, FIRE_SPIDER_NAME);
 		LanguageRegistry.instance().addStringLocalization(entityLoc + KALDYM_BOSS_NAME + nameSuff, KALDYM_BOSS_NAME);
+		LanguageRegistry.instance().addStringLocalization(entityLoc + FIRE_SPIDER_NAME + nameSuff, FIRE_SPIDER_NAME);
 	}
 
 	private static void entityRegistry(EntityRegistry er) {
-		er.registerModEntity(FIRE_SPIDER_CLASS, FIRE_SPIDER_NAME, 1, DMI.instance, 64, 3, true);
 		er.registerModEntity(KALDYM_BOSS_CLASS, KALDYM_BOSS_NAME, 1, DMI.instance, 64, 3, true);
+		er.registerModEntity(FIRE_SPIDER_CLASS, FIRE_SPIDER_NAME, 1, DMI.instance, 64, 3, true);
 
-		er.addSpawn(FIRE_SPIDER_CLASS, 70, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
 		er.addSpawn(KALDYM_BOSS_CLASS, 50, 1, 3, EnumCreatureType.monster, BiomeGenBase.swampland);
+		er.addSpawn(FIRE_SPIDER_CLASS, 70, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
 	}
 
 	private static int getUniqueEntityID() {

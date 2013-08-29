@@ -19,7 +19,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	public int goldBurnTime;
 
 	public double liquid;
-	public int maxLiquid = 5600; //5,600
+	public int maxLiquid = 5600; // 5,600
 
 	private boolean isActive;
 
@@ -145,7 +145,6 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 				this.goldItemStacks[byte0] = ItemStack.loadItemStackFromNBT(nbttagcompound);
 			}
 
-
 		}
 
 		this.front = par1NBTTagCompound.getInteger("FrontDirection");
@@ -219,7 +218,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		if (this.liquid == 0) {
 			return 56;
 		}
-		return  56-((int)this.liquid / 10);
+		return 56 - ((int) this.liquid / 10);
 	}
 
 	/**
@@ -244,7 +243,6 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		}
 		if (this.isBurning()) {
 
-
 		}
 		if (!this.worldObj.isRemote) {
 			if ((this.goldBurnTime == 0) && this.canSmelt()) {
@@ -262,7 +260,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 			}
 			if (this.isBurning() && this.canSmelt()) {
 				++this.goldCookTime;
-				this.liquid+=.1;
+				this.liquid += .1;
 
 				if (this.goldCookTime == 200) {
 					this.goldCookTime = 0;
@@ -351,48 +349,38 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	 */
 	public static int getItemBurnTime(ItemStack is) {
 
-		if (is == null)
-		{
+		if (is == null) {
 			return 0;
 		}
 
 		int i = is.getItem().itemID;
 
-		if ((i < 256) && (Block.blocksList[i].blockMaterial == Material.wood))
-		{
+		if ((i < 256) && (Block.blocksList[i].blockMaterial == Material.wood)) {
 			return 300;
 		}
 
-		if (i == Item.stick.itemID)
-		{
+		if (i == Item.stick.itemID) {
 			return 100;
 		}
 
-		if (i == Item.coal.itemID)
-		{
+		if (i == Item.coal.itemID) {
 			return 1600;
 		}
 
-		if (i == Item.bucketLava.itemID)
-		{
+		if (i == Item.bucketLava.itemID) {
 			return 20000;
 		}
 
-		if (i == Block.sapling.blockID)
-		{
+		if (i == Block.sapling.blockID) {
 			return 100;
 		}
 
-		if (i == Item.blazeRod.itemID)
-		{
+		if (i == Item.blazeRod.itemID) {
 			return 2400;
 		}
-		if (i == Block.dirt.blockID)
-		{
+		if (i == Block.dirt.blockID) {
 			return 200;
-		}
-		else
-		{
+		} else {
 			return ModLoader.addAllFuel(is.itemID, is.getItemDamage());
 		}
 	}
@@ -424,16 +412,14 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 
 	@Override
 	public boolean isInvNameLocalized() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		// TODO Auto-generated method stub
+		// System.out.println("Item " + itemstack.getItem().getUnlocalizedName()
+		// + " tried to access TileEntityLiquidator:" + i);
 		return true;
 	}
-
-
 
 }

@@ -35,7 +35,8 @@ public class TileEntityInfuser extends TileEntity {
 				}
 			}
 		}
-
+		
+		validate();
 		return true;
 	}
 

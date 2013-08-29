@@ -18,7 +18,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-
 /**
  * 
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
@@ -27,9 +26,7 @@ import net.minecraft.world.World;
  * 
  */
 
-public class EntityKaldymBoss extends EntityMob implements IBossDisplayData
-{
-
+public class EntityKaldymBoss extends EntityMob implements IBossDisplayData {
 
 	private float moveSpeed;
 
@@ -37,78 +34,66 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData
 		super(par1World);
 		this.isImmuneToFire = true;
 		this.moveSpeed = 0.6F;
+		this.experienceValue = 70;
+
+		addTasks();
+	}
+
+	private void addTasks() {
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, this.moveSpeed, false));
 		this.tasks.addTask(2, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
 		this.tasks.addTask(3, new EntityAIWander(this, this.moveSpeed));
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-		this.experienceValue = 70;
-				
-		
-
 	}
 
-	public int getAttackStrength(Entity par1Entity)
-	{
+	public int getAttackStrength(Entity par1Entity) {
 		return 15;
 	}
 
 	@Override
-	public EnumCreatureAttribute getCreatureAttribute()
-	{
+	public EnumCreatureAttribute getCreatureAttribute() {
 		return EnumCreatureAttribute.UNDEFINED;
 	}
 
 	@Override
-	protected boolean isAIEnabled()
-	{
+	protected boolean isAIEnabled() {
 		return true;
 	}
 
-
 	@Override
-	public boolean attackEntityAsMob(Entity par1Entity)
-	{
-		if (super.attackEntityAsMob(par1Entity))
-		{
-			
-					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(Potion.confusion.id, 200, 0));
-					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(Potion.wither.id, 100, 0));
-				
-			}
+	public boolean attackEntityAsMob(Entity par1Entity) {
+		if (super.attackEntityAsMob(par1Entity)) {
 
-			return true;
-		
+			((EntityLivingBase) par1Entity).addPotionEffect(new PotionEffect(Potion.confusion.id, 200, 0));
+			((EntityLivingBase) par1Entity).addPotionEffect(new PotionEffect(Potion.wither.id, 100, 0));
+
+		}
+
+		return true;
+
 	}
 
-	 @Override
-	    protected void func_110147_ax()
-	    {
-	        super.func_110147_ax();
-	        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(100.0D); 
-	    }
+	@Override
+	protected void func_110147_ax() {
+		super.func_110147_ax();
+		this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(100.0D);
+	}
 
-	 //public int getBossHealth() {
-	//	return ; 
-	// }
-	 
-	 protected String getLivingSound()
-	    {
-	        return "mob.zombie.say";
-	    }
-	 
-	  protected String getHurtSound()
-	    {
-	        return "mob.skeleton.hurt";
-	    }
+	public int getBossHealth() {
+		return (int) this.func_110138_aP();
+	}
 
-	  protected String getDeathSound()
-	    {
-	        return "mob.creeper.death";
-	    }
+	protected String getLivingSound() {
+		return "mob.zombie.say";
+	}
+
+	protected String getHurtSound() {
+		return "mob.skeleton.hurt";
+	}
+
+	protected String getDeathSound() {
+		return "mob.creeper.death";
+	}
 
 }
-
-
-
-

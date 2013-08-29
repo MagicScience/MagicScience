@@ -37,7 +37,6 @@ public class BlockInfuserCore extends BlockContainer {
 		TileEntityInfuser te = (TileEntityInfuser) world.getBlockTileEntity(x, y, z);
 		if (te != null) {
 			if (!te.getValidation() && te.checkFormation()) {
-//				te.convert(); XXX fix this
 				player.addChatMessage("Infuser succesfully created!");
 			}
 			

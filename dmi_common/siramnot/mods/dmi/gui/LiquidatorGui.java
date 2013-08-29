@@ -10,16 +10,14 @@ import org.lwjgl.opengl.GL11;
 import siramnot.mods.dmi.DMI;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityLiquidator;
 
-public class GuiLiquidator extends GuiContainer {
-
-	private static final String NAME = "Block/liquidatorGui.png"; // Make it easier to change path.
-	private static final String PATH = DMI.MOD_ID.toLowerCase() + ":" + NAME;
+public class LiquidatorGui extends GuiContainer {
 
 	private TileEntityLiquidator inv;
-	protected static final ResourceLocation gui = new ResourceLocation(NAME); // DMI has to be lowercases, AFAIK. That doesn't matter in the code, only in the file system. 
+	private static final String NAME = "textures/gui/LiquidatorGUI.png"; // Make it easier to change path.
+	protected static final ResourceLocation gui = new ResourceLocation(DMI.MOD_ID.toLowerCase(), NAME); // DMI has to be lowercases, AFAIK. That doesn't matter in the code, only in the file system. 
 	//You still have to recompile it and put it inside minecraft for the GUI to show.
 
-	public GuiLiquidator(InventoryPlayer inventory, TileEntityLiquidator liquidator) {
+	public LiquidatorGui(InventoryPlayer inventory, TileEntityLiquidator liquidator) {
 		super(new ContainerLiquidator(inventory, liquidator));
 		this.inv = liquidator;
 	}

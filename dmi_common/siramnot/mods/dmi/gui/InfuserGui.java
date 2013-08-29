@@ -2,12 +2,14 @@ package siramnot.mods.dmi.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
+import net.minecraft.util.ResourceLocation;
+import siramnot.mods.dmi.DMI;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityInfuser;
 
 public class InfuserGui extends GuiContainer {
 
-	TileEntityInfuser entityInfuser;
+	private TileEntityInfuser entityInfuser;
+	private ResourceLocation guiLocation = new ResourceLocation(DMI.MOD_ID.toLowerCase(), "textures/gui/InfuserGUI.png");
 
 	public InfuserGui(InventoryPlayer invPlayer, TileEntityInfuser entityInfuser) {
 		super(null); // TODO: fix this
@@ -27,7 +29,7 @@ public class InfuserGui extends GuiContainer {
 	}
 
 	@Override
-	protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
-
+	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
+//		int i = mc.renderEngine.func_110577_a(guiLocation);
 	}
 }

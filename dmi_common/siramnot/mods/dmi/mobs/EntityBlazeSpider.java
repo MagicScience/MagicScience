@@ -6,7 +6,8 @@ import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityLargeFireball;
 import net.minecraft.item.Item;
-import net.minecraft.util.Icon;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -15,22 +16,24 @@ import net.minecraft.world.World;
  * Dominus ex Magica et Industria mod.
  * 
  * @license CC BY-NC-SA 3.0
- * @author Tombenpotter
+ * @author Tombenpotter, SirAmNot
  * 
  */
-
 public class EntityBlazeSpider extends EntitySpider {
 	private int field_70846_g;
-	
-	
-	
-	
+
+	private int hitpoints;
+	private boolean isHostile;
+	private boolean isRidden;
+
+	private static String isHostileTagName = "isHostile";
+	private static String isRiddenTagName = "isRidden";
 
 	public EntityBlazeSpider(World par1World) {
 		super(par1World);
 		this.isImmuneToFire = true;
 		this.setSize(0.8F, 0.4F);
-		
+
 	}
 
 	public void EntitySpider(World par1World) {
@@ -137,10 +140,8 @@ public class EntityBlazeSpider extends EntitySpider {
 	}
 
 	private void func_70844_e(boolean b) {
-		// TODO Auto-generated method stub
 
 	}
-
 
 	/**
 	 * Drop 0-2 items of this living's type. @param par1 - Whether this entity
@@ -155,22 +156,51 @@ public class EntityBlazeSpider extends EntitySpider {
 			this.dropItem(Item.spiderEye.itemID, 1);
 			this.dropItem(Item.silk.itemID, 2);
 			this.dropItem(Item.blazePowder.itemID, 1);
+			this.dropItem(Item.ghastTear.itemID, 1);
 		}
 	}
 
-	{
+	@Override
+	protected boolean interact(EntityPlayer player) {
+		String secret = "Congratulations, " + player.username + "! You have found a secret!";
+		ItemStack item = player.inventory.getCurrentItem();
+		
+		if (this.riddenByEntity != null) {
+			return false;
+		}
+		
+		if (item.getItem().itemID != Item.diamond.itemID || player.isSneaking()) {
+			return false;
+		}
 
-		//Trying to make the spider tameable, but still working on it
-		/*
-		 * public void setTamed(boolean par1) { if (par1) {
-		 * this.func_110148_a(SharedMonsterAttributes
-		 * .field_111267_a).func_111128_a(20.0D); } else {
-		 * this.func_110148_a(SharedMonsterAttributes
-		 * .field_111267_a).func_111128_a(8.0D); } }
-		 */
+		if (!worldObj.isRemote) {
+			player.addChatMessage(secret);
+		}
+		
+		player.mountEntity(this);
 
+		return true;
+	}
 
+	@Override
+	public boolean canBeSteered() {
+		return true;
+	}
 
+	@Override
+	public void writeToNBT(NBTTagCompound nbt) {
+		super.writeToNBT(nbt);
+
+		nbt.setBoolean(isHostileTagName, this.isHostile);
+		nbt.setBoolean(isRiddenTagName, this.isRidden);
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound nbt) {
+		super.readFromNBT(nbt);
+
+		this.isHostile = nbt.getBoolean(isHostileTagName);
+		this.isRidden = nbt.getBoolean(isRiddenTagName);
 	}
 
 }
