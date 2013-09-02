@@ -28,13 +28,14 @@ public class ItemFoodMagicBread extends ItemFood {
 	private static final float SATURATION_MODIFIER = 0.6f;
 	private static final boolean IS_WOLF_FOOD = false, IS_SNACK = true;
 	private static final String NAME_SUFFIX = "Bread";
-	private static final String[] NAMES = new String[] { "Aqueous " + NAME_SUFFIX, "Terreous " + NAME_SUFFIX, "Igneous " + NAME_SUFFIX, "Aereous " + NAME_SUFFIX, "Elemental " + NAME_SUFFIX };
-	private static final String[] U_NAMES = new String[] { "water" + NAME_SUFFIX, "earth" + NAME_SUFFIX, "fire" + NAME_SUFFIX, "air" + NAME_SUFFIX, "elemental" + NAME_SUFFIX };
+	private static final String[] NAMES = new String[] { "Aqueous " + NAME_SUFFIX, "Terreous " + NAME_SUFFIX, "Igneous " + NAME_SUFFIX, "Aereous " + NAME_SUFFIX, "Elemental " + NAME_SUFFIX, "IceDrug" + NAME_SUFFIX };
+	private static final String[] U_NAMES = new String[] { "water" + NAME_SUFFIX, "earth" + NAME_SUFFIX, "fire" + NAME_SUFFIX, "air" + NAME_SUFFIX, "elemental" + NAME_SUFFIX, "icedrug" + NAME_SUFFIX };
 	private static final PotionEffect WATER_EFFECT = new PotionEffect(Potion.waterBreathing.id, EFFECT_DURATION, EFFECT_MODIFIER, false);
 	private static final PotionEffect EARTH_EFFECT = new PotionEffect(Potion.digSpeed.id, EFFECT_DURATION, EFFECT_MODIFIER, false);
 	private static final PotionEffect FIRE_EFFECT = new PotionEffect(Potion.fireResistance.id, EFFECT_DURATION, EFFECT_MODIFIER, false);
 	private static final PotionEffect AIR_EFFECT = new PotionEffect(Potion.moveSpeed.id, EFFECT_DURATION, EFFECT_MODIFIER, false);
 	private static final PotionEffect ELEMENTAL_EFFECT = new PotionEffect(Potion.regeneration.id, EFFECT_DURATION, EFFECT_MODIFIER, false);
+	private static final PotionEffect ICEDRUG_EFFECT = new PotionEffect(Potion.jump.id, EFFECT_DURATION, 50, false);
 	private static ItemFood instance;
 
 	public ItemFoodMagicBread(int id) {
@@ -131,13 +132,18 @@ public class ItemFoodMagicBread extends ItemFood {
 			player.curePotionEffects(milk);
 			player.addPotionEffect(ELEMENTAL_EFFECT);
 			break;
+			
+		case 5: //IceDrug
+			player.curePotionEffects(milk);
+			player.addPotionEffect(ICEDRUG_EFFECT);
+			break;
 		}
 		return stack;
 	}
 
 	/**
 	 * @param meta
-	 *            0 = water; 1 = earth; 2 = fire; 3 = air, 4 = elemental
+	 *            0 = water; 1 = earth; 2 = fire; 3 = air, 4 = elemental, 5= icedrug
 	 * 
 	 * @param stackSize
 	 *            The size of the ItemStack

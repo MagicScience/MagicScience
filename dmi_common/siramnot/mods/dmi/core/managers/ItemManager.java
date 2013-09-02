@@ -3,12 +3,8 @@ package siramnot.mods.dmi.core.managers;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import siramnot.mods.dmi.items.BasicScroll;
 import siramnot.mods.dmi.items.EnumStaff;
-import siramnot.mods.dmi.items.ItemAqueousCrystal;
-import siramnot.mods.dmi.items.ItemCaelCrystal;
-import siramnot.mods.dmi.items.ItemConsistoriumCrystal;
 import siramnot.mods.dmi.items.ItemFoodMagicBread;
 import siramnot.mods.dmi.items.ItemGem;
-import siramnot.mods.dmi.items.ItemIgneousCrystal;
 import siramnot.mods.dmi.items.ItemLightningStaff;
 import siramnot.mods.dmi.items.ItemStaff;
 import siramnot.mods.dmi.items.ScrollExample;
@@ -20,7 +16,7 @@ import net.minecraft.item.ItemFood;
 /**
  * Dominus ex Magica et Industria mod. (C) Copyright SirAmNot 2013
  * 
- * @author JiffyJay, SirAmNot, MTH
+ * @author JiffyJay, SirAmNot, MTH, Tombenpotter
  * 
  */
 public class ItemManager {
