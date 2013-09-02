@@ -1,20 +1,22 @@
 package siramnot.mods.dmi.items.debug;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
+import siramnot.mods.dmi.DMI;
+import siramnot.mods.dmi.core.managers.GuiHandler;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemFlight extends Item {
 
-	private static boolean flightEnabled = false;
 	private static final String unlocal = "flightItem";
 	private IconRegister iconThing;
+	private EntityPlayer playuhr;
 
 	public ItemFlight(int id) {
 		super(id);
@@ -25,32 +27,33 @@ public class ItemFlight extends Item {
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister) {
 		this.iconThing = iconRegister;
-		this.itemIcon = updateTexture(iconRegister);
+		updateTexture(-1);
 	}
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if (player.isAirBorne)
+		if (player.isAirBorne) {
 			return stack;
-		player.capabilities.allowFlying = !player.capabilities.allowFlying;
-		flightEnabled = player.capabilities.allowFlying;
-
-		if (iconThing != null) {
-			this.itemIcon = updateTexture(iconThing);
 		}
+
+		PlayerCapabilities p = player.capabilities;
+		p.allowFlying = !p.allowFlying;
+		updateTexture(p.allowFlying ? 1 : 0);
+
+		playuhr = player;
 		return stack;
 	}
 
-	@Override
-	public boolean onDroppedByPlayer(ItemStack item, EntityPlayer player) {
-		player.capabilities.allowFlying = flightEnabled = false;
-		if (iconThing != null)
-			updateTexture(iconThing);
-		
-		return true;
-	}
+	private void updateTexture(int textureIndex) {
+		Icon emerald = Item.emerald.getIconFromDamage(0);
+		Icon flint = Item.flint.getIconFromDamage(0);
+		Icon apple = Item.appleRed.getIconFromDamage(0);
 
-	private Icon updateTexture(IconRegister iconRegister) {
-		return (flightEnabled) ? Item.emerald.getIconFromDamage(0) : Item.flint.getIconFromDamage(0);
+		if (playuhr == null) {
+			this.itemIcon = apple;
+			return;
+		}
+
+		this.itemIcon = (textureIndex == 1) ? emerald : (textureIndex == -1) ? apple : flint;
 	}
 }

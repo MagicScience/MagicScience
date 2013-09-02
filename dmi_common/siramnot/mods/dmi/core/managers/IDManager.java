@@ -13,9 +13,12 @@ public class IDManager {
 	// Blocks
 	public static int liquidator = 1400;
 	public static int workstation = 1401;
+	
 	public static int ores = 1402;
 	public static int oreStorage = 1403;
+	public static int infuserCore = 1404;
 	public static int magicGlass = 1410;
+	
 
 	// Items
 	public static int gems = 14000;

@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import siramnot.mods.dmi.DMI;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityLiquidator;
 import cpw.mods.fml.relauncher.Side;
@@ -26,6 +27,7 @@ public class BlockLiquidator extends BlockContainer
 
 	public static final String NAME = "liquidator";
 	public static final String TEXTUREPATH = DMI.MOD_ID + ":" + NAME;
+	public static final float HARDNESS = 4.0f;
 
 	/**
 	 * This flag is used to prevent the furnace inventory to be dropped upon block removal, is used internally when the
@@ -43,6 +45,8 @@ public class BlockLiquidator extends BlockContainer
 		this.isActive = par2;
 		this.setUnlocalizedName(NAME);
 		this.setCreativeTab(DMI.TAB_CREATIVE);
+		this.setHardness(HARDNESS);
+		MinecraftForge.getBlockHarvestLevel(this, 0, "pickaxe");
 	}
 
 	@Override

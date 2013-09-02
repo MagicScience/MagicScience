@@ -28,21 +28,22 @@ import siramnot.mods.dmi.mobs.render.RenderKaldymBoss;
 public class EntityManager {
 
 	private static int startEID = 300;
+	private static int entityIDs = 0;
 	private static String entityLoc = "entity.DMI.";
 	private static String nameSuff = ".name";
-	
+
 	private static final String FIRE_SPIDER_NAME = "Blazing Spider";
 	private static final String KALDYM_BOSS_NAME = "Kaldym the Necromancer";
-	
-	private static final Class<?extends EntityLiving> FIRE_SPIDER_CLASS = EntityBlazeSpider.class;
-	private static final Class<?extends EntityLiving> KALDYM_BOSS_CLASS = EntityKaldymBoss.class;
+
+	private static final Class<? extends EntityLiving> FIRE_SPIDER_CLASS = EntityBlazeSpider.class;
+	private static final Class<? extends EntityLiving> KALDYM_BOSS_CLASS = EntityKaldymBoss.class;
 
 	public static void load() {
-		entityRegistry(EntityRegistry.instance());
-		languageRegistry(LanguageRegistry.instance());
-		registerSpawnEggs();
 		try {
-		renderEntityModels(RenderingRegistry.instance());
+			entityRegistry();
+			renderEntityModels();
+			languageRegistry();
+			registerSpawnEggs();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -50,27 +51,29 @@ public class EntityManager {
 		DMI.proxy.doProxyStuff();
 	}
 
-	private static void renderEntityModels(RenderingRegistry rr) throws Exception {
-		rr.registerEntityRenderingHandler(KALDYM_BOSS_CLASS, new RenderKaldymBoss());
-		rr.registerEntityRenderingHandler(FIRE_SPIDER_CLASS, new RenderBlazeSpider());
+	private static void renderEntityModels() {
+		RenderingRegistry.registerEntityRenderingHandler(FIRE_SPIDER_CLASS, new RenderBlazeSpider());
+		RenderingRegistry.registerEntityRenderingHandler(KALDYM_BOSS_CLASS, new RenderKaldymBoss());
 	}
 
 	private static void registerSpawnEggs() {
-		registerEntityEgg(KALDYM_BOSS_CLASS, 0x99111F, 0xE5685);
 		registerEntityEgg(FIRE_SPIDER_CLASS, 0x99360F, 0xE4E864);
+		registerEntityEgg(KALDYM_BOSS_CLASS, 0x99111F, 0xE5685);
 	}
 
-	private static void languageRegistry(LanguageRegistry lr) {
-		LanguageRegistry.instance().addStringLocalization(entityLoc + KALDYM_BOSS_NAME + nameSuff, KALDYM_BOSS_NAME);
+	private static void languageRegistry() {
 		LanguageRegistry.instance().addStringLocalization(entityLoc + FIRE_SPIDER_NAME + nameSuff, FIRE_SPIDER_NAME);
+		LanguageRegistry.instance().addStringLocalization(entityLoc + KALDYM_BOSS_NAME + nameSuff, KALDYM_BOSS_NAME);
 	}
 
-	private static void entityRegistry(EntityRegistry er) {
-		er.registerModEntity(KALDYM_BOSS_CLASS, KALDYM_BOSS_NAME, 1, DMI.instance, 64, 3, true);
-		er.registerModEntity(FIRE_SPIDER_CLASS, FIRE_SPIDER_NAME, 1, DMI.instance, 64, 3, true);
+	private static void entityRegistry() {
+		System.out.println("FireSpiderID: " + entityIDs);
+		EntityRegistry.registerModEntity(FIRE_SPIDER_CLASS, FIRE_SPIDER_NAME, entityIDs++, DMI.instance, 64, 3, true);
+		System.out.println("KaldymBossID: " + entityIDs);
+		EntityRegistry.registerModEntity(KALDYM_BOSS_CLASS, KALDYM_BOSS_NAME, entityIDs++, DMI.instance, 64, 3, true);
 
-		er.addSpawn(KALDYM_BOSS_CLASS, 50, 1, 3, EnumCreatureType.monster, BiomeGenBase.swampland);
-		er.addSpawn(FIRE_SPIDER_CLASS, 70, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
+		EntityRegistry.addSpawn(KALDYM_BOSS_CLASS, 50, 1, 3, EnumCreatureType.monster, BiomeGenBase.swampland);
+		EntityRegistry.addSpawn(FIRE_SPIDER_CLASS, 70, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
 	}
 
 	private static int getUniqueEntityID() {

@@ -125,7 +125,7 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	 */
 	@Override
 	public String getInvName() {
-		return "container.goldOven";
+		return "container.liquidator";
 	}
 
 	/**
@@ -152,8 +152,6 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		this.goldCookTime = par1NBTTagCompound.getShort("CookTime");
 		this.goldItemBurnTime = getItemBurnTime(this.goldItemStacks[1]);
 
-		System.out.println("front:" + this.front);
-
 		this.liquid = par1NBTTagCompound.getDouble("liquid");
 	}
 
@@ -178,9 +176,6 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 		}
 
 		par1NBTTagCompound.setTag("Items", nbttaglist);
-		System.out.println("write:" + this.front);
-		System.out.println("burn:" + this.goldBurnTime);
-
 		par1NBTTagCompound.setDouble("liquid", this.liquid);
 	}
 
@@ -417,8 +412,6 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		// System.out.println("Item " + itemstack.getItem().getUnlocalizedName()
-		// + " tried to access TileEntityLiquidator:" + i);
 		return true;
 	}
 
