@@ -9,6 +9,7 @@ import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.world.biome.BiomeGenBase;
 import siramnot.mods.dmi.DMI;
 import siramnot.mods.dmi.mobs.EntityBlazeSpider;
+import siramnot.mods.dmi.mobs.EntityVolatileCreeper;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -34,9 +35,11 @@ public class EntityManager {
 
 	private static final String FIRE_SPIDER_NAME = "Blazing Spider";
 	private static final String KALDYM_BOSS_NAME = "Kaldym the Necromancer";
+	private static final String VOLATILE_SKELLY_NAME = "Volatile Skeleton";
 
 	private static final Class<? extends EntityLiving> FIRE_SPIDER_CLASS = EntityBlazeSpider.class;
 	private static final Class<? extends EntityLiving> KALDYM_BOSS_CLASS = EntityKaldymBoss.class;
+	private static final Class<? extends EntityLiving> VOLATILE_SKELLY_CLASS = EntityVolatileCreeper.class;
 
 	public static void load() {
 		try {
@@ -54,16 +57,19 @@ public class EntityManager {
 	private static void renderEntityModels() {
 		RenderingRegistry.registerEntityRenderingHandler(FIRE_SPIDER_CLASS, new RenderBlazeSpider());
 		RenderingRegistry.registerEntityRenderingHandler(KALDYM_BOSS_CLASS, new RenderKaldymBoss());
+		RenderingRegistry.registerEntityRenderingHandler(VOLATILE_SKELLY_CLASS, new RenderKaldymBoss());
 	}
 
 	private static void registerSpawnEggs() {
 		registerEntityEgg(FIRE_SPIDER_CLASS, 0x99360F, 0xE4E864);
 		registerEntityEgg(KALDYM_BOSS_CLASS, 0x99111F, 0xE5685);
+		registerEntityEgg(VOLATILE_SKELLY_CLASS, 0x990564, 0xE54);
 	}
 
 	private static void languageRegistry() {
 		LanguageRegistry.instance().addStringLocalization(entityLoc + FIRE_SPIDER_NAME + nameSuff, FIRE_SPIDER_NAME);
 		LanguageRegistry.instance().addStringLocalization(entityLoc + KALDYM_BOSS_NAME + nameSuff, KALDYM_BOSS_NAME);
+		LanguageRegistry.instance().addStringLocalization(entityLoc + VOLATILE_SKELLY_NAME + nameSuff, VOLATILE_SKELLY_NAME);
 	}
 
 	private static void entityRegistry() {
@@ -71,9 +77,13 @@ public class EntityManager {
 		EntityRegistry.registerModEntity(FIRE_SPIDER_CLASS, FIRE_SPIDER_NAME, entityIDs++, DMI.instance, 64, 3, true);
 		System.out.println("KaldymBossID: " + entityIDs);
 		EntityRegistry.registerModEntity(KALDYM_BOSS_CLASS, KALDYM_BOSS_NAME, entityIDs++, DMI.instance, 64, 3, true);
+		System.out.println("VolatileSkellyID: " + entityIDs);
+		EntityRegistry.registerModEntity(VOLATILE_SKELLY_CLASS, VOLATILE_SKELLY_NAME, entityIDs++, DMI.instance, 64, 3, true);
 
-		EntityRegistry.addSpawn(KALDYM_BOSS_CLASS, 50, 1, 3, EnumCreatureType.monster, BiomeGenBase.swampland);
+		EntityRegistry.addSpawn(KALDYM_BOSS_CLASS, 25, 1, 3, EnumCreatureType.monster, BiomeGenBase.swampland);
 		EntityRegistry.addSpawn(FIRE_SPIDER_CLASS, 70, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
+		EntityRegistry.addSpawn(VOLATILE_SKELLY_CLASS, 40, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
+		
 	}
 
 	private static int getUniqueEntityID() {
