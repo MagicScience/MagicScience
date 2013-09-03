@@ -28,7 +28,7 @@ public class ItemFoodMagicBread extends ItemFood {
 	private static final float SATURATION_MODIFIER = 0.6f;
 	private static final boolean IS_WOLF_FOOD = false, IS_SNACK = true;
 	private static final String NAME_SUFFIX = "Bread";
-	private static final String[] NAMES = new String[] { "Aqueous " + NAME_SUFFIX, "Terreous " + NAME_SUFFIX, "Igneous " + NAME_SUFFIX, "Aereous " + NAME_SUFFIX, "Elemental " + NAME_SUFFIX, "IceDrug" + NAME_SUFFIX };
+	private static final String[] NAMES = new String[] { "Aqueous " + NAME_SUFFIX, "Terreous " + NAME_SUFFIX, "Igneous " + NAME_SUFFIX, "Aereous " + NAME_SUFFIX, "Elemental " + NAME_SUFFIX, "IceDrug " + NAME_SUFFIX };
 	private static final String[] U_NAMES = new String[] { "water" + NAME_SUFFIX, "earth" + NAME_SUFFIX, "fire" + NAME_SUFFIX, "air" + NAME_SUFFIX, "elemental" + NAME_SUFFIX, "icedrug" + NAME_SUFFIX };
 	private static final PotionEffect WATER_EFFECT = new PotionEffect(Potion.waterBreathing.id, EFFECT_DURATION, EFFECT_MODIFIER, false);
 	private static final PotionEffect EARTH_EFFECT = new PotionEffect(Potion.digSpeed.id, EFFECT_DURATION, EFFECT_MODIFIER, false);

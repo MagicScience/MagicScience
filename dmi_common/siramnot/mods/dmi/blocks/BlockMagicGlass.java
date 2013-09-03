@@ -20,7 +20,7 @@ public class BlockMagicGlass extends Block {
 
 	private static final String NAME = "magicGlassBlock";
 	private static final String TEXTURELOCATION = DMI.MOD_ID + ":" + NAME;
-	private static final float HARDNESS = 0.3F;
+	private static final float HARDNESS = 0.1F;
 	private static final StepSound SOUND = Block.soundGlassFootstep;
 
 	private Icon[] icons = new Icon[16];

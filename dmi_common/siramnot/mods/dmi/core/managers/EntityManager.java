@@ -9,13 +9,14 @@ import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.world.biome.BiomeGenBase;
 import siramnot.mods.dmi.DMI;
 import siramnot.mods.dmi.mobs.EntityBlazeSpider;
-import siramnot.mods.dmi.mobs.EntityVolatileCreeper;
+import siramnot.mods.dmi.mobs.EntityVolatileSkeleton;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import siramnot.mods.dmi.mobs.EntityKaldymBoss;
 import siramnot.mods.dmi.mobs.render.RenderBlazeSpider;
 import siramnot.mods.dmi.mobs.render.RenderKaldymBoss;
+import siramnot.mods.dmi.mobs.render.RenderVolatileSkeleton;
 
 /**
  * 
@@ -39,7 +40,7 @@ public class EntityManager {
 
 	private static final Class<? extends EntityLiving> FIRE_SPIDER_CLASS = EntityBlazeSpider.class;
 	private static final Class<? extends EntityLiving> KALDYM_BOSS_CLASS = EntityKaldymBoss.class;
-	private static final Class<? extends EntityLiving> VOLATILE_SKELLY_CLASS = EntityVolatileCreeper.class;
+	private static final Class<? extends EntityLiving> VOLATILE_SKELLY_CLASS = EntityVolatileSkeleton.class;
 
 	public static void load() {
 		try {
@@ -57,13 +58,13 @@ public class EntityManager {
 	private static void renderEntityModels() {
 		RenderingRegistry.registerEntityRenderingHandler(FIRE_SPIDER_CLASS, new RenderBlazeSpider());
 		RenderingRegistry.registerEntityRenderingHandler(KALDYM_BOSS_CLASS, new RenderKaldymBoss());
-		RenderingRegistry.registerEntityRenderingHandler(VOLATILE_SKELLY_CLASS, new RenderKaldymBoss());
+		RenderingRegistry.registerEntityRenderingHandler(VOLATILE_SKELLY_CLASS, new RenderVolatileSkeleton());
 	}
 
 	private static void registerSpawnEggs() {
 		registerEntityEgg(FIRE_SPIDER_CLASS, 0x99360F, 0xE4E864);
 		registerEntityEgg(KALDYM_BOSS_CLASS, 0x99111F, 0xE5685);
-		registerEntityEgg(VOLATILE_SKELLY_CLASS, 0x990564, 0xE54);
+		registerEntityEgg(VOLATILE_SKELLY_CLASS, 0x190564, 0xE54);
 	}
 
 	private static void languageRegistry() {
