@@ -11,7 +11,7 @@ import siramnot.mods.dmi.core.managers.ConfigManager;
 import siramnot.mods.dmi.core.managers.EntityManager;
 import siramnot.mods.dmi.core.managers.ItemManager;
 import siramnot.mods.dmi.core.managers.DMIRecipeManager;
-import siramnot.mods.dmi.core.managers.DMIWorldGenManager;
+import siramnot.mods.dmi.core.managers.WorldGenManager;
 import siramnot.mods.dmi.core.managers.GuiHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -83,7 +83,7 @@ public class DMI {
 		EntityManager.load();
 		DMIRecipeManager.load();
 
-		GameRegistry.registerWorldGenerator(DMIWorldGenManager.getInstance());
+		GameRegistry.registerWorldGenerator(WorldGenManager.getInstance());
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 	}
 

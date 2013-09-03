@@ -2,6 +2,7 @@ package siramnot.mods.dmi.items.debug;
 
 import siramnot.mods.dmi.DMI;
 import siramnot.mods.dmi.core.managers.GuiHandler;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.PlayerCapabilities;
@@ -35,6 +36,10 @@ public class ItemFlight extends Item {
 		if (player.isAirBorne) {
 			return stack;
 		}
+		
+		ItemStack metastack = new ItemStack(Block.cloth, 1, 7);
+		ItemStack metastack_ = new ItemStack(metastack.getItem());
+		player.inventory.addItemStackToInventory(metastack_);
 
 		PlayerCapabilities p = player.capabilities;
 		p.allowFlying = !p.allowFlying;

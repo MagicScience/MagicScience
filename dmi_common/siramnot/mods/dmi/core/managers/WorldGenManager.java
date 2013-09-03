@@ -17,9 +17,9 @@ import cpw.mods.fml.common.IWorldGenerator;
  * @license Creative-Commons Attribution Non-commercial v3.0
  * 
  */
-public class DMIWorldGenManager implements IWorldGenerator {
+public class WorldGenManager implements IWorldGenerator {
 
-	private static DMIWorldGenManager instance = new DMIWorldGenManager();
+	private static WorldGenManager instance = new WorldGenManager();
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -47,7 +47,7 @@ public class DMIWorldGenManager implements IWorldGenerator {
 
 	}
 
-	public static DMIWorldGenManager getInstance() {
+	public static WorldGenManager getInstance() {
 		return instance;
 	}
 }

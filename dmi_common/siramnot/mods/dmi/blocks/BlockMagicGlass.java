@@ -12,6 +12,16 @@ import siramnot.mods.dmi.DMI;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+
+/**
+ * 
+ * 
+ * Dominus ex Magica et Industria mod.
+ * 
+ * @author SirAmNot
+ * @license Creative-Commons Attribution Non-commercial v3.0
+ *
+ */
 public class BlockMagicGlass extends Block {
 
 	public BlockMagicGlass(int id) {

@@ -87,7 +87,13 @@ public class EntityManager {
 		
 	}
 
+	
+	private volatile int foo = 0x1337;
+	
+	
+	
 	private static int getUniqueEntityID() {
+		
 		do {
 			startEID++;
 		} while (EntityList.getStringFromID(startEID) != null);
