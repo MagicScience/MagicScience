@@ -68,7 +68,7 @@ public class BlockDMIOres extends Block {
 
 	private static Icon[] iconArray;
 
-	// Costructor
+	// Constructor
 	public BlockDMIOres(int id) {
 		super(id, Material.rock);
 		this.setCreativeTab(DMI.TAB_CREATIVE);
