@@ -34,7 +34,7 @@ public class BlockMagicGlass extends Block {
 		// If you put 0, the block will be totally transparent (you won't see it at all).
 		// If you put 1, the block will be semi-transparent
 
-		return 0;
+		return 1;
 	}
 
 	{
@@ -427,5 +427,5 @@ public class BlockMagicGlass extends Block {
 	public boolean canPlaceTorchOnTop(World world, int x, int y, int z) {
 		return true;
 	}
-
+	
 }

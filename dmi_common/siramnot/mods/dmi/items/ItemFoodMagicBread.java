@@ -105,36 +105,30 @@ public class ItemFoodMagicBread extends ItemFood {
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
 		super.onEaten(stack, world, player);
 		ItemStack milk = (new ItemStack(Item.bucketMilk));
-
+		player.curePotionEffects(milk);
 		
 		switch (stack.getItemDamage()) {
 		case 0: // water
-			player.curePotionEffects(milk);
 			player.addPotionEffect(WATER_EFFECT);
 			break;
 
 		case 1: // earth
-			player.curePotionEffects(milk);
 			player.addPotionEffect(EARTH_EFFECT);
 			break;
 
 		case 2: // fire
-			player.curePotionEffects(milk);
 			player.addPotionEffect(FIRE_EFFECT);
 			break;
 
 		case 3: // air
-			player.curePotionEffects(milk);
 			player.addPotionEffect(AIR_EFFECT);
 			break;
 
 		case 4: // elemental
-			player.curePotionEffects(milk);
 			player.addPotionEffect(ELEMENTAL_EFFECT);
 			break;
 			
 		case 5: //IceDrug
-			player.curePotionEffects(milk);
 			player.addPotionEffect(ICEDRUG_EFFECT);
 			break;
 		}
