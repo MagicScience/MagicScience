@@ -14,6 +14,7 @@ import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -33,7 +34,7 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData {
 	public EntityKaldymBoss(World par1World) {
 		super(par1World);
 		this.isImmuneToFire = true;
-		this.moveSpeed = 0.6F;
+		this.moveSpeed = 0.55F;
 		this.experienceValue = 70;
 
 		addTasks();
@@ -77,7 +78,7 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData {
 	@Override
 	protected void func_110147_ax() {
 		super.func_110147_ax();
-		this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(100.0D);
+		this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(70.0D);
 	}
 
 	public int getBossHealth() {
@@ -96,4 +97,14 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData {
 		return "mob.creeper.death";
 	}
 
+	
+	protected void dropFewItems(boolean par1, int par2) {
+		super.dropFewItems(par1, par2);
+
+		if (par1 && ((this.rand.nextInt(3) == 0) || (this.rand.nextInt(1 + par2) > 0))) {
+			this.dropItem(Item.ingotIron.itemID, 1);
+			this.dropItem(Item.appleRed.itemID, 2);
+		}
+		
+	}
 }
