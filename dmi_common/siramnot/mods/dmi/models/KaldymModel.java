@@ -25,14 +25,14 @@ public class KaldymModel extends ModelBase
     textureHeight = 64;
     
       head = new ModelRenderer(this, 0, 0);
-      head.addBox(-4F, -8F, -4F, 6, 6, 4);
-      head.setRotationPoint(-3F, -6F, 1F);
+      head.addBox(-4F, -8F, -4F, 8, 8, 8);
+      head.setRotationPoint(-5F, -8F, 1F);
       head.setTextureSize(64, 32);
       head.mirror = true;
       setRotation(head, 0F, 0F, 0F);
-      head2 = new ModelRenderer(this, 0, 0);
-      head2.addBox(0F, 0F, 0F, 6, 6, 4);
-      head2.setRotationPoint(1F, -14F, -3F);
+      head2 = new ModelRenderer(this, 0, 35);
+      head2.addBox(0F, 0F, 0F, 8, 8, 8);
+      head2.setRotationPoint(1F, -16F, -3F);
       head2.setTextureSize(64, 32);
       head2.mirror = true;
       setRotation(head2, 0F, 0F, 0F);
@@ -72,19 +72,19 @@ public class KaldymModel extends ModelBase
       neck2.setTextureSize(64, 32);
       neck2.mirror = true;
       setRotation(neck2, 0F, 0F, 0.0174533F);
-      neck1 = new ModelRenderer(this, 20, 0);
+      neck1 = new ModelRenderer(this, 36, 0);
       neck1.addBox(0F, 0F, 0F, 2, 4, 2);
       neck1.setRotationPoint(-4F, -8F, -1F);
       neck1.setTextureSize(64, 32);
       neck1.mirror = true;
       setRotation(neck1, 0F, 0F, 0F);
-      linktoarm1 = new ModelRenderer(this, 30, 0);
+      linktoarm1 = new ModelRenderer(this, 34, 35);
       linktoarm1.addBox(0F, 0F, 0F, 3, 4, 2);
       linktoarm1.setRotationPoint(-7F, -2F, 0F);
       linktoarm1.setTextureSize(64, 32);
       linktoarm1.mirror = true;
       setRotation(linktoarm1, 0F, 0F, 0F);
-      linktoarm2 = new ModelRenderer(this, 41, 0);
+      linktoarm2 = new ModelRenderer(this, 34, 42);
       linktoarm2.addBox(0F, 0F, 0F, 3, 4, 2);
       linktoarm2.setRotationPoint(4F, -2F, 0F);
       linktoarm2.setTextureSize(64, 32);
@@ -116,9 +116,10 @@ public class KaldymModel extends ModelBase
     model.rotateAngleZ = z;
   }
   
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) 
+  @Override
+	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) 
   {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-  }
+	}
 
 }
