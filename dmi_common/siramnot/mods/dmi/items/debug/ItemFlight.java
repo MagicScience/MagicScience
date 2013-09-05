@@ -1,8 +1,12 @@
 package siramnot.mods.dmi.items.debug;
 
+import org.lwjgl.opengl.GL11;
+
 import siramnot.mods.dmi.DMI;
 import siramnot.mods.dmi.core.managers.GuiHandler;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.PlayerCapabilities;
@@ -31,22 +35,28 @@ public class ItemFlight extends Item {
 		updateTexture(-1);
 	}
 
+	/**
+	 * @Override public ItemStack onItemRightClick(ItemStack stack, World world,
+	 *           EntityPlayer player) { if (player.isAirBorne) { return stack; }
+	 * 
+	 *           ItemStack metastack = new ItemStack(Block.cloth, 1, 7);
+	 *           ItemStack metastack_ = new ItemStack(metastack.getItem());
+	 *           player.inventory.addItemStackToInventory(metastack_);
+	 * 
+	 *           PlayerCapabilities p = player.capabilities; p.allowFlying =
+	 *           !p.allowFlying; updateTexture(p.allowFlying ? 1 : 0);
+	 * 
+	 *           playuhr = player; return stack; }
+	 */
+
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if (player.isAirBorne) {
-			return stack;
-		}
-		
-		ItemStack metastack = new ItemStack(Block.cloth, 1, 7);
-		ItemStack metastack_ = new ItemStack(metastack.getItem());
-		player.inventory.addItemStackToInventory(metastack_);
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		render();
+		return par1ItemStack;
+	}
 
-		PlayerCapabilities p = player.capabilities;
-		p.allowFlying = !p.allowFlying;
-		updateTexture(p.allowFlying ? 1 : 0);
-
-		playuhr = player;
-		return stack;
+	private void render() {
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 
 	private void updateTexture(int textureIndex) {

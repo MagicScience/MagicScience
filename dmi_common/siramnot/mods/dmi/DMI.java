@@ -1,28 +1,22 @@
 package siramnot.mods.dmi;
 
-import java.util.logging.Logger;
-
-import buildcraft.BuildCraftCore;
 import net.minecraft.creativetab.CreativeTabs;
 import siramnot.mods.dmi.core.ClientProxy;
 import siramnot.mods.dmi.core.PacketHandler;
 import siramnot.mods.dmi.core.managers.BlockManager;
 import siramnot.mods.dmi.core.managers.ConfigManager;
-import siramnot.mods.dmi.core.managers.EntityManager;
-import siramnot.mods.dmi.core.managers.ItemManager;
 import siramnot.mods.dmi.core.managers.DMIRecipeManager;
-import siramnot.mods.dmi.core.managers.WorldGenManager;
+import siramnot.mods.dmi.core.managers.EntityManager;
 import siramnot.mods.dmi.core.managers.GuiHandler;
+import siramnot.mods.dmi.core.managers.ItemManager;
+import siramnot.mods.dmi.worldgen.WorldGenManager;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.IPacketHandler;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -97,7 +91,7 @@ public class DMI {
 		String os = System.getProperty("os.name");
 		String mac = "mac";
 		if (os.substring(0,mac.length()).toLowerCase().equals(mac)) {
-			System.err.printf("[%s] Looks like you are using a Mac. Please don't whine about Mac support.\n", MOD_ID);
+			System.err.printf("[%s] Looks like you are using a Mac. Mac support is WIP.%n", MOD_ID);
 		}
 	}
 }
