@@ -170,7 +170,7 @@ public class EntityVolatileCreeper extends EntitySkeleton implements IRangedAtta
      */
     public void onDeath(DamageSource par1DamageSource)
     {
-        this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, (float)this.explosionRadius, flag);
+        //this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, (float)this.explosionRadius, flag);
     }
     	boolean flag = this.worldObj.getGameRules().getGameRuleBooleanValue("mobGriefing");
     
