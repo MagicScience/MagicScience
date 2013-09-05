@@ -41,8 +41,8 @@ public class WorldGenManager implements IWorldGenerator {
 
 	private void generateSurface(World world, Random random, int x, int z) {
 		int y = world.getActualHeight();
+		generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider);
 	}
-
 	private void generateEnd(World world, Random random, int x, int z) {
 
 	}
