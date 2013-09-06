@@ -1,5 +1,6 @@
 package siramnot.mods.dmi.core.managers;
 
+import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
@@ -9,6 +10,7 @@ import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.world.biome.BiomeGenBase;
 import siramnot.mods.dmi.DMI;
 import siramnot.mods.dmi.entity.mobs.EntityBlazeSpider;
+import siramnot.mods.dmi.entity.mobs.EntityExplodingBall;
 import siramnot.mods.dmi.entity.mobs.EntityKaldymBoss;
 import siramnot.mods.dmi.entity.mobs.EntityVolatileSkeleton;
 import siramnot.mods.dmi.entity.mobs.render.RenderBlazeSpider;
@@ -37,10 +39,12 @@ public class EntityManager {
 	private static final String FIRE_SPIDER_NAME = "Blazing Spider";
 	private static final String KALDYM_BOSS_NAME = "Kaldym the Necromancer";
 	private static final String VOLATILE_SKELLY_NAME = "Volatile Skeleton";
+	private static final String BOOM_ENTITY_NAME = "Explosion Ball";
 
 	private static final Class<? extends EntityLiving> FIRE_SPIDER_CLASS = EntityBlazeSpider.class;
 	private static final Class<? extends EntityLiving> KALDYM_BOSS_CLASS = EntityKaldymBoss.class;
 	private static final Class<? extends EntityLiving> VOLATILE_SKELLY_CLASS = EntityVolatileSkeleton.class;
+	private static final Class<? extends Entity> BOOM_ENTITY_CLASS = EntityExplodingBall.class;
 
 	public static void load() {
 		try {
@@ -59,6 +63,7 @@ public class EntityManager {
 		RenderingRegistry.registerEntityRenderingHandler(FIRE_SPIDER_CLASS, new RenderBlazeSpider());
 		RenderingRegistry.registerEntityRenderingHandler(KALDYM_BOSS_CLASS, new RenderKaldymBoss());
 		RenderingRegistry.registerEntityRenderingHandler(VOLATILE_SKELLY_CLASS, new RenderVolatileSkeleton());
+		RenderingRegistry.registerEntityRenderingHandler(BOOM_ENTITY_CLASS, new RenderArrow());
 	}
 
 	private static void registerSpawnEggs() {
@@ -71,6 +76,7 @@ public class EntityManager {
 		LanguageRegistry.instance().addStringLocalization(entityLoc + FIRE_SPIDER_NAME + nameSuff, FIRE_SPIDER_NAME);
 		LanguageRegistry.instance().addStringLocalization(entityLoc + KALDYM_BOSS_NAME + nameSuff, KALDYM_BOSS_NAME);
 		LanguageRegistry.instance().addStringLocalization(entityLoc + VOLATILE_SKELLY_NAME + nameSuff, VOLATILE_SKELLY_NAME);
+		LanguageRegistry.instance().addStringLocalization(entityLoc + BOOM_ENTITY_CLASS + nameSuff, BOOM_ENTITY_NAME);
 	}
 
 	private static void entityRegistry() {
@@ -80,11 +86,12 @@ public class EntityManager {
 		EntityRegistry.registerModEntity(KALDYM_BOSS_CLASS, KALDYM_BOSS_NAME, entityIDs++, DMI.instance, 64, 3, true);
 		System.out.println("VolatileSkellyID: " + entityIDs);
 		EntityRegistry.registerModEntity(VOLATILE_SKELLY_CLASS, VOLATILE_SKELLY_NAME, entityIDs++, DMI.instance, 64, 3, true);
+		System.out.println("ExplodingBallID: " + entityIDs);
+		EntityRegistry.registerModEntity(BOOM_ENTITY_CLASS, BOOM_ENTITY_NAME, entityIDs++, DMI.instance, 64, 3, true);
 
 		EntityRegistry.addSpawn(KALDYM_BOSS_CLASS, 25, 1, 3, EnumCreatureType.monster, BiomeGenBase.swampland);
 		EntityRegistry.addSpawn(FIRE_SPIDER_CLASS, 70, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
 		EntityRegistry.addSpawn(VOLATILE_SKELLY_CLASS, 40, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);
-		
 	}
 
 	

@@ -2,12 +2,10 @@ package siramnot.mods.dmi.core.managers;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import siramnot.mods.dmi.items.BasicScroll;
-import siramnot.mods.dmi.items.EnumStaff;
 import siramnot.mods.dmi.items.ItemFoodMagicBread;
 import siramnot.mods.dmi.items.ItemGem;
-import siramnot.mods.dmi.items.ItemLightningStaff;
-import siramnot.mods.dmi.items.ItemStaff;
 import siramnot.mods.dmi.items.ScrollExample;
+import siramnot.mods.dmi.items.Staff;
 import siramnot.mods.dmi.items.debug.ItemFlight;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -26,6 +24,7 @@ public class ItemManager {
 	public static Item scrollExample;
 	public static Item magicBread;
 	public static Item debug_flight;
+	public static Item staff;
 	
 
 	public static void load() {
@@ -35,6 +34,7 @@ public class ItemManager {
 		scrollExample = new ScrollExample(IDManager.SCROLL_EXAMPLE);
 		magicBread = new ItemFoodMagicBread(IDManager.MAGIC_BREAD);
 		debug_flight = new ItemFlight(IDManager.DEBUG_FLIGHT);
+		staff = new Staff.ExplodingStaff(IDManager.EXPLODING_STAFF);
 
 		languageRegistry(LanguageRegistry.instance());
 		miscRegisters();
@@ -43,6 +43,7 @@ public class ItemManager {
 	private static void languageRegistry(LanguageRegistry lr) {
 		lr.addName(scrollExample, ScrollExample.getName());
 		lr.addName(debug_flight, "CHEATZOR!");
+		lr.addName(staff, "Staff of Explosion");
 	}
 	
 	private static void miscRegisters() {

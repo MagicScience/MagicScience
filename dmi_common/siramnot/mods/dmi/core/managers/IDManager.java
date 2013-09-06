@@ -33,4 +33,5 @@ public class IDManager {
 
 	public static int MAGIC_BREAD = 14008;
 	public static int DEBUG_FLIGHT = 14009;
+	public static int EXPLODING_STAFF = 14010;
 }
