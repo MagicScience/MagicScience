@@ -7,6 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import cpw.mods.fml.common.IWorldGenerator;
+import cpw.mods.fml.common.registry.GameRegistry;
 import static siramnot.mods.dmi.worldgen.DMIOresGenerator.*;
 
 /**
@@ -41,7 +42,6 @@ public class WorldGenManager implements IWorldGenerator {
 	}
 
 	private void generateSurface(World world, Random random, int x, int z) {
-		int y = world.getActualHeight();
 		DMIOresGenerator.generate(random, x, z, world, water);
 		DMIOresGenerator.generate(random, x, z, world, earth);
 		DMIOresGenerator.generate(random, x, z, world, fire);
@@ -54,5 +54,11 @@ public class WorldGenManager implements IWorldGenerator {
 
 	public static WorldGenManager getInstance() {
 		return instance;
+	}
+
+	public static void registerGenerators() {
+		GameRegistry gr = new GameRegistry();
+		
+		gr.registerWorldGenerator(getInstance());
 	}
 }

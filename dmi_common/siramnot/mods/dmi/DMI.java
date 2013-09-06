@@ -77,7 +77,7 @@ public class DMI {
 		EntityManager.load();
 		DMIRecipeManager.load();
 
-		GameRegistry.registerWorldGenerator(WorldGenManager.getInstance());
+		WorldGenManager.registerGenerators();
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 	}
 
