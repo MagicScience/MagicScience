@@ -17,8 +17,8 @@ public class IDManager {
 	public static int ores = 1402;
 	public static int oreStorage = 1403;
 	public static int infuserCore = 1404;
+	public static int fluids = 1405;
 	public static int magicGlass = 1410;
-	
 
 	// Items
 	public static int gems = 14000;

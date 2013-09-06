@@ -7,6 +7,7 @@ import siramnot.mods.dmi.blocks.BlockInfuser;
 import siramnot.mods.dmi.blocks.BlockLiquidator;
 import siramnot.mods.dmi.blocks.BlockMagicGlass;
 import siramnot.mods.dmi.blocks.BlockWorkstation;
+import siramnot.mods.dmi.blocks.liquids.BlockDMIFluid;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityInfuser;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityLiquidator;
 import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStation;
@@ -30,10 +31,10 @@ public class BlockManager {
 	public static Block crystals;
 	public static Block magicGlass;
 	public static Block infuserCore;
+//	public static Block magicWater;
 
 	// Load the blocks
 	public static void load() {
-		// workStation = new TileEntityWorkStationBlock(IDManager.WORK_STATION); Doesn't work
 		liquidator = new BlockLiquidator(IDManager.liquidator, false);
 		workStation = new BlockWorkstation(IDManager.workstation);
 		infuserCore = new BlockInfuser(IDManager.infuserCore);
@@ -41,12 +42,12 @@ public class BlockManager {
 		ores = new BlockDMIOres(IDManager.ores);
 		crystals = new BlockDMICrystals(IDManager.oreStorage);
 		magicGlass = new BlockMagicGlass(IDManager.magicGlass);
+		
+//		magicWater = new BlockDMIFluid(IDManager.fluids, 0);
 
 		languageRegistry(LanguageRegistry.instance());
 		gameRegistry();
-
-		BlockDMIOres.doRegisters();
-		BlockDMICrystals.doRegisters();
+		miscRegisters();
 	}
 
 	// Register the blocks, gives them mod-unique names
@@ -55,6 +56,7 @@ public class BlockManager {
 		GameRegistry.registerBlock(workStation, "Work Station");
 		GameRegistry.registerBlock(infuserCore, "Infuser Core");
 		GameRegistry.registerBlock(magicGlass, "Elemental Glass");
+//		GameRegistry.registerBlock(magicWater, "Magic Water");
 
 		GameRegistry.registerTileEntity(TileEntityLiquidator.class, "blockEntityLiquidator");
 		GameRegistry.registerTileEntity(TileEntityWorkStation.class, "blockEntityWorkstation");
@@ -65,7 +67,13 @@ public class BlockManager {
 	private static void languageRegistry(LanguageRegistry lr) {
 		lr.addName(liquidator, "Liquidator");
 		lr.addName(workStation, "Work Station");
+//		lr.addName(((BlockDMIFluid)magicWater).getAsItemStack(), "Magic Water");
 
 		lr.addName(magicGlass, "Elemental Glass");
+	}
+	
+	private static void miscRegisters() {
+		BlockDMIOres.doRegisters();
+		BlockDMICrystals.doRegisters();
 	}
 }

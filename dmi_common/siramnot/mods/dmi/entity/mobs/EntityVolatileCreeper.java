@@ -1,4 +1,4 @@
-package siramnot.mods.dmi.mobs;
+package siramnot.mods.dmi.entity.mobs;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;

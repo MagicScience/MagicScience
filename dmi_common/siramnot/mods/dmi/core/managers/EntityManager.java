@@ -8,15 +8,15 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.world.biome.BiomeGenBase;
 import siramnot.mods.dmi.DMI;
-import siramnot.mods.dmi.mobs.EntityBlazeSpider;
-import siramnot.mods.dmi.mobs.EntityVolatileSkeleton;
+import siramnot.mods.dmi.entity.mobs.EntityBlazeSpider;
+import siramnot.mods.dmi.entity.mobs.EntityKaldymBoss;
+import siramnot.mods.dmi.entity.mobs.EntityVolatileSkeleton;
+import siramnot.mods.dmi.entity.mobs.render.RenderBlazeSpider;
+import siramnot.mods.dmi.entity.mobs.render.RenderKaldymBoss;
+import siramnot.mods.dmi.entity.mobs.render.RenderVolatileSkeleton;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import siramnot.mods.dmi.mobs.EntityKaldymBoss;
-import siramnot.mods.dmi.mobs.render.RenderBlazeSpider;
-import siramnot.mods.dmi.mobs.render.RenderKaldymBoss;
-import siramnot.mods.dmi.mobs.render.RenderVolatileSkeleton;
 
 /**
  * 

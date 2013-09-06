@@ -1,4 +1,4 @@
-package siramnot.mods.dmi.mobs.render;
+package siramnot.mods.dmi.entity.mobs.render;
 
 import siramnot.mods.dmi.DMI;
 import net.minecraft.client.renderer.entity.RenderSkeleton;

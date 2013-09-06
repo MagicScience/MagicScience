@@ -1,4 +1,4 @@
-package siramnot.mods.dmi.mobs;
+package siramnot.mods.dmi.entity.mobs;
 
 import java.util.Random;
 

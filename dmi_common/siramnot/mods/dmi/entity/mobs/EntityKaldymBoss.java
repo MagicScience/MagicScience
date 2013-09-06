@@ -1,4 +1,4 @@
-package siramnot.mods.dmi.mobs;
+package siramnot.mods.dmi.entity.mobs;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
