@@ -3,6 +3,7 @@ package siramnot.mods.dmi.models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.MathHelper;
 
 public class KaldymModel extends ModelBase
 {
@@ -120,6 +121,25 @@ public class KaldymModel extends ModelBase
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) 
   {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-	}
+		//That gives the correct movement of its legs
+		this.rightleg.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+        this.leftleg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
+        this.rightleg.rotateAngleY = 0.0F;
+        this.leftleg.rotateAngleY = 0.0F;
+        
+        //That gives the correct movement of its arm
+        this.rightarm.rotateAngleZ = 0.0F;
+        this.leftarm.rotateAngleZ = 0.0F;
+        this.rightarm.rotateAngleY = -(0.1F - f4 * 0.6F);
+        this.leftarm.rotateAngleY = 0.1F - f4 * 0.6F;
+        this.rightarm.rotateAngleX = -((float)Math.PI / 2F);
+        this.leftarm.rotateAngleX = -((float)Math.PI / 2F);
+        this.rightarm.rotateAngleX -= f4 * 1.2F - f5 * 0.4F;
+        this.leftarm.rotateAngleX -= f4 * 1.2F - f5 * 0.4F;
+        this.rightarm.rotateAngleZ += MathHelper.cos(f2 * 0.09F) * 0.05F + 0.05F;
+        this.leftarm.rotateAngleZ -= MathHelper.cos(f2 * 0.09F) * 0.05F + 0.05F;
+        this.rightarm.rotateAngleX += MathHelper.sin(f2 * 0.067F) * 0.05F;
+        this.leftarm.rotateAngleX -= MathHelper.sin(f2 * 0.067F) * 0.05F;
 
+}
 }
