@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
+import siramnot.mods.dmi.core.managers.BlockManager;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -117,7 +119,7 @@ public class ShackStructure extends WorldGenerator {
 		worldObj.setBlock(origin_x + 2, origin_y + 1, origin_z + 2, 0, 0, 1);
 		worldObj.setBlock(origin_x + 3, origin_y + 1, origin_z + 2, 0, 0, 1);
 		worldObj.setBlock(origin_x + 4, origin_y + 1, origin_z + 2, 0, 0, 1);
-		worldObj.setBlock(origin_x + 5, origin_y + 1, origin_z + 2, 121, 1, 1);
+		worldObj.setBlock(origin_x + 5, origin_y + 1, origin_z + 2, BlockManager.workStation.blockID, 1, 1);
 		worldObj.setBlock(origin_x + 6, origin_y + 1, origin_z + 2, 109, 1, 1);
 		worldObj.setBlock(origin_x + 0, origin_y + 1, origin_z + 3, 109, 0, 1);
 		worldObj.setBlock(origin_x + 1, origin_y + 1, origin_z + 3, 0, 0, 1);
@@ -269,7 +271,7 @@ public class ShackStructure extends WorldGenerator {
 		worldObj.setBlock(origin_x + 0, origin_y + 4, origin_z + 3, 109, 4, 1);
 		worldObj.setBlock(origin_x + 1, origin_y + 4, origin_z + 3, 44, 13, 1);
 		worldObj.setBlock(origin_x + 2, origin_y + 4, origin_z + 3, 44, 13, 1);
-		worldObj.setBlock(origin_x + 3, origin_y + 4, origin_z + 3, 89, 0, 1);
+		worldObj.setBlock(origin_x + 3, origin_y + 4, origin_z + 3, 124, 0, 1);
 		worldObj.setBlock(origin_x + 4, origin_y + 4, origin_z + 3, 44, 13, 1);
 		worldObj.setBlock(origin_x + 5, origin_y + 4, origin_z + 3, 44, 13, 1);
 		worldObj.setBlock(origin_x + 6, origin_y + 4, origin_z + 3, 109, 5, 1);

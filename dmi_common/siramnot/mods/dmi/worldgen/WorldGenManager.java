@@ -60,5 +60,6 @@ public class WorldGenManager implements IWorldGenerator {
 		GameRegistry gr = new GameRegistry();
 		
 		gr.registerWorldGenerator(getInstance());
+		gr.registerWorldGenerator(ShackGenerator.getInstance());
 	}
 }

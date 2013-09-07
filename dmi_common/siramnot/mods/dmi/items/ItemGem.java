@@ -2,11 +2,12 @@ package siramnot.mods.dmi.items;
 
 import java.util.List;
 
-import siramnot.mods.dmi.DMI;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -17,6 +18,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import siramnot.mods.dmi.DMI;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -95,8 +97,8 @@ public class ItemGem extends Item {
 		return stack;
 	}
 	
-	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+//	@Override
+	public ItemStack ronItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 			if ((world.provider.dimensionId == -1) && (entityplayer.capabilities.isCreativeMode == false)) {
 				entityplayer.addPotionEffect(new PotionEffect(Potion.harm.getId(), 1, 1));
 				return itemstack;
@@ -126,6 +128,12 @@ public class ItemGem extends Item {
 				int j = movingobjectposition.blockY;
 				int k = movingobjectposition.blockZ;
 				world.spawnEntityInWorld(new EntityLightningBolt(world, i, j, k));
+			} else if (movingobjectposition.typeOfHit == EnumMovingObjectType.ENTITY) {
+				Entity entityhit = movingobjectposition.entityHit;
+				double x = entityhit.posX;
+				double y = entityhit.posY;
+				double z = entityhit.posZ;
+				world.spawnEntityInWorld(new EntityLightningBolt(world,x,y,z));
 			}
 			if (entityplayer.capabilities.isCreativeMode) {
 				return itemstack;
@@ -134,6 +142,21 @@ public class ItemGem extends Item {
 				return itemstack;
 			}
 		
+	}
+	
+	@Override
+	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
+		return EnumAction.bow;
+	}
+	
+	@Override
+	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		return par1ItemStack;
+	}
+	
+	@Override
+	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
+		return 7200;
 	}
 
 }

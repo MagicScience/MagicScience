@@ -1,9 +1,12 @@
 package siramnot.mods.dmi.items.debug;
 
+import java.util.Random;
+
 import org.lwjgl.opengl.GL11;
 
 import siramnot.mods.dmi.DMI;
 import siramnot.mods.dmi.core.managers.GuiHandler;
+import siramnot.mods.dmi.worldgen.structures.ShackStructure;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
@@ -51,6 +54,22 @@ public class ItemFlight extends Item {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		System.out.println("Attempting to spawn a strucuture...");
+		int x = (int) par3EntityPlayer.posX;
+		int y = (int) par3EntityPlayer.posY;
+		int z = (int) par3EntityPlayer.posZ;
+		
+		boolean generated = ShackStructure.getInstance().generate(par2World, new Random(), x, y, z);
+		String msg = (generated) ? String.format("Success! Generated a structure @[%d : %d : %d]", x,y,z) : "Failed to generate structure";
+		
+		System.out.println(msg);
+		
+		if(generated) { par1ItemStack.stackSize--; }
+		
+		return par1ItemStack;
+	}
+
+	public ItemStack ronItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
 		render();
 		return par1ItemStack;
 	}
