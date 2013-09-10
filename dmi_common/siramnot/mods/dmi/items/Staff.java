@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import siramnot.mods.dmi.DMI;
+import siramnot.mods.dmi.entity.EntityExplode;
 import siramnot.mods.dmi.entity.EntityExplosiveBall;
 
 /**
@@ -45,7 +46,7 @@ public abstract class Staff extends Item {
 
 		@Override
 		public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int itemCount) {
-			EntityExplosiveBall proj = new EntityExplosiveBall(world, player);
+			EntityExplode proj = new EntityExplode(world);
 		}
 
 	}
