@@ -52,15 +52,14 @@ public class DMI {
 
 	public static final CreativeTabs TAB_CREATIVE = new CreativeTabs(0, "DMI");
 
-	// Pre Init. Config here.
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
-		checkOS();
-		
-		ConfigManager.init(e.getSuggestedConfigurationFile());
-		if (!ConfigManager.isModEnabled) {
+		ConfigManager cfm = new ConfigManager(e.getSuggestedConfigurationFile());
+		cfm.getBlockID("lol");
+//		if (!ConfigManager.isModEnabled) {
+		{
 			System.out.println("Mod disabled via the config file!");
-			return;
+//			return;
 		}
 		instance = this;
 
@@ -68,12 +67,8 @@ public class DMI {
 		BlockManager.load();
 	}
 
-	// Load the mod itself.
 	@EventHandler
 	public void load(FMLInitializationEvent e) {
-		// Create custom creative tab for items
-		if (!ConfigManager.isModEnabled)
-			return;
 		EntityManager.load();
 		DMIRecipeManager.load();
 
@@ -81,17 +76,6 @@ public class DMI {
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 	}
 
-	// Post init.
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent e) {
-
-	}
-	
-	private void checkOS() {
-		String os = System.getProperty("os.name");
-		String mac = "mac";
-		if (os.substring(0,mac.length()).toLowerCase().equals(mac)) {
-			System.err.printf("[%s] Looks like you are using a Mac. Mac support is WIP.%n", MOD_ID);
-		}
-	}
+	public void postInit(FMLPostInitializationEvent e) { }
 }

@@ -1,5 +1,8 @@
 package siramnot.mods.dmi.core.managers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * Dominus ex Magica et Industria mod.
@@ -9,7 +12,6 @@ package siramnot.mods.dmi.core.managers;
  * 
  */
 public class IDManager {
-
 	// Blocks
 	public static int liquidator = 1400;
 	public static int workstation = 1401;
@@ -34,4 +36,8 @@ public class IDManager {
 	public static int MAGIC_BREAD = 14008;
 	public static int DEBUG_FLIGHT = 14009;
 	public static int EXPLODING_STAFF = 14010;
+	
+	
+	
+	
 }
