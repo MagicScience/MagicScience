@@ -14,6 +14,7 @@ import siramnot.mods.dmi.entity.EntityExplosiveBall;
 import siramnot.mods.dmi.entity.mobs.EntityKaldymBoss;
 import siramnot.mods.dmi.entity.mobs.EntityVolatileSkeleton;
 import siramnot.mods.dmi.entity.mobs.render.RenderBlazeSpider;
+import siramnot.mods.dmi.entity.mobs.render.RenderExplosiveBall;
 import siramnot.mods.dmi.entity.mobs.render.RenderKaldymBoss;
 import siramnot.mods.dmi.entity.mobs.render.RenderVolatileSkeleton;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -64,7 +65,7 @@ public class EntityManager {
 		RenderingRegistry.registerEntityRenderingHandler(FIRE_SPIDER_CLASS, new RenderBlazeSpider());
 		RenderingRegistry.registerEntityRenderingHandler(KALDYM_BOSS_CLASS, new RenderKaldymBoss());
 		RenderingRegistry.registerEntityRenderingHandler(VOLATILE_SKELLY_CLASS, new RenderVolatileSkeleton());
-		RenderingRegistry.registerEntityRenderingHandler(BOOM_ENTITY_CLASS, new RenderArrow());
+		//RenderingRegistry.registerEntityRenderingHandler(BOOM_ENTITY_CLASS,  new RenderExplosiveBall());
 	}
 
 	private static void registerSpawnEggs() {

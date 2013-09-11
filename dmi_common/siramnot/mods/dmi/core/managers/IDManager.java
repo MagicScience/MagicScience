@@ -30,12 +30,10 @@ public class IDManager {
 
 	public static int BASIC_SCROLL = 14004;
 	public static int SCROLL_EXAMPLE = 14005;
-	public static int BASIC_STAFF = 14006;
-	public static int LIGHTNING_STAFF = 14007;
 
-	public static int MAGIC_BREAD = 14008;
-	public static int DEBUG_FLIGHT = 14009;
-	public static int EXPLODING_STAFF = 14010;
+	public static int MAGIC_BREAD = 14006;
+	public static int DEBUG_FLIGHT = 14007;
+	public static int EXPLODING_STAFF = 14008;
 	
 	
 	
