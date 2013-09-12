@@ -15,9 +15,6 @@ public class RenderExplosiveBall extends Render{
 	private static float shadowSize = 2.5f;
 	private static ResourceLocation textureLocation = new ResourceLocation(DMI.MOD_ID.toLowerCase(), "textures/mobs/ExplosiveBall.png");
 
-	public RenderExplosiveBall() {
-		super();
-	}
 
 	@Override
 	protected ResourceLocation func_110775_a(Entity entity) {

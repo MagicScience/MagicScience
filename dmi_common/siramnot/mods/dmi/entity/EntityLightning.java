@@ -8,6 +8,7 @@ import net.minecraft.enchantment.EnchantmentThorns;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -21,8 +22,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-
-public class EntityExplode extends Entity implements IProjectile
+public class EntityLightning extends Entity implements IProjectile
 {
     private int xTile = -1;
     private int yTile = -1;
@@ -37,14 +37,14 @@ public class EntityExplode extends Entity implements IProjectile
     private int ticksInAir;
 
 
-    public EntityExplode(World par1World)
+    public EntityLightning(World par1World)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
     }
 
-    public EntityExplode(World par1World, double par2, double par4, double par6)
+    public EntityLightning(World par1World, double par2, double par4, double par6)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -53,7 +53,7 @@ public class EntityExplode extends Entity implements IProjectile
         this.yOffset = 0.0F;
     }
 
-    public EntityExplode(World par1World, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase, float par4, float par5)
+    public EntityLightning(World par1World, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase, float par4, float par5)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -79,7 +79,7 @@ public class EntityExplode extends Entity implements IProjectile
         }
     }
 
-    public EntityExplode(World par1World, EntityLivingBase par2EntityLivingBase, float par3)
+    public EntityLightning(World par1World, EntityLivingBase par2EntityLivingBase, float par3)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -185,7 +185,8 @@ public class EntityExplode extends Entity implements IProjectile
         {
             int j = this.worldObj.getBlockId(this.xTile, this.yTile, this.zTile);
             int k = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
-            this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3, true);
+            EntityLightningBolt entitylightning = new EntityLightningBolt(worldObj, posX, posY, posZ);
+            this.worldObj.spawnEntityInWorld(entitylightning);
             this.setDead();
             if (j == this.inTile && k == this.inData)
             {
