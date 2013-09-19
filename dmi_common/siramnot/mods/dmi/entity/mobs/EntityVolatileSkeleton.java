@@ -20,11 +20,9 @@ public class EntityVolatileSkeleton extends EntitySkeleton
     {
         super.onDeath(par1DamageSource);
 
-        this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, (float)this.explosionRadius, flag);
+        this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3, true);
 }
 	
-	boolean flag = this.worldObj.getGameRules().getGameRuleBooleanValue("mobGriefing");
-	private int explosionRadius = 3;
 
 	
 }

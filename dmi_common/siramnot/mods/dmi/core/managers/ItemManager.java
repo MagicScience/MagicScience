@@ -26,6 +26,7 @@ public class ItemManager {
 	public static Item debug_flight;
 	public static Item boom_staff;
 	public static Item lightning_staff;
+	public static Item fire_staff;
 
 	public static void load() {
 		crystals = new ItemGem(IDManager.gems);
@@ -34,8 +35,10 @@ public class ItemManager {
 		scrollExample = new ScrollExample(IDManager.SCROLL_EXAMPLE);
 		magicBread = new ItemFoodMagicBread(IDManager.MAGIC_BREAD);
 		debug_flight = new ItemFlight(IDManager.DEBUG_FLIGHT);
+		
 		boom_staff = new Staff.ExplodingStaff(IDManager.EXPLODING_STAFF);
 		lightning_staff = new Staff.LightningStaff(IDManager.LIGHTNING_STAFF);
+		fire_staff = new Staff.FireStaff(IDManager.FIRE_STAFF);
 
 		languageRegistry(LanguageRegistry.instance());
 		miscRegisters();
@@ -46,6 +49,7 @@ public class ItemManager {
 		lr.addName(debug_flight, "CHEATZOR!");
 		lr.addName(boom_staff, "Staff of Explosion");
 		lr.addName(lightning_staff, "Staff of Lightning");
+		lr.addName(fire_staff, "Staff of Fire");
 	}
 	
 	private static void miscRegisters() {

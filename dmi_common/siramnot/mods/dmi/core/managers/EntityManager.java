@@ -20,6 +20,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import siramnot.mods.dmi.entity.EntityExplode;
+import siramnot.mods.dmi.entity.EntityFire;
 import siramnot.mods.dmi.entity.EntityLightning;
 
 /**
@@ -43,12 +44,14 @@ public class EntityManager {
 	private static final String VOLATILE_SKELLY_NAME = "Volatile Skeleton";
 	private static final String BOOM_ENTITY_NAME = "Explosion Ball";
 	private static final String LIGHTNING_ENTITY_NAME = "Lightning Ball";
+	private static final String FIRE_ENTITY_NAME = "Fire Ball";
 
 	private static final Class<? extends EntityLiving> FIRE_SPIDER_CLASS = EntityBlazeSpider.class;
 	private static final Class<? extends EntityLiving> KALDYM_BOSS_CLASS = EntityKaldymBoss.class;
 	private static final Class<? extends EntityLiving> VOLATILE_SKELLY_CLASS = EntityVolatileSkeleton.class;
 	private static final Class<? extends Entity> BOOM_ENTITY_CLASS = EntityExplode.class;
 	private static final Class<? extends Entity> LIGHTNING_ENTITY_CLASS = EntityLightning.class;
+	private static final Class<? extends Entity> FIRE_ENTITY_CLASS = EntityFire.class;
 
 	public static void load() {
 		try {
@@ -82,6 +85,7 @@ public class EntityManager {
 		LanguageRegistry.instance().addStringLocalization(entityLoc + VOLATILE_SKELLY_NAME + nameSuff, VOLATILE_SKELLY_NAME);
 		LanguageRegistry.instance().addStringLocalization(entityLoc + BOOM_ENTITY_CLASS + nameSuff, BOOM_ENTITY_NAME);
 		LanguageRegistry.instance().addStringLocalization(entityLoc + LIGHTNING_ENTITY_CLASS + nameSuff, BOOM_ENTITY_NAME);
+		LanguageRegistry.instance().addStringLocalization(entityLoc + FIRE_ENTITY_CLASS + nameSuff, FIRE_ENTITY_NAME);
 	}
 
 	private static void entityRegistry() {
@@ -95,6 +99,8 @@ public class EntityManager {
 		EntityRegistry.registerModEntity(BOOM_ENTITY_CLASS, BOOM_ENTITY_NAME, entityIDs++, DMI.instance, 64, 3, true);
 		System.out.println("LigtningBallID: " + entityIDs);
 		EntityRegistry.registerModEntity(LIGHTNING_ENTITY_CLASS, LIGHTNING_ENTITY_NAME, entityIDs++, DMI.instance, 64, 3, true);
+		System.out.println("FireBallID: " + entityIDs);
+		EntityRegistry.registerModEntity(FIRE_ENTITY_CLASS, FIRE_ENTITY_NAME, entityIDs++, DMI.instance, 64, 3, true);
 
 		EntityRegistry.addSpawn(KALDYM_BOSS_CLASS, 25, 1, 3, EnumCreatureType.monster, BiomeGenBase.swampland);
 		EntityRegistry.addSpawn(FIRE_SPIDER_CLASS, 70, 1, 3, EnumCreatureType.monster, BiomeGenBase.hell);

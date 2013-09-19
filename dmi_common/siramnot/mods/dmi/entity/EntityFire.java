@@ -23,7 +23,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class EntityLightning extends Entity implements IProjectile
+public class EntityFire extends Entity implements IProjectile
 {
     private int xTile = -1;
     private int yTile = -1;
@@ -38,14 +38,14 @@ public class EntityLightning extends Entity implements IProjectile
     private int ticksInAir;
 
 
-    public EntityLightning(World par1World)
+    public EntityFire(World par1World)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
         this.setSize(0.5F, 0.5F);
     }
 
-    public EntityLightning(World par1World, double par2, double par4, double par6)
+    public EntityFire(World par1World, double par2, double par4, double par6)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -54,7 +54,7 @@ public class EntityLightning extends Entity implements IProjectile
         this.yOffset = 0.0F;
     }
 
-    public EntityLightning(World par1World, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase, float par4, float par5)
+    public EntityFire(World par1World, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase, float par4, float par5)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -80,7 +80,7 @@ public class EntityLightning extends Entity implements IProjectile
         }
     }
 
-    public EntityLightning(World par1World, EntityLivingBase par2EntityLivingBase, float par3)
+    public EntityFire(World par1World, EntityLivingBase par2EntityLivingBase, float par3)
     {
         super(par1World);
         this.renderDistanceWeight = 10.0D;
@@ -186,8 +186,25 @@ public class EntityLightning extends Entity implements IProjectile
         {
             int j = this.worldObj.getBlockId(this.xTile, this.yTile, this.zTile);
             int k = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
-            EntityLightningBolt entitylightning = new EntityLightningBolt(worldObj, posX, posY, posZ);
-            this.worldObj.spawnEntityInWorld(entitylightning);
+            if (!this.worldObj.isRemote && this.worldObj.getGameRules().getGameRuleBooleanValue("doFireTick") && this.worldObj.doChunksNearChunkExist(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ), 10))
+            {
+                int l = MathHelper.floor_double(this.posX);
+                int h = MathHelper.floor_double(this.posY);
+                int m = MathHelper.floor_double(this.posZ);
+
+                if (this.worldObj.getBlockId(l, h, m) == 0 && Block.fire.canPlaceBlockAt(this.worldObj, l, h, m))
+                {
+                   this.worldObj.setBlock(l, h, m, Block.fire.blockID);
+                   this.worldObj.setBlock(l+1, h, m, Block.fire.blockID);
+                   this.worldObj.setBlock(l, h, m+1, Block.fire.blockID);
+                   this.worldObj.setBlock(l+1, h+1, m, Block.fire.blockID);
+                   this.worldObj.setBlock(l, h+1, m+1, Block.fire.blockID);
+                   this.worldObj.setBlock(l+1, h, m+1, Block.fire.blockID);
+                   this.worldObj.setBlock(l-1, h, m, Block.fire.blockID);
+                   this.worldObj.setBlock(l, h, m-1, Block.fire.blockID);
+                   this.worldObj.setBlock(l-1, h, m-1, Block.fire.blockID);
+                }
+            }     
             this.setDead();
             if (j == this.inTile && k == this.inData)
             {

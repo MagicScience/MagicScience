@@ -35,7 +35,7 @@ public class ItemFoodMagicBread extends ItemFood {
 	private static final PotionEffect FIRE_EFFECT = new PotionEffect(Potion.fireResistance.id, EFFECT_DURATION, EFFECT_MODIFIER, false);
 	private static final PotionEffect AIR_EFFECT = new PotionEffect(Potion.moveSpeed.id, EFFECT_DURATION, EFFECT_MODIFIER, false);
 	private static final PotionEffect ELEMENTAL_EFFECT = new PotionEffect(Potion.regeneration.id, EFFECT_DURATION, EFFECT_MODIFIER, false);
-	private static final PotionEffect ICEDRUG_EFFECT = new PotionEffect(Potion.jump.id, EFFECT_DURATION, 50, false);
+	private static final PotionEffect ICEDRUG_EFFECT = new PotionEffect(Potion.jump.id, EFFECT_DURATION, 49, false);
 	private static ItemFood instance;
 
 	public ItemFoodMagicBread(int id) {
