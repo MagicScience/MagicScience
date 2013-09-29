@@ -33,7 +33,7 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData
 {
 	
 	private float	moveSpeed;
-	private float	maxHeath	= 70.0f;
+
 	
 	public EntityKaldymBoss(World par1World)
 	{
@@ -41,6 +41,7 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData
 		this.isImmuneToFire = true;
 		this.moveSpeed = 0.55F;
 		this.experienceValue = 70;
+;
 		
 		addTasks();
 	}
@@ -88,7 +89,7 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(maxHeath);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(75.0D);
 	}
 	
 	public int getBossHealth()
@@ -127,6 +128,6 @@ public class EntityKaldymBoss extends EntityMob implements IBossDisplayData
 	 */
 	public String getEntityName()
 	{
-		return null;
+		return "Kaldym the Necromancer";
 	}
 }

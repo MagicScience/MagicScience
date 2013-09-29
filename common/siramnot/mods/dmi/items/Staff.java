@@ -42,14 +42,13 @@ public abstract class Staff extends Item {
 	
 
 	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
-		return 100;
+		return 100000;
 	}
 
 // The exploding staff
 	
 	public static class ExplodingStaff extends Staff {
-		private static final String NAME = "Scroll of Experience";
-
+		
 
 		    public ExplodingStaff(int par1)
 		    {

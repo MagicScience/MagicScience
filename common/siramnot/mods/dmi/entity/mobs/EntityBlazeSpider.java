@@ -69,13 +69,13 @@ public class EntityBlazeSpider extends EntitySpider {
 
 				if (this.field_70846_g == 1) {
 					this.attackTime = 5;
-					this.func_70844_e(true);
+					//this.func_70844_e(true);
 				} else if (this.field_70846_g <= 4) {
 					this.attackTime = 5;
 				} else {
 					this.attackTime = 15;
 					this.field_70846_g = 0;
-					this.func_70844_e(false);
+					//this.func_70844_e(false);
 				}
 
 				if (this.field_70846_g > 1) {
@@ -95,7 +95,7 @@ public class EntityBlazeSpider extends EntitySpider {
 		}
 	}
 
-	private void func_70844_e(boolean flag) {
+	/*private void func_70844_e(boolean flag) {
 		byte b0 = this.dataWatcher.getWatchableObjectByte(16);
 
         if (flag)
@@ -109,7 +109,7 @@ public class EntityBlazeSpider extends EntitySpider {
 
         this.dataWatcher.updateObject(16, Byte.valueOf(b0));
 	}
-
+*/
 	/**
 	 * Drop 0-2 items of this living's type. @param par1 - Whether this entity
 	 * has recently been hit by a player. @param par2 - Level of Looting used to
