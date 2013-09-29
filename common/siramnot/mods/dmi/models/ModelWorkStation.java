@@ -4,7 +4,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelWorkStation extends ModelBase {
+public class ModelWorkstation extends ModelBase {
 	//fields
 	ModelRenderer leg0;
 	ModelRenderer leg1;
@@ -26,7 +26,7 @@ public class ModelWorkStation extends ModelBase {
 	ModelRenderer desk;
 	ModelRenderer wandBody;
 
-	public ModelWorkStation() {
+	public ModelWorkstation() {
 		this.textureWidth = 64;
 		this.textureHeight = 32;
 

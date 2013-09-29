@@ -31,11 +31,16 @@ public class TileEntityWorkstation extends TileEntity
 	
 	/** The amount that the book is open. */
 	public float			bookSpreadPrev;
-//	public float			bookRotation2;
-//	public float			bookRotationPrev;
-//	public float			bookRotation;
-	private static Random	rand	= new Random();
+	private static Random	rand;
 	private String			field_94136_s;
+	
+	private boolean shouldRenderBook;
+	
+	public TileEntityWorkstation(boolean shouldRenderBook)
+	{
+		this.shouldRenderBook = shouldRenderBook;
+		rand = new Random();
+	}
 	
 	public void updateEntity()
 	{
@@ -46,14 +51,10 @@ public class TileEntityWorkstation extends TileEntity
 	private void renderBook()
 	{
 		this.bookSpreadPrev = this.bookSpread;
-//		this.bookRotationPrev = this.bookRotation2;
 		EntityPlayer entityplayer = this.worldObj.getClosestPlayer((double) ((float) this.xCoord + 0.5F), (double) ((float) this.yCoord + 0.5F), (double) ((float) this.zCoord + 0.5F), 3.0D);
 		
 		if (entityplayer != null)
 		{
-			double d0 = entityplayer.posX - (double) ((float) this.xCoord + 0.5F);
-			double d1 = entityplayer.posZ - (double) ((float) this.zCoord + 0.5F);
-//			this.bookRotation = (float) Math.atan2(d1, d0);
 			this.bookSpread += 0.1F;
 			
 			if (this.bookSpread < 0.5F || rand.nextInt(40) == 0)
@@ -67,43 +68,8 @@ public class TileEntityWorkstation extends TileEntity
 			}
 		} else
 		{
-//			this.bookRotation += 0.02F;
 			this.bookSpread -= 0.1F;
 		}
-		
-//		while (this.bookRotation2 >= (float) Math.PI)
-//		{
-//			this.bookRotation2 -= ((float) Math.PI * 2F);
-//		}
-		
-//		while (this.bookRotation2 < -(float) Math.PI)
-//		{
-//			this.bookRotation2 += ((float) Math.PI * 2F);
-//		}
-		
-//		while (this.bookRotation >= (float) Math.PI)
-//		{
-//			this.bookRotation -= ((float) Math.PI * 2F);
-//		}
-		
-//		/*while (this.bookRotation < -(float) Math.PI)
-//		{
-//			this.bookRotation += ((float) Math.PI * 2F);
-//		}
-//		*/
-//		float f1;
-		
-//		for (f1 = this.bookRotation - this.bookRotation2; f1 >= (float) Math.PI; f1 -= ((float) Math.PI * 2F))
-//		{
-//			;
-//		}
-		
-//		while (f1 < -(float) Math.PI)
-//		{
-//			f1 += ((float) Math.PI * 2F);
-//		}
-		
-//		this.bookRotation2 += f1 * 0.4F;
 		
 		if (this.bookSpread < 0.0F)
 		{
@@ -133,5 +99,9 @@ public class TileEntityWorkstation extends TileEntity
 		this.field_70374_e += (f2 - this.field_70374_e) * 0.9F;
 		this.pageFlip += this.field_70374_e;
 		
+	}
+	
+	public boolean getShouldRenderBook() {
+		return shouldRenderBook;
 	}
 }

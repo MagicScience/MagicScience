@@ -1,10 +1,9 @@
 package siramnot.mods.dmi.core;
 
 import net.minecraftforge.client.MinecraftForgeClient;
-import siramnot.mods.dmi.blocks.tileeents.ItemBlockWorkStationRenderer;
-import siramnot.mods.dmi.blocks.tileeents.TileEntityWorkStationRenderer;
 import siramnot.mods.dmi.core.managers.BlockManager;
 import siramnot.mods.dmi.entity.tile.TileEntityWorkstation;
+import siramnot.mods.dmi.render.*;
 import cpw.mods.fml.client.registry.ClientRegistry;
 
 /**

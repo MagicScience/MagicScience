@@ -51,8 +51,6 @@ public class InfuserGui extends GuiContainer {
 		glEnd();
 		*/
 		
-		List<List<List<List>>> list;
-		
 		glBegin(GL_TRIANGLES);
 			glColor3f(1, 0, 0);
 			glVertex2f(-1, -1);

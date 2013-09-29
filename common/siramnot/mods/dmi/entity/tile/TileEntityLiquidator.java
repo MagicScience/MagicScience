@@ -220,7 +220,8 @@ public class TileEntityLiquidator extends TileEntity implements IInventory {
 	 * Returns true if the furnace is currently burning
 	 */
 	public boolean isBurning() {
-		return this.goldBurnTime > 0;
+		return false;
+//		return this.goldBurnTime > 0;
 	}
 
 	/**
