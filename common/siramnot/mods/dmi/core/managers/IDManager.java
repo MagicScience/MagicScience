@@ -32,5 +32,5 @@ public interface IDManager
 	public static int	tntStaff	= 14003;
 	public static int	stormStaff	= 14004;
 	public static int	flameStaff	= 14005;
-	
+	public static int	antiRain	= 14006;
 }

@@ -5,6 +5,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import siramnot.mods.dmi.items.BasicScroll;
 import siramnot.mods.dmi.items.ItemFoodMagicBread;
 import siramnot.mods.dmi.items.ItemGem;
+import siramnot.mods.dmi.items.ItemRainController;
 import siramnot.mods.dmi.items.ScrollExample;
 import siramnot.mods.dmi.items.Staff;
 import siramnot.mods.dmi.items.debug.ItemFlight;
@@ -28,6 +29,7 @@ public class ItemManager implements IDManager
 	public static Item	boom_staff;
 	public static Item	lightning_staff;
 	public static Item	fire_staff;
+	public static Item anti_rain;
 	
 	public static void load()
 	{
@@ -37,6 +39,7 @@ public class ItemManager implements IDManager
 		boom_staff = new Staff.ExplodingStaff(tntStaff);
 		lightning_staff = new Staff.LightningStaff(stormStaff);
 		fire_staff = new Staff.FireStaff(flameStaff);
+		anti_rain = new ItemRainController(antiRain);
 		
 		languageRegistry(LanguageRegistry.instance());
 		miscRegisters();
@@ -48,6 +51,7 @@ public class ItemManager implements IDManager
 		lr.addName(boom_staff, "Staff of Explosion");
 		lr.addName(lightning_staff, "Staff of Lightning");
 		lr.addName(fire_staff, "Staff of Fire");
+		lr.addName(anti_rain, "NO NAME, BUT FRIGGIN' STOPS RAIN");
 	}
 	
 	private static void miscRegisters()
