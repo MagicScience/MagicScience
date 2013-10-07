@@ -16,6 +16,8 @@ public class ItemRainController extends Item{
 
 	public ItemRainController(int par1) {
 		super(par1);
+		this.setCreativeTab(DMI.TAB_CREATIVE);
+		this.setMaxStackSize(1);
 		
 	}
 	int i = (300 + (new Random()).nextInt(600)) * 20;
