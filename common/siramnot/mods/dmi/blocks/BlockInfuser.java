@@ -1,19 +1,16 @@
 package siramnot.mods.dmi.blocks;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-import siramnot.mods.dmi.DMI;
-import siramnot.mods.dmi.core.managers.GuiHandler;
-import siramnot.mods.dmi.entity.tile.TileEntityInfuser;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.*;
+import net.minecraft.block.material.*;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.tileentity.*;
+import net.minecraft.world.*;
+import siramnot.mods.dmi.*;
+import siramnot.mods.dmi.core.*;
+import siramnot.mods.dmi.core.managers.*;
+import siramnot.mods.dmi.entity.tile.*;
+import cpw.mods.fml.relauncher.*;
 
 /**
  * 
@@ -82,9 +79,9 @@ public class BlockInfuser extends BlockContainer {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
-		String ul = this.getUnlocalizedName(); 
-		String loc = ul.substring(ul.indexOf('t'), ul.indexOf('.'));
-		this.blockIcon = icon.registerIcon(DMI.MOD_ID + ":" + loc);
+		String name = this.getUnlocalizedName(); 
+		String loc = name.substring(name.indexOf('t'), name.indexOf('.'));
+		this.blockIcon = icon.registerIcon(Reference.BLOCK_TEXTURE_LOCATION + loc);
 	}
 	
 	@Override

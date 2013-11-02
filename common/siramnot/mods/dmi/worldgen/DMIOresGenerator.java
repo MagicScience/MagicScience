@@ -1,18 +1,23 @@
 package siramnot.mods.dmi.worldgen;
 
-import java.util.Random;
+import java.util.*;
+import net.minecraft.block.*;
+import net.minecraft.world.*;
+import net.minecraft.world.gen.feature.*;
+import siramnot.mods.dmi.*;
+import siramnot.mods.dmi.core.*;
+import siramnot.mods.dmi.core.managers.*;
 
-import siramnot.mods.dmi.DMI;
-import siramnot.mods.dmi.core.managers.BlockManager;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldType;
-import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-import cpw.mods.fml.common.IWorldGenerator;
-
+/**
+ * 
+ * 
+ * 
+ * Dominus ex Magica et Industria mod.
+ * 
+ * @author SirAmNot
+ * @license Creative-Commons Attribution Non-commercial v3.0
+ *
+ */
 public class DMIOresGenerator {
 
 	static WorldGenMinable water, earth, fire, air;
@@ -67,7 +72,7 @@ public class DMIOresGenerator {
 			return;
 		}
 		
-		String err = String.format("[%s] [/!\\] Failed to generate ore \"%1\".", DMI.MOD_ID, ore);
+		String err = String.format("[%s] [/!\\] Failed to generate ore \"%1\".", Reference.MOD_ID, ore);
 		System.err.println(err);
 
 	}

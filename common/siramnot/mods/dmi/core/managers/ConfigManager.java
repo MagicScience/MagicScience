@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 
 import net.minecraftforge.common.Configuration;
-import siramnot.mods.dmi.IReference;
+import siramnot.mods.dmi.core.*;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 /**
@@ -16,7 +16,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
  * @license Creative-Commons Attribution Non-commercial v3.0
  * 
  */
-public class ConfigManager implements IReference {
+public class ConfigManager {
 
 	private File configFile;
 	private Configuration conf;
@@ -26,8 +26,8 @@ public class ConfigManager implements IReference {
 		conf = new Configuration(file);
 	}
 
-	public ConfigManager(FMLPreInitializationEvent e, String modID) {
-		this(new File(e.getModConfigurationDirectory(), String.format("\\%s\\%s.txt", MOD_ID, modID)));
+	public ConfigManager(FMLPreInitializationEvent e, String id) {
+		this(new File(e.getModConfigurationDirectory(), String.format("\\%s\\%s.txt",  Reference.MOD_ID, id)));
 	}
 	
 	void read() {

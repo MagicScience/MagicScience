@@ -1,4 +1,4 @@
-package siramnot.mods.dmi.items;
+/*package siramnot.mods.dmi.items;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.item.EntityExpBottle;
@@ -51,3 +51,4 @@ public class ScrollExample extends Item {
 	}
 
 }
+*/

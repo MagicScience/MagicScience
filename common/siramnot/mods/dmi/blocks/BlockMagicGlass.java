@@ -10,6 +10,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import siramnot.mods.dmi.*;
+import siramnot.mods.dmi.core.*;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -32,7 +33,6 @@ public class BlockMagicGlass extends Block
 	}
 	
 	private static final String		NAME						= "magicGlassBlock";
-	private static final String		TEXTURELOCATION				= DMI.MOD_ID + ":" + NAME;
 	private static final float		HARDNESS					= 0.1F;
 	private static final StepSound	SOUND						= Block.soundGlassFootstep;
 	
@@ -49,9 +49,9 @@ public class BlockMagicGlass extends Block
 	}
 	
 	{
+		this.setUnlocalizedName(NAME);
 		this.setHardness(HARDNESS);
 		this.setStepSound(SOUND);
-		this.setUnlocalizedName(NAME);
 		this.setCreativeTab(DMI.TAB_CREATIVE);
 		
 	}
@@ -68,22 +68,6 @@ public class BlockMagicGlass extends Block
 		return false;
 	}
 	
-	/**
-	 * This is checked to see if the texture should connect to this block
-	 * 
-	 * @param par2
-	 *            x
-	 * @param par3
-	 *            y
-	 * @param par4
-	 *            z
-	 * @param par5
-	 *            ID this block is asking to connect to (may be 0 if there is no
-	 *            block)
-	 * @param par6
-	 *            Metadata of the block this block is trying to connect to
-	 * @return true if should connect
-	 */
 	public boolean shouldConnectToBlock(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5, int par6)
 	{
 		return par5 == this.blockID;
@@ -95,29 +79,29 @@ public class BlockMagicGlass extends Block
 		return this.getConnectedBlockTexture(par1IBlockAccess, par2, par3, par4, par5, this.icons);
 	}
 	
-	public Icon getConnectedBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5, Icon[] icons)
+	public Icon getConnectedBlockTexture(IBlockAccess blockAccess, int x, int y, int z, int side, Icon[] icons)
 	{
 		boolean isOpenUp = false, isOpenDown = false, isOpenLeft = false, isOpenRight = false;
 		
-		switch (par5)
+		switch (side)
 		{
 			case 0:
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2 - 1, par3, par4), par1IBlockAccess.getBlockMetadata(par2 - 1, par3, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x - 1, y, z), blockAccess.getBlockMetadata(x - 1, y, z)))
 				{
 					isOpenDown = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2 + 1, par3, par4), par1IBlockAccess.getBlockMetadata(par2 + 1, par3, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x + 1, y, z), blockAccess.getBlockMetadata(x + 1, y, z)))
 				{
 					isOpenUp = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3, par4 - 1), par1IBlockAccess.getBlockMetadata(par2, par3, par4 - 1)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y, z - 1), blockAccess.getBlockMetadata(x, y, z - 1)))
 				{
 					isOpenLeft = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3, par4 + 1), par1IBlockAccess.getBlockMetadata(par2, par3, par4 + 1)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y, z + 1), blockAccess.getBlockMetadata(x, y, z + 1)))
 				{
 					isOpenRight = true;
 				}
@@ -170,22 +154,22 @@ public class BlockMagicGlass extends Block
 				}
 				break;
 			case 1:
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2 - 1, par3, par4), par1IBlockAccess.getBlockMetadata(par2 - 1, par3, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x - 1, y, z), blockAccess.getBlockMetadata(x - 1, y, z)))
 				{
 					isOpenDown = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2 + 1, par3, par4), par1IBlockAccess.getBlockMetadata(par2 + 1, par3, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x + 1, y, z), blockAccess.getBlockMetadata(x + 1, y, z)))
 				{
 					isOpenUp = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3, par4 - 1), par1IBlockAccess.getBlockMetadata(par2, par3, par4 - 1)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y, z - 1), blockAccess.getBlockMetadata(x, y, z - 1)))
 				{
 					isOpenLeft = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3, par4 + 1), par1IBlockAccess.getBlockMetadata(par2, par3, par4 + 1)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y, z + 1), blockAccess.getBlockMetadata(x, y, z + 1)))
 				{
 					isOpenRight = true;
 				}
@@ -238,22 +222,22 @@ public class BlockMagicGlass extends Block
 				}
 				break;
 			case 2:
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3 - 1, par4), par1IBlockAccess.getBlockMetadata(par2, par3 - 1, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y - 1, z), blockAccess.getBlockMetadata(x, y - 1, z)))
 				{
 					isOpenDown = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3 + 1, par4), par1IBlockAccess.getBlockMetadata(par2, par3 + 1, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y + 1, z), blockAccess.getBlockMetadata(x, y + 1, z)))
 				{
 					isOpenUp = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2 - 1, par3, par4), par1IBlockAccess.getBlockMetadata(par2 - 1, par3, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x - 1, y, z), blockAccess.getBlockMetadata(x - 1, y, z)))
 				{
 					isOpenLeft = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2 + 1, par3, par4), par1IBlockAccess.getBlockMetadata(par2 + 1, par3, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x + 1, y, z), blockAccess.getBlockMetadata(x + 1, y, z)))
 				{
 					isOpenRight = true;
 				}
@@ -306,22 +290,22 @@ public class BlockMagicGlass extends Block
 				}
 				break;
 			case 3:
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3 - 1, par4), par1IBlockAccess.getBlockMetadata(par2, par3 - 1, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y - 1, z), blockAccess.getBlockMetadata(x, y - 1, z)))
 				{
 					isOpenDown = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3 + 1, par4), par1IBlockAccess.getBlockMetadata(par2, par3 + 1, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y + 1, z), blockAccess.getBlockMetadata(x, y + 1, z)))
 				{
 					isOpenUp = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2 - 1, par3, par4), par1IBlockAccess.getBlockMetadata(par2 - 1, par3, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x - 1, y, z), blockAccess.getBlockMetadata(x - 1, y, z)))
 				{
 					isOpenLeft = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2 + 1, par3, par4), par1IBlockAccess.getBlockMetadata(par2 + 1, par3, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x + 1, y, z), blockAccess.getBlockMetadata(x + 1, y, z)))
 				{
 					isOpenRight = true;
 				}
@@ -374,22 +358,22 @@ public class BlockMagicGlass extends Block
 				}
 				break;
 			case 4:
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3 - 1, par4), par1IBlockAccess.getBlockMetadata(par2, par3 - 1, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y - 1, z), blockAccess.getBlockMetadata(x, y - 1, z)))
 				{
 					isOpenDown = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3 + 1, par4), par1IBlockAccess.getBlockMetadata(par2, par3 + 1, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y + 1, z), blockAccess.getBlockMetadata(x, y + 1, z)))
 				{
 					isOpenUp = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3, par4 - 1), par1IBlockAccess.getBlockMetadata(par2, par3, par4 - 1)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y, z - 1), blockAccess.getBlockMetadata(x, y, z - 1)))
 				{
 					isOpenLeft = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3, par4 + 1), par1IBlockAccess.getBlockMetadata(par2, par3, par4 + 1)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y, z + 1), blockAccess.getBlockMetadata(x, y, z + 1)))
 				{
 					isOpenRight = true;
 				}
@@ -442,22 +426,22 @@ public class BlockMagicGlass extends Block
 				}
 				break;
 			case 5:
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3 - 1, par4), par1IBlockAccess.getBlockMetadata(par2, par3 - 1, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y - 1, z), blockAccess.getBlockMetadata(x, y - 1, z)))
 				{
 					isOpenDown = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3 + 1, par4), par1IBlockAccess.getBlockMetadata(par2, par3 + 1, par4)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y + 1, z), blockAccess.getBlockMetadata(x, y + 1, z)))
 				{
 					isOpenUp = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3, par4 - 1), par1IBlockAccess.getBlockMetadata(par2, par3, par4 - 1)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y, z - 1), blockAccess.getBlockMetadata(x, y, z - 1)))
 				{
 					isOpenLeft = true;
 				}
 				
-				if (this.shouldConnectToBlock(par1IBlockAccess, par2, par3, par4, par1IBlockAccess.getBlockId(par2, par3, par4 + 1), par1IBlockAccess.getBlockMetadata(par2, par3, par4 + 1)))
+				if (this.shouldConnectToBlock(blockAccess, x, y, z, blockAccess.getBlockId(x, y, z + 1), blockAccess.getBlockMetadata(x, y, z + 1)))
 				{
 					isOpenRight = true;
 				}
@@ -542,7 +526,7 @@ public class BlockMagicGlass extends Block
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		String path = IReference.BLOCK_TEXTURE_LOCATION + "glass/glass";
+		String path = Reference.BLOCK_TEXTURE_LOCATION + "glass/glass";
 		icons[0] = par1IconRegister.registerIcon(path);
 		icons[1] = par1IconRegister.registerIcon(path + "_1_d");
 		icons[2] = par1IconRegister.registerIcon(path + "_1_u");

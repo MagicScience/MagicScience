@@ -13,24 +13,37 @@ import java.util.List;
  * @license Creative-Commons Attribution Non-commercial v3.0
  * 
  */
-public interface IDManager
+public class IDManager
 {
-	// Blocks
-	public static int	liquidator	= 1400;
-	public static int	workstation	= 1401;
+	public static int	blocksStartID	= 1400;
+	public static int nextBlock() // Returns the next available block ID
+	{
+		return blocksStartID++;
+	}
 	
-	public static int	ores		= 1402;
-	public static int	oreStorage	= 1403;
-	public static int	infuserCore	= 1404;
-	public static int	fluids		= 1405;
-	public static int	magicGlass	= 1410;
+	public static int	itemsStartID	= 14000;
+	public static int nextItem() // Returns the next available item ID
+	{
+		return itemsStartID++;
+	}
+	
+	// Blocks
+	public static int	liquidator		= nextBlock();
+	public static int	workstation		= nextBlock();
+	public static int	ores			= nextBlock();
+	public static int	oreStorage		= nextBlock();
+	public static int	infuserCore		= nextBlock();
+	public static int	fluids			= nextBlock();
+	public static int	magicGlass		= nextBlock();
+	public static int	blockBattery	= nextBlock();
 	
 	// Items
-	public static int	gems		= 14000;
-	public static int	magicBread	= 14001;
-	public static int	flightItem	= 14002;
-	public static int	tntStaff	= 14003;
-	public static int	stormStaff	= 14004;
-	public static int	flameStaff	= 14005;
-	public static int	stopRain 		= 14006;
+	public static int	gems			= nextItem();
+	public static int	magicBread		= nextItem();
+	public static int	flightItem		= nextItem();
+	public static int	tntStaff		= nextItem();
+	public static int	stormStaff		= nextItem();
+	public static int	flameStaff		= nextItem();
+	public static int	stopRain		= nextItem();
+	
 }

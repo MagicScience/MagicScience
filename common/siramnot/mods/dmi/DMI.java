@@ -5,8 +5,7 @@ import static org.lwjgl.opengl.GL11.glVertex2d;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.creativetab.CreativeTabs;
-import siramnot.mods.dmi.core.ClientProxy;
-import siramnot.mods.dmi.core.PacketHandler;
+import siramnot.mods.dmi.core.*;
 import siramnot.mods.dmi.core.managers.BlockManager;
 import siramnot.mods.dmi.core.managers.ConfigManager;
 import siramnot.mods.dmi.core.managers.DMIRecipeManager;
@@ -33,30 +32,30 @@ import cpw.mods.fml.common.network.NetworkRegistry;
  * 
  */
 @Mod(
-	modid						=	IReference.MOD_ID,
-	name						=	IReference.MOD_NAME,
-	version						=	IReference.MOD_VERSION,
+	modid						=	Reference.MOD_ID,
+	name						=	Reference.MOD_NAME,
+	version						=	Reference.MOD_VERSION,
 	dependencies				=	"required-after:FML",
-	acceptedMinecraftVersions	=	IReference.MC_VERSION
+	acceptedMinecraftVersions	=	Reference.MC_VERSION
 	)
-@NetworkMod(channels = { DMI.MOD_ID }, packetHandler = PacketHandler.class, clientSideRequired = true, serverSideRequired = false)
-public class DMI implements IReference {
+@NetworkMod(channels = { Reference.MOD_ID }, packetHandler = PacketHandler.class, clientSideRequired = true, serverSideRequired = false)
+public class DMI {
 
 	// Instance of this mod
-	@Instance(MOD_ID)
+	@Instance(Reference.MOD_ID)
 	public static DMI instance;
 
 	// Proxy instance. Used for rendering and similar.
-	@SidedProxy(clientSide = CLIENT_PROXY_LOCATION, serverSide = SERVER_PROXY_LOCATION)
+	@SidedProxy(clientSide = Reference.CLIENT_PROXY_LOCATION, serverSide = Reference.SERVER_PROXY_LOCATION)
 	public static ClientProxy proxy;
-	public static final CreativeTabs TAB_CREATIVE = new CreativeTabs(CreativeTabs.getNextID(), MOD_ID);
+	public static final CreativeTabs TAB_CREATIVE = new CreativeTabs(CreativeTabs.getNextID(), Reference.MOD_ID);
 
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent e) {
+	public void preInit(FMLPreInitializationEvent initEvent) {
 		EntityClientPlayerMP plr = Minecraft.getMinecraft().thePlayer;
 		
 		
-		ConfigManager cfm = new ConfigManager(e, MOD_ID);
+		ConfigManager cfm = new ConfigManager(initEvent, Reference.MOD_ID);
 		instance = this;
 
 		ItemManager.load();

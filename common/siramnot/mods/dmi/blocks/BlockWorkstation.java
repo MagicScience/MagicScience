@@ -11,6 +11,7 @@ import net.minecraft.tileentity.*;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 import siramnot.mods.dmi.*;
+import siramnot.mods.dmi.core.*;
 import siramnot.mods.dmi.entity.tile.*;
 import cpw.mods.fml.relauncher.*;
 
@@ -40,6 +41,7 @@ public class BlockWorkstation extends BlockContainer
 		super(id, Material.iron);
 		this.setCreativeTab(DMI.TAB_CREATIVE);
 		this.setBlockBounds(BOUNDS[MIN_X], BOUNDS[MIN_Y], BOUNDS[MIN_Z], BOUNDS[MAX_X], BOUNDS[MAX_Y], BOUNDS[MAX_Z]);
+		this.setUnlocalizedName("workstation");
 	}
 	
 	// Adds the TileEntity thing
@@ -104,8 +106,7 @@ public class BlockWorkstation extends BlockContainer
 		}
 	}
 	
-	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, int id)
+	public void ornNeighborBlockChange(World world, int x, int y, int z, int id)
 	{
 		if (!world.isAirBlock(x, y + 1, z) || world.isAirBlock(x, y - 1, z))
 		{
@@ -138,7 +139,7 @@ public class BlockWorkstation extends BlockContainer
 	public void registerIcons(IconRegister icon)
 	{
 		String dir = "items/workstation";
-		this.blockIcon = icon.registerIcon(DMI.MOD_ID + ":" + dir);
+		this.blockIcon = icon.registerIcon(Reference.BLOCK_TEXTURE_LOCATION + dir);
 	}
 	
 	@Override

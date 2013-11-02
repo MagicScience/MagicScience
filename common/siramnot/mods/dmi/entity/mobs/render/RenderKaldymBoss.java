@@ -1,20 +1,21 @@
 package siramnot.mods.dmi.entity.mobs.render;
 
 
-import siramnot.mods.dmi.DMI;
-import siramnot.mods.dmi.models.KaldymModel;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.model.*;
+import net.minecraft.client.renderer.entity.*;
+import net.minecraft.entity.*;
+import net.minecraft.util.*;
+import siramnot.mods.dmi.*;
+import siramnot.mods.dmi.core.*;
+import siramnot.mods.dmi.models.*;
 
 
 public class RenderKaldymBoss extends RenderLiving
 {
-	
+	private static final String		PATH			= Reference.MOB_TEXTURE_LOCATION + "/KaldymModel.png";
 	private static ModelBase		model			= new KaldymModel();
 	private static float			shadowSize		= 2.5f;
-	private static ResourceLocation	textureLocation	= new ResourceLocation(DMI.MOD_ID.toLowerCase(), "textures/mobs/KaldymModel.png");
+	private static ResourceLocation	textureLocation	= new ResourceLocation(Reference.MOD_ID.toLowerCase(), PATH);
 	
 	public RenderKaldymBoss()
 	{

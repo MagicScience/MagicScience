@@ -11,7 +11,7 @@ public class ModelWorkstation extends ModelBase {
 	ModelRenderer leg2;
 	ModelRenderer leg3;
 
-	ModelRenderer bookLeft;
+/*	ModelRenderer bookLeft;
 	ModelRenderer bookStandLeveler;
 	ModelRenderer bookRight;
 	ModelRenderer bookStandBody;
@@ -21,10 +21,10 @@ public class ModelWorkstation extends ModelBase {
 	ModelRenderer wrenchBody;
 	ModelRenderer wrenchTopRight;
 	ModelRenderer wrenchTopLeft;
-	ModelRenderer wrenchMidBottom;
+	ModelRenderer wrenchMidBottom;*/
 
 	ModelRenderer desk;
-	ModelRenderer wandBody;
+//	ModelRenderer wandBody;
 
 	public ModelWorkstation() {
 		this.textureWidth = 64;
@@ -58,7 +58,7 @@ public class ModelWorkstation extends ModelBase {
 		this.leg3.mirror = true;
 		this.setRotation(this.leg3, 0F, 0F, 0F);
 
-		this.bookLeft = new ModelRenderer(this, 48, 0);
+		/*this.bookLeft = new ModelRenderer(this, 48, 0);
 		this.bookLeft.addBox(-3.1F, 0F, 0F, 3, 1, 5);
 		this.bookLeft.setRotationPoint(0F, 8F, -6F);
 		this.bookLeft.setTextureSize(64, 32);
@@ -99,7 +99,7 @@ public class ModelWorkstation extends ModelBase {
 		this.bookPageLeft.setRotationPoint(0F, 7F, -6F);
 		this.bookPageLeft.setTextureSize(64, 32);
 		this.bookPageLeft.mirror = true;
-		this.setRotation(this.bookPageLeft, 0.6108652F, 0F, 0F);
+		this.setRotation(this.bookPageLeft, 0.6108652F, 0F, 0F);*/
 
 		this.desk = new ModelRenderer(this, 0, 0);
 		this.desk.addBox(0F, 0F, 0F, 16, 1, 16);
@@ -108,7 +108,7 @@ public class ModelWorkstation extends ModelBase {
 		this.desk.mirror = true;
 		this.setRotation(this.desk, 0F, 0F, 0F);
 
-		this.wrenchBody = new ModelRenderer(this, 15, 17);
+		/*this.wrenchBody = new ModelRenderer(this, 15, 17);
 		this.wrenchBody.addBox(0F, 0F, 0F, 1, 1, 4);
 		this.wrenchBody.setRotationPoint(-5F, 8.5F, 0F);
 		this.wrenchBody.setTextureSize(64, 32);
@@ -141,7 +141,7 @@ public class ModelWorkstation extends ModelBase {
 		this.wandBody.setRotationPoint(4F, 8.5F, 0F);
 		this.wandBody.setTextureSize(64, 32);
 		this.wandBody.mirror = true;
-		this.setRotation(this.wandBody, 0F, -0.2617994F, 0F);
+		this.setRotation(this.wandBody, 0F, -0.2617994F, 0F);*/
 	}
 
 	@Override
@@ -154,19 +154,19 @@ public class ModelWorkstation extends ModelBase {
 		this.leg3.render(f5);
 
 //		this.bookLeft.render(f5);
-		this.bookStandLeveler.render(f5);
+//		this.bookStandLeveler.render(f5);
 //		this.bookRight.render(f5);
-		this.bookStandBody.render(f5);
-		this.bookStandFoot.render(f5);
+//		this.bookStandBody.render(f5);
+//		this.bookStandFoot.render(f5);
 //		this.bookPageLeft.render(f5);
 
-		this.wrenchBody.render(f5);
-		this.wrenchTopRight.render(f5);
-		this.wrenchTopLeft.render(f5);
-		this.wrenchMidBottom.render(f5);
+//		this.wrenchBody.render(f5);
+//		this.wrenchTopRight.render(f5);
+//		this.wrenchTopLeft.render(f5);
+//		this.wrenchMidBottom.render(f5);
 
 		this.desk.render(f5);
-		this.wandBody.render(f5);
+//		this.wandBody.render(f5);
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {

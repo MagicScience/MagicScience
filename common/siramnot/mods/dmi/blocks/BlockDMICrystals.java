@@ -12,7 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import siramnot.mods.dmi.DMI;
+import siramnot.mods.dmi.*;
+import siramnot.mods.dmi.core.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -38,7 +39,6 @@ public class BlockDMICrystals extends Block
 	public static final int			AIR_ORE				= 3;
 	
 	private static final String		UNLOCALIZED_NAME	= "dmiCrytals";
-	private static final String		TEXTURE_PREFIX		= DMI.MOD_ID + ":";
 	private static final float		HARDNESS			= 1.7f;
 	
 	private static Icon[]			iconArray;
@@ -65,7 +65,7 @@ public class BlockDMICrystals extends Block
 	// Registry stuff 
 	public static void doRegisters()
 	{
-		GameRegistry.registerBlock(dmiCrystals, ItemBlockDMICrystals.class, UNLOCALIZED_NAME, DMI.MOD_ID);
+		GameRegistry.registerBlock(dmiCrystals, ItemBlockDMICrystals.class, UNLOCALIZED_NAME, Reference.MOD_ID);
 		for (int meta = 0; meta < NAMES.length; ++meta)
 		{
 			ItemStack item = new ItemStack(dmiCrystals, 1, meta);
@@ -87,7 +87,7 @@ public class BlockDMICrystals extends Block
 		
 		for (int i = 0; i < TEXTURE_ARRAY.length; ++i)
 		{
-			this.iconArray[i] = iconRegister.registerIcon(this.TEXTURE_PREFIX + TEXTURE_ARRAY[i]);
+			this.iconArray[i] = iconRegister.registerIcon(Reference.BLOCK_TEXTURE_LOCATION + TEXTURE_ARRAY[i]);
 		}
 	}
 	

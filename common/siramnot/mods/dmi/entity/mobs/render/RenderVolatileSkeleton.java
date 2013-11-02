@@ -1,10 +1,11 @@
 package siramnot.mods.dmi.entity.mobs.render;
 
 
-import siramnot.mods.dmi.DMI;
-import net.minecraft.client.renderer.entity.RenderSkeleton;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.renderer.entity.*;
+import net.minecraft.entity.*;
+import net.minecraft.util.*;
+import siramnot.mods.dmi.*;
+import siramnot.mods.dmi.core.*;
 
 
 /**
@@ -19,8 +20,8 @@ import net.minecraft.util.ResourceLocation;
 public class RenderVolatileSkeleton extends RenderSkeleton
 {
 	
-	private static final String				TEXTUREPATH	= "textures/mobs/EntityVolatileSkeleton.png";
-	private static final ResourceLocation	TEXTURE		= new ResourceLocation(DMI.MOD_ID.toLowerCase(), TEXTUREPATH);
+	private static final String				TEXTUREPATH	= Reference.MOB_TEXTURE_LOCATION + "/EntityVolatileSkeleton.png";
+	private static final ResourceLocation	TEXTURE		= new ResourceLocation(Reference.MOD_ID, TEXTUREPATH);
 	
 	public RenderVolatileSkeleton()
 	{

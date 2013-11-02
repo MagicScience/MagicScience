@@ -1,6 +1,6 @@
 /**
  * 
- */
+ *//*
 package siramnot.mods.dmi.util;
 
 import java.awt.Point;
@@ -11,13 +11,13 @@ import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
-/**
+*//**
  * Dominus ex Magica et Industria mod.
  * 
  * @author SirAmNot
  * @license Creative-Commons Attribution Non-commercial v3.0
  * 
- */
+ *//*
 public class SpritesheetManager {
 	private static HashMap<String, BufferedImage> spriteSheets = new HashMap<String, BufferedImage>();
 	private static SpritesheetManager instance;
@@ -123,3 +123,4 @@ public class SpritesheetManager {
 	}
 
 }
+*/

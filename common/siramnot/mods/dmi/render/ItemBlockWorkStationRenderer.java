@@ -63,30 +63,25 @@ package siramnot.mods.dmi.render;
 
 import siramnot.mods.dmi.entity.tile.*;
 import siramnot.mods.dmi.models.*;
+import net.minecraft.client.*;
 import net.minecraft.client.renderer.tileentity.*;
 import net.minecraft.item.*;
 import net.minecraftforge.client.*;
-
 import static org.lwjgl.opengl.GL11.*;
 
 
 public class ItemBlockWorkStationRenderer implements IItemRenderer
 {
 	
-	private ModelWorkstation	model;
-	
-	
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type)
 	{
-		
 		return true;
 	}
 	
 	@Override
 	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper)
 	{
-		
 		return true;
 	}
 	
@@ -94,9 +89,49 @@ public class ItemBlockWorkStationRenderer implements IItemRenderer
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data)
 	{
 		glPushMatrix();
-			glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-			glTranslatef(-0.38f, -0.5f, -0.25f);
+		switch (type)
+		{
+			case EQUIPPED:
+			{
+				render();
+				glPopMatrix();
+				break;
+			}
+			
+			case INVENTORY:
+			{
+				float scale = 0.95f;
+				
+				glTranslatef(-1.0f, 2.0f, 0.0f);
+//				render();
+				
+				glPopMatrix();
+				
+				break;
+			}
+			
+			default:
+			{
+				glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+				glTranslatef(-0.5f, -0.5f, -0.25f);
+				render();
+				
+				glPopMatrix();
+				
+				break;
+			}
+		}
+	}
+	
+	private void render()
+	{
+		try
+		{
 			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityWorkstation(false), 0.0D, 0.0D, 0.0D, 0.0F);
-		glPopMatrix();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

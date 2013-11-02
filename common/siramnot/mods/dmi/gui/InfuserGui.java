@@ -1,19 +1,12 @@
 package siramnot.mods.dmi.gui;
 
-import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
-import static org.lwjgl.opengl.GL11.glBegin;
-import static org.lwjgl.opengl.GL11.glColor3f;
-import static org.lwjgl.opengl.GL11.glColor4f;
-import static org.lwjgl.opengl.GL11.glEnd;
-import static org.lwjgl.opengl.GL11.glVertex2f;
-
-import java.util.List;
-
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.ResourceLocation;
-import siramnot.mods.dmi.DMI;
-import siramnot.mods.dmi.entity.tile.TileEntityInfuser;
+import static org.lwjgl.opengl.GL11.*;
+import net.minecraft.client.gui.inventory.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.util.*;
+import siramnot.mods.dmi.*;
+import siramnot.mods.dmi.core.*;
+import siramnot.mods.dmi.entity.tile.*;
 
 /**
  * 
@@ -26,8 +19,9 @@ import siramnot.mods.dmi.entity.tile.TileEntityInfuser;
  */
 public class InfuserGui extends GuiContainer {
 
+	private static final String PATH = Reference.GUI_TEXTURE_LOCATION + "/InfuserGUI.png";
 	private TileEntityInfuser entityInfuser;
-	private ResourceLocation guiLocation = new ResourceLocation(DMI.MOD_ID.toLowerCase(), "textures/gui/InfuserGUI.png");
+	private ResourceLocation guiLocation = new ResourceLocation(Reference.MOD_ID, PATH);
 	private InventoryPlayer invPlayer;
 
 	public InfuserGui(InventoryPlayer invPlayer, TileEntityInfuser entityInfuser) {

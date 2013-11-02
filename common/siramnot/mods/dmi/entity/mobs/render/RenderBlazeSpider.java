@@ -1,10 +1,11 @@
 package siramnot.mods.dmi.entity.mobs.render;
 
 
-import siramnot.mods.dmi.DMI;
-import net.minecraft.client.renderer.entity.RenderSpider;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.renderer.entity.*;
+import net.minecraft.entity.*;
+import net.minecraft.util.*;
+import siramnot.mods.dmi.*;
+import siramnot.mods.dmi.core.*;
 
 
 /**
@@ -19,8 +20,8 @@ import net.minecraft.util.ResourceLocation;
 public class RenderBlazeSpider extends RenderSpider
 {
 	
-	private static final String				TEXTUREPATH	= "textures/mobs/EntityBlazeSpider.png";
-	private static final ResourceLocation	texture		= new ResourceLocation(DMI.MOD_ID.toLowerCase(), TEXTUREPATH);
+	private static final String				TEXTUREPATH	= Reference.MOB_TEXTURE_LOCATION + "/EntityBlazeSpider.png";
+	private static final ResourceLocation	texture		= new ResourceLocation(Reference.MOD_ID.toLowerCase(), TEXTUREPATH);
 	
 	public RenderBlazeSpider()
 	{
@@ -28,7 +29,7 @@ public class RenderBlazeSpider extends RenderSpider
 	}
 	
 	@Override
-	protected ResourceLocation getEntityTexture(Entity par1Entity)
+	protected ResourceLocation getEntityTexture(Entity entity)
 	{
 		return texture;
 	}

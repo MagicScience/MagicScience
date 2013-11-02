@@ -15,6 +15,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.*;
 import net.minecraftforge.common.*;
 import siramnot.mods.dmi.*;
+import siramnot.mods.dmi.core.*;
 import siramnot.mods.dmi.core.managers.*;
 import siramnot.mods.dmi.items.*;
 import cpw.mods.fml.common.registry.*;
@@ -40,7 +41,6 @@ public class BlockDMIOres extends Block
 	private static final int			AIR_ORE				= 3;
 	
 	private static final String			UNLOCALIZED_NAME	= "dmiOres";
-	private static final String			TEXTURE_PREFIX		= DMI.MOD_ID + ":";
 	private static final float			HARDNESS			= 3.0f;
 	private static final int			XP_DROPPED			= 4;
 	
@@ -86,7 +86,7 @@ public class BlockDMIOres extends Block
 	{
 		try
 		{
-			GameRegistry.registerBlock(dmiOre, ItemBlockDMIOres.class, UNLOCALIZED_NAME, DMI.MOD_ID);
+			GameRegistry.registerBlock(dmiOre, ItemBlockDMIOres.class, UNLOCALIZED_NAME, Reference.MOD_ID);
 			for (int meta = 0; meta < NAMES.length; ++meta)
 			{
 				ItemStack item = new ItemStack(dmiOre, 1, meta);
@@ -152,7 +152,7 @@ public class BlockDMIOres extends Block
 		
 		for (int i = 0; i < TEXTURE_ARRAY.length; ++i)
 		{
-			this.iconArray[i] = iconRegister.registerIcon(TEXTURE_PREFIX + TEXTURE_ARRAY[i]);
+			this.iconArray[i] = iconRegister.registerIcon(Reference.BLOCK_TEXTURE_LOCATION + TEXTURE_ARRAY[i]);
 		}
 	}
 	

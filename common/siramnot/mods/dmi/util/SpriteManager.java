@@ -1,6 +1,6 @@
 /**
  * 
- */
+ *//*
 package siramnot.mods.dmi.util;
 
 import java.awt.image.BufferedImage;
@@ -11,13 +11,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
 
-/**
+*//**
  * Dominus ex Magica et Industria mod.
  * 
  * @author SirAmNot
  * @license Creative-Commons Attribution Non-commercial v3.0
  * 
- */
+ *//*
 public class SpriteManager {
 
 	private static HashMap<String, int[]> sprites = new HashMap<String, int[]>();
@@ -84,3 +84,4 @@ public class SpriteManager {
 	}
 
 }
+*/

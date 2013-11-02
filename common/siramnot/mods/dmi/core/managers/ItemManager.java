@@ -1,17 +1,10 @@
 package siramnot.mods.dmi.core.managers;
 
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import siramnot.mods.dmi.items.BasicScroll;
-import siramnot.mods.dmi.items.ItemFoodMagicBread;
-import siramnot.mods.dmi.items.ItemGem;
-import siramnot.mods.dmi.items.ItemRainController;
-import siramnot.mods.dmi.items.ScrollExample;
-import siramnot.mods.dmi.items.Staff;
-import siramnot.mods.dmi.items.debug.ItemFlight;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
+import net.minecraft.item.*;
+import siramnot.mods.dmi.items.*;
+import siramnot.mods.dmi.items.debug.*;
+import cpw.mods.fml.common.registry.*;
 
 
 /**
@@ -20,7 +13,7 @@ import net.minecraft.item.ItemFood;
  * @author JiffyJay, SirAmNot, MTH, Tombenpotter
  * 
  */
-public class ItemManager implements IDManager
+public class ItemManager
 {
 	
 	public static Item	crystals;
@@ -33,13 +26,13 @@ public class ItemManager implements IDManager
 	
 	public static void load()
 	{
-		crystals = new ItemGem(gems);
-		foodMagicBread = new ItemFoodMagicBread(magicBread);
-		debug_flight = new ItemFlight(flightItem);
-		boom_staff = new Staff.ExplodingStaff(tntStaff);
-		lightning_staff = new Staff.LightningStaff(stormStaff);
-		fire_staff = new Staff.FireStaff(flameStaff);
-		stop_rain = new ItemRainController(stopRain);
+		crystals = new ItemGem(IDManager.gems);
+		foodMagicBread = new ItemFoodMagicBread(IDManager.magicBread);
+		debug_flight = new ItemFlight(IDManager.flightItem);
+		boom_staff = new Staff.ExplodingStaff(IDManager.tntStaff);
+		lightning_staff = new Staff.LightningStaff(IDManager.stormStaff);
+		fire_staff = new Staff.FireStaff(IDManager.flameStaff);
+		stop_rain = new ItemRainController(IDManager.stopRain);
 		
 		languageRegistry(LanguageRegistry.instance());
 		miscRegisters();

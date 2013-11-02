@@ -34,7 +34,7 @@ public class TileEntityWorkstation extends TileEntity
 	private static Random	rand;
 	private String			field_94136_s;
 	
-	private boolean shouldRenderBook;
+	private boolean			shouldRenderBook;
 	
 	public TileEntityWorkstation(boolean shouldRenderBook)
 	{
@@ -101,7 +101,8 @@ public class TileEntityWorkstation extends TileEntity
 		
 	}
 	
-	public boolean getShouldRenderBook() {
+	public boolean getShouldRenderBook()
+	{
 		return shouldRenderBook;
 	}
 }

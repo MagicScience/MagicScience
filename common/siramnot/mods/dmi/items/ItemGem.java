@@ -1,28 +1,19 @@
 package siramnot.mods.dmi.items;
 
-import java.util.List;
-
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumMovingObjectType;
-import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
-import net.minecraft.world.World;
-import siramnot.mods.dmi.DMI;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.*;
+import net.minecraft.client.renderer.texture.*;
+import net.minecraft.creativetab.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.effect.*;
+import net.minecraft.entity.player.*;
+import net.minecraft.item.*;
+import net.minecraft.potion.*;
+import net.minecraft.util.*;
+import net.minecraft.world.*;
+import siramnot.mods.dmi.*;
+import siramnot.mods.dmi.core.*;
+import cpw.mods.fml.common.registry.*;
+import cpw.mods.fml.relauncher.*;
 
 public class ItemGem extends Item {
 
@@ -45,7 +36,7 @@ public class ItemGem extends Item {
 	}
 
 	public static void doRegisters() {
-		GameRegistry.registerItem(instance, instance.getUnlocalizedName(), DMI.MOD_ID);
+		GameRegistry.registerItem(instance, instance.getUnlocalizedName(), Reference.MOD_ID);
 		for (int meta = 0; meta < NAMES.length; ++meta) {
 			ItemStack item = new ItemStack(instance, 1, meta);
 			LanguageRegistry.instance().addName(item, NAMES[meta]);
@@ -79,7 +70,7 @@ public class ItemGem extends Item {
 	public void registerIcons(IconRegister register) {
 		icons = new Icon[U_NAMES.length];
 		for (int i = 0; i < U_NAMES.length; ++i) {
-			icons[i] = register.registerIcon(DMI.MOD_ID + ":" + U_NAMES[i]);
+			icons[i] = register.registerIcon(Reference.ITEM_TEXTURE_LOCATION + U_NAMES[i]);
 		}
 	}
 
