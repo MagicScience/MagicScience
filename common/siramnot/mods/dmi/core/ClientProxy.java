@@ -2,7 +2,7 @@ package siramnot.mods.dmi.core;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 import siramnot.mods.dmi.core.managers.BlockManager;
-import siramnot.mods.dmi.entity.tile.TileEntityWorkstation;
+import siramnot.mods.dmi.entity.tile.*;
 import siramnot.mods.dmi.render.*;
 import cpw.mods.fml.client.registry.ClientRegistry;
 
@@ -25,9 +25,11 @@ public class ClientProxy extends CommonProxy {
 	
 	private void bindEntities() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWorkstation.class, new TileEntityWorkStationRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBatteryBlock.class, new TileEntityBatteryBlockRenderer());
 	}
 	
 	private void registerRenderers() {
 		MinecraftForgeClient.registerItemRenderer(BlockManager.workStation.blockID, new ItemBlockWorkStationRenderer());
+		MinecraftForgeClient.registerItemRenderer(BlockManager.battery.blockID, new ItemBlockBatteryBlockRenderer());
 	}
 }

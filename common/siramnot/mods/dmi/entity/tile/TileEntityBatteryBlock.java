@@ -1,11 +1,12 @@
-package siramnot.mods.dmi.blocks;
+package siramnot.mods.dmi.entity.tile;
 
 
-import net.minecraft.entity.player.*;	
+import net.minecraft.client.*;
+import net.minecraft.entity.player.*;
 import net.minecraft.inventory.*;
 import net.minecraft.item.*;
 import net.minecraft.tileentity.*;
-import static siramnot.mods.dmi.core.Reference.Util.pow2;
+
 
 /**
  * 
@@ -121,19 +122,19 @@ public class TileEntityBatteryBlock extends TileEntity implements ISidedInventor
 	public boolean isUseableByPlayer(EntityPlayer player)
 	{
 		// Returns true if the right-clicker's username is the same as the placer's 
-		return player.username.equals(owner.username);
+//		if (owner == null) { return false; }
+//		return player.username.equals(owner.username);
+		return true; // TODO: fixme
 	}
 	
 	@Override
 	public void openChest()
 	{
-		;
 	}
 	
 	@Override
 	public void closeChest()
 	{
-		;
 	}
 	
 	@Override

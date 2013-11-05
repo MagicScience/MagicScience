@@ -125,13 +125,6 @@ public class ItemBlockWorkStationRenderer implements IItemRenderer
 	
 	private void render()
 	{
-		try
-		{
 			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityWorkstation(false), 0.0D, 0.0D, 0.0D, 0.0F);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
 	}
 }

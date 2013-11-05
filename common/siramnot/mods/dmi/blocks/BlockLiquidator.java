@@ -12,6 +12,7 @@ import net.minecraft.world.*;
 import net.minecraftforge.common.*;
 import siramnot.mods.dmi.*;
 import siramnot.mods.dmi.core.*;
+import siramnot.mods.dmi.core.managers.*;
 import siramnot.mods.dmi.entity.tile.*;
 import cpw.mods.fml.relauncher.*;
 
@@ -42,12 +43,11 @@ public class BlockLiquidator extends BlockContainer
 	}
 	
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer ep, int par6, float par7, float par8, float par9)
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
 	{
 		if (!world.isRemote)
 		{
-			TileEntityLiquidator merchantBlock = (TileEntityLiquidator) world.getBlockTileEntity(x, y, z);
-			ep.openGui(DMI.instance, 0, world, x, y, z);
+			player.openGui(DMI.instance, GuiHandler.LIQUIDATOR_ID, world, x, y, z);
 		}
 		return true;
 	}

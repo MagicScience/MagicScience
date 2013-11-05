@@ -130,12 +130,6 @@ public class TileEntityWorkStationRenderer extends TileEntitySpecialRenderer
 		
 		this.renderModelAt(tews, x, y, z);
 		this.renderBookAt(tews, x, y, z, f);
-		this.renderScheisseAt(tews, x, y, z, f);
-	}
-	
-	private void renderScheisseAt(TileEntityWorkstation te, double x, double y, double z, float f)
-	{
-		new RenderLightningBolt().doRenderLightningBolt((EntityLightningBolt) ((Entity) Minecraft.getMinecraft().thePlayer), x, y, z, 0, 0);
 	}
 	
 }
